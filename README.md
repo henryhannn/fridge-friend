@@ -1,2 +1,0 @@
-# fridge-friend
-
