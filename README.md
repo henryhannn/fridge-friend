@@ -1,2 +1,2 @@
-# fridge-friends
+# fridge-friend
 anya
