@@ -49,7 +49,7 @@ class FoodItemSearch extends React.Component {
       return (
         <div className="food-item-search-list-container">
           <ul className="food-item-search-list">
-            {foodList.map((foodItem) => {
+            {foodList.map((foodItem, idx) => {
               return (
                 <li key={idx} className="food-search-list-item">
                   {/* onclick add item  */}
