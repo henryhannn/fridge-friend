@@ -12,7 +12,7 @@ mongoose
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.get("/", (req, res) => res.send("FOR THE HUNGRY ROOMMATE"));
+app.get("/", (req, res) => res.send("FOR THE HUNGRY ANYA"));
 app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
