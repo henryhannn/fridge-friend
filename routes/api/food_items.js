@@ -2,14 +2,20 @@ const express = require("express");
 const router = express.Router();
 const FoodItem = require('../../models/FoodItem');
 
+// food items test route
 router.get("/test", (req, res) => {
   res.json({ msg: 'this is the food items route' });
 });
 
+// food index route
 router.get("/", (req, res) => {
   FoodItem.find()
-    .then(foods => res.json({ foods }));
-})
+    .then(foods => {
+      const foodItems = {};
+      foods.forEach((food) => foodItems[food.id] = food);
+      res.json(foodItems);
+    });
+});
 
 // route just to test on postman/seeding, don't use in production
 router.post("/", (req, res) => {
