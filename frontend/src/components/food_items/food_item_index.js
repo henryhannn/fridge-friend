@@ -1,4 +1,5 @@
 import React from "react";
+import FoodItemSearch from "./food_item_search"; 
 
 class FoodItemIndex extends React.Component {
   constructor(props) {
