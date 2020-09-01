@@ -7,6 +7,7 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const validateShoppingListItem = require('../../validation/shoppingList');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the test users route" }));
 
@@ -116,6 +117,12 @@ router.patch('/:id', (req, res) => {
         user.save()
           .then(user => res.json(user.shoppingList));
       } else {
+        const { errors, isValid } = validateShoppingListItem(req.body);
+
+        if (!isValid) {
+          return res.status(400).json(errors);
+        }
+        
         user.shoppingList.push({
           name: req.body.name,
           category: req.body.category,
@@ -125,7 +132,8 @@ router.patch('/:id', (req, res) => {
         user.save()
           .then(user => res.json(user.shoppingList));
       }
-    });
+    })
+    .catch(err => res.status(400).json("Something went wrong"));
 });
 
 module.exports = router;
