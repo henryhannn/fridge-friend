@@ -53,7 +53,7 @@ class NavBar extends React.Component {
                 onClick={this.openNav}
                 />
           
-              {this.openNav ? dropdown : null }
+              {this.openNav ? dropdown : this.closeNav}
               
             
           
