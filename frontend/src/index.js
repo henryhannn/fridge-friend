@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //FOR TESTING
   window.getState = store.getState;
+  // window.signup = signup;
+  // window.login = login;
 
   // Render our root component and pass in the store as a prop
   const root = document.getElementById("root");

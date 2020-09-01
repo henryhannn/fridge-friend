@@ -1,6 +1,6 @@
 import React from 'react';
 import './profile_css.scss';
-import NavBar from '../nav/navbar';
+import NavBarContainer from '../nav/navbar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDay, faCalendarAlt, faHome } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,21 +8,20 @@ class Profile extends React.Component {
   render(){
     return (
       <div>
-        <NavBar />
+        <NavBarContainer />
           <div className="main-profile-container">
             <h1 className="whats-in-it">What's in the fridge today?</h1>
             <div className="main-profile-contents">
               <img
                 className="kitchen"
                 alt="kitchen"
-                src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/Kitchen1-02.png"
+                src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/Kitchen_Final.png"
                 ></img>
                 <div className="profile-buttons">
-                  {/* This will eventually be dynamic */}
-                  <FontAwesomeIcon icon={faHome} className="cal-icons" />
-                  <p>{"Fridge Name"}</p>
-                  <br />
-                  <br />
+                  <div className="fridge-names">
+                    <FontAwesomeIcon icon={faHome} className="cal-icons" id="profile-fridge-icon"/>
+                    <p className="fridge-name">{"Fridge Name"}</p>
+                </div>
                   <button className="view-shopping-list">
                     {/* This will lead to user's shopping list */}
                     View Shopping List

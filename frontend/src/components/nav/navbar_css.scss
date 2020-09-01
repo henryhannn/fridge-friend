@@ -1,0 +1,75 @@
+@import '../../styles/vars.scss';
+
+.nav-bar > h1 {
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  padding: 3.7%;
+}
+
+.nav-bar {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.nav-bar-list {
+  margin-top: 1%;
+  padding: 3%;
+  color: $text-default;
+}
+
+.nav-bar-list:hover {
+  color:#8cc4d7;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+.dropdown-content {
+  background-color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.dropdown-content > a {
+  padding: 10px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 10%;
+  transition: 0.5s;
+  -webkit-box-shadow: -12px 0px 16px -16px rgba(0,0,0,1);
+  -moz-box-shadow: -12px 0px 16px -16px rgba(0,0,0,1);
+  box-shadow: -12px 0px 16px -16px rgba(0,0,0,1);
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: $text-default;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  margin-left: 50px;
+  transition: 0.3s;
+}
+
+.closebtn {
+  font-size: 45px;
+  color: $text-default;
+}
