@@ -1,0 +1,66 @@
+@import '../../styles/vars.scss';
+
+.main-profile-container {
+  background-color: white;
+  padding: 50px;
+}
+
+.whats-in-it {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.main-profile-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kitchen {
+  height: 40%;
+  width: 40%;
+  margin-right: 7%;
+}
+
+.profile-buttons {
+  flex-direction: column;
+}
+
+
+
+.second-profile-container {
+  background-color: $background-blue;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.today, .calendar-profile {
+  display: flex;
+  background-color: white;
+  margin: 2%;
+  padding: 5% 10% 5% 10%;
+  border-radius: 10px;
+  font-size: 20px;
+  color: $text-default-light;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cal-icons {
+  background-color: $default-blue;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.add-new-fridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+}
