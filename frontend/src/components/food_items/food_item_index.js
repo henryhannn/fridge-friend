@@ -20,6 +20,7 @@ class FoodItemIndex extends React.Component {
     if (this.props.foodItems.length > 1) {
       return (
         <div className="food-item-index">
+          
           <FoodItemSearch
             foodItems={this.props.foodItems}
             filterByFoodGroup={this.props.filterByFoodGroup}
