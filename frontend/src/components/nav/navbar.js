@@ -8,9 +8,6 @@ import { faList, faSatelliteDish } from '@fortawesome/free-solid-svg-icons';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      show: false,
-    }
     this.logoutUser = this.logoutUser.bind(this);
     this.openNav = this.openNav.bind(this);
     this.closeNav = this.closeNav.bind(this);
