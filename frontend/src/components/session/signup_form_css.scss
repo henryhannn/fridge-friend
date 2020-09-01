@@ -1,0 +1,92 @@
+@import "src/styles/vars";
+
+.signup-background {
+  background-color: $background-blue;
+  padding-top: 7%;
+  padding-bottom: 7%;
+}
+
+.signup-form-container {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 38rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 23px;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+}
+
+.signup-header {
+  font-weight: 700;
+}
+
+.first-name {
+  margin-right: 5%;
+}
+.signup-image {
+  height: 100%;
+  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.login-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-link-a {
+  color: $dark-blue;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0px 0px 0px 5px;
+}
+
+.login-link-a:hover {
+  text-decoration: underline;
+}
+
+.first-and-last-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.signup-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-fields > input {
+  margin-bottom: 5%;
+}
+
+.signup-fields > input:focus,
+.first-and-last-name > input:focus {
+  border: 1px solid $default-blue;
+}
+
+.signup-form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.signup-form-button:hover {
+  background-color: $secondary-blue;
+  -webkit-transition: all .2s ease-in-out;
+}
