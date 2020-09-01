@@ -5,7 +5,7 @@ const foodItemsReducer = (oldState = {}, action) => {
   let newState = { ...oldState }; 
   switch (action.type) {
     case RECEIVE_FOOD_ITEMS: 
-      return action.foodItems; 
+      return action.foodItems.data; 
     
     case FILTER_BY_FOOD_GROUP:
       //access through foodId
