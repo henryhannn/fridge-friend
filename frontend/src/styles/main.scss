@@ -94,6 +94,12 @@ button {
   line-height: 16px;
 }
 
+button:hover {
+  background-color: $secondary-blue;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+
 A:link {
   text-decoration: none;
 }
