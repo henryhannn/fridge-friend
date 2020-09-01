@@ -10,11 +10,10 @@ const FridgeItemSchema = new Schema({
     type: String, 
     required: true 
   },
-  owners: [{ 
+  owner: { 
     type: Schema.Types.ObjectId, 
     ref: 'users',
-    required: true
-  }],
+  },
   expirationDate: { 
     type: Date 
   },
