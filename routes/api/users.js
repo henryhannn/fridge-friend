@@ -7,6 +7,7 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const validateShoppingListItem = require('../../validation/shoppingList');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the test users route" }));
 
@@ -100,6 +101,39 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     lastname: req.user.lastname,
     email: req.user.email
   });
-})
+});
+
+// for editing shopping list, maybe add passport authentication 
+router.patch('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+      if (req.body.listItemId) {
+        const item = user.shoppingList.id(req.body.listItemId);
+        if (req.body.toggle) {
+          item.done = !item.done;
+        } else {
+          item.remove();
+        }
+        user.save()
+          .then(user => res.json(user.shoppingList));
+      } else {
+        const { errors, isValid } = validateShoppingListItem(req.body);
+
+        if (!isValid) {
+          return res.status(400).json(errors);
+        }
+        
+        user.shoppingList.push({
+          name: req.body.name,
+          category: req.body.category,
+          imageUrl: req.body.imageUrl,
+          done: false
+        });
+        user.save()
+          .then(user => res.json(user.shoppingList));
+      }
+    })
+    .catch(err => res.status(400).json("Something went wrong"));
+});
 
 module.exports = router;
