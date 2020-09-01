@@ -16,7 +16,7 @@ const foodItemsReducer = (oldState = {}, action) => {
         for (let i = 0; i < newStateArray.length; i++) {
           let foodItem = newStateArray[i];
           if (foodItem.category !== action.foodGroup) {
-            delete newState[foodItem.id];
+            delete newState[foodItem._id];
           }
         }
         return newState;
