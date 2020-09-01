@@ -5,7 +5,7 @@ const foodItemsReducer = (oldState = {}, action) => {
   let newState = { ...oldState }; 
   switch (action.type) {
     case RECEIVE_FOOD_ITEMS: 
-      return action.foodItems; 
+      return action.foodItems.data; 
     
     case FILTER_BY_FOOD_GROUP:
       //access through foodId
@@ -16,7 +16,7 @@ const foodItemsReducer = (oldState = {}, action) => {
         for (let i = 0; i < newStateArray.length; i++) {
           let foodItem = newStateArray[i];
           if (foodItem.category !== action.foodGroup) {
-            delete newState[foodItem.id];
+            delete newState[foodItem._id];
           }
         }
         return newState;

@@ -8,7 +8,6 @@ class FoodItemSearch extends React.Component {
     this.state = {
       defaultText: "Add a food item...",
       searchInput: "Add a food item...",
-      foodItems: this.props.foodItems,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
@@ -16,10 +15,12 @@ class FoodItemSearch extends React.Component {
   }
 
   searchedFoods() {
+    
     const foodList = [];
-    for (let i = 0; i < this.state.foodItems; i++) {
-      let foodItem = this.state.foodItems[i];
+    for (let i = 0; i < this.props.foodItems.length; i++) {
+      let foodItem = this.props.foodItems[i];
       let foodItemName = foodItem.name;
+       
       if (foodItemName.includes(this.state.searchInput.toLowerCase())) {
         foodList.push(foodItem);
       }
@@ -93,6 +94,8 @@ class FoodItemSearch extends React.Component {
   }
 
   render() {
+
+  
     const defaultTextStyles =
       this.state.defaultText === this.state.searchInput
         ? "defaultTextStyles"

@@ -14,11 +14,10 @@ class FoodItemIndex extends React.Component {
   }
 
   render () {
-
     //search feature with search by category 
     //add item where you want it 
     //add custom item form
-    if (this.props.foodItems) {
+    if (this.props.foodItems.length > 1) {
       return (
         <div className="food-item-index">
           <FoodItemSearch
