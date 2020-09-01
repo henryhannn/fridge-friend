@@ -1,0 +1,111 @@
+@import "vars";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+
+/* Reset */
+
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* Clearfix */
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+// body {
+//   margin: 0;
+//   background: $background-blue;
+// }
+
+h1 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  color: $text-default-light;
+  background-color: $light-grey;
+  border: 1px solid $dark-grey;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+button {
+  background-color: $default-blue;
+  border: none;
+  padding: 15px 25px 15px 25px;
+  border-radius: 50px;
+  color: white;
+  text-transform: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+A:link {
+  text-decoration: none;
+}
+
+A:visited {
+  text-decoration: none;
+}
+
+A:hover {
+  text-decoration: none;
+}
+
+A:active {
+  text-decoration: none;
+}

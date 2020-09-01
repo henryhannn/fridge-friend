@@ -1,0 +1,95 @@
+@import "src/styles/vars";
+
+.login-background {
+  background-color: $background-blue;
+  padding-top: 7%;
+  padding-bottom: 7%;
+}
+
+.login-form-container {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 38rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 23px;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+}
+
+.login-header {
+  font-weight: 700;
+}
+
+.login-image {
+  height: 100%;
+  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.signup-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.signup-link-a {
+  color: $dark-blue;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0px 0px 0px 5px;
+}
+
+.signup-link-a:hover {
+  text-decoration: underline;
+}
+
+.login-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-fields > input {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.login-fields > input:focus,
+.first-and-last-name > input:focus {
+  border: 1px solid $default-blue;
+}
+
+.login-form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.demo-login-form-button {
+  background-color: $secondary-blue;
+  margin-top: 7%;
+}
+
+.demo-login-form-button:hover {
+  background-color: $default-blue;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+.login-form-button {
+  margin-top: 7%;
+  margin-right: 10px;
+}
+
+.login-form-button:hover {
+  background-color: $secondary-blue;
+  -webkit-transition: all .2s ease-in-out;
+}
