@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ShoppingListItemSchema = require('./ShoppingListItem');
 
 const UserSchema = new Schema({
   firstname: {
@@ -17,10 +18,11 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  shoppingList: [ShoppingListItemSchema]
 }, {
   timestamps: true
-})
+});
 
 const User = mongoose.model('User', UserSchema);
 module.exports = User;

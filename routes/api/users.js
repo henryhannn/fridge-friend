@@ -100,6 +100,32 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     lastname: req.user.lastname,
     email: req.user.email
   });
-})
+});
+
+// for editing shopping list, maybe add passport authentication 
+router.patch('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+      if (req.body.listItemId) {
+        const item = user.shoppingList.id(req.body.listItemId);
+        if (req.body.toggle) {
+          item.done = !item.done;
+        } else {
+          item.remove();
+        }
+        user.save()
+          .then(user => res.json(user.shoppingList));
+      } else {
+        user.shoppingList.push({
+          name: req.body.name,
+          category: req.body.category,
+          imageUrl: req.body.imageUrl,
+          done: false
+        });
+        user.save()
+          .then(user => res.json(user.shoppingList));
+      }
+    });
+});
 
 module.exports = router;
