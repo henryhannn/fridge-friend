@@ -1,6 +1,4 @@
-import {
-  RECEIVE_FRIDGE_ITEMS,
-} from "../actions/fridge_items_actions";
+import { RECEIVE_FRIDGE_ITEMS } from "../actions/fridge_items_actions";
 
 const fridgeItemsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
