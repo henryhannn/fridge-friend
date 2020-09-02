@@ -1,5 +1,8 @@
 import React from "react";
 import FoodItemModalForm from "./food_item_modal_form"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 
 class SearchListFoodItem extends React.Component {
   constructor(props){
@@ -30,8 +33,9 @@ class SearchListFoodItem extends React.Component {
       return (
         <div className="fooditem-modal-container">
           <div className="fooditem-modal-background">
-            i am the background
-            <div>button to close modal XXX</div>
+            <div className="fooditem-modal-background-icon">
+              <FontAwesomeIcon icon={faTimesCircle} />
+            </div>
           </div>
           <div className="fooditem-modal-form-container">
             <FoodItemModalForm foodItem={this.props.foodItem} />
@@ -44,8 +48,9 @@ class SearchListFoodItem extends React.Component {
   render() {
      
     return (
-      <div onClick={this.openModal}>
-        <h1>{this.props.foodItem.name}</h1>
+      <div className="food-search-list-item" onClick={this.openModal}>
+        <FontAwesomeIcon icon={faPlus} className="food-search-list-item-icon" />
+        <p className="food-search-list-item-name">{this.props.foodItem.name}</p>
         {this.renderSearchModal()}
       </div>
     );

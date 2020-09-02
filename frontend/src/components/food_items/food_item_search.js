@@ -7,8 +7,8 @@ class FoodItemSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      defaultText: "Add a food item...",
-      searchInput: "Add a food item...",
+      defaultText: "Add Grocery Items...",
+      searchInput: "Add Grocery Items...",
       showDropdown: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,12 +40,14 @@ class FoodItemSearch extends React.Component {
             <li
               key={1000}
               className="food-search-list-item"
-              id="no-location-hover"
+              id="no-item-hover"
             >
               <p>No items available</p>
               {/* add custom item  */}
             </li>
           </ul>
+          <div className="food-search-background">
+          </div>
         </div>
       );
     } else {
@@ -54,12 +56,15 @@ class FoodItemSearch extends React.Component {
           <ul className="food-item-search-list">
             {foodList.map((foodItem, idx) => {
               return (
-                <li key={idx} className="food-search-list-item">
-                  < SearchListFoodItem foodItem={foodItem}/>
+                <li key={idx} >
+                  <SearchListFoodItem foodItem={foodItem} />
                 </li>
               );
             })}
           </ul>
+          <div className="food-search-background">
+            
+          </div>
         </div>
       );
     }
@@ -78,11 +83,11 @@ class FoodItemSearch extends React.Component {
   }
 
   closeDropdown() {
+    const searchBackground = document.querySelector(".food-search-background");
+    searchBackground.removeEventListener("click", this.closeDropdown);
     this.setState({ showDropdown: false }, () => {
-      const searchBackground = document.querySelector(".food-search-background");
-      searchBackground.removeEventListener("click", this.closeDropdown);
       if (this.state.searchInput === "") {
-        this.setState({ searchInput: "Add a food item..." });
+        this.setState({ searchInput: "Add Grocery Items..." });
       }
     });
   }
@@ -102,28 +107,26 @@ class FoodItemSearch extends React.Component {
 
   
     const defaultTextStyles =
-      this.state.defaultText === this.state.searchInput
+      this.state.defaultText !== this.state.searchInput
         ? "defaultTextStyles"
         : "";
 
     return (
       <div className="food-search-bar-container">
         <div className="food-search-bar">
-          <form>
+          <h1>Search for items</h1>
+          <form onSubmit={this.handleSubmit} className="food-search-bar-input">
             <FontAwesomeIcon icon={faSearch} />
             <input
               type="text"
-              className={defaultTextStyles}
+              id={defaultTextStyles}
               value={this.state.searchInput}
               onClick={this.openDropdown}
               onChange={this.update()}
             />
           </form>
-          {this.state.showDropdown ? this.searchedFoodsDropdown() : null}
         </div>
-        <div className="food-search-background">
-          I am the search bar background
-        </div>
+        {this.state.showDropdown ? this.searchedFoodsDropdown() : null}
       </div>
     );
   }
