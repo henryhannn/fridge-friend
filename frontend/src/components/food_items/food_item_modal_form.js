@@ -3,7 +3,7 @@ import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 
 class FoodItemModalForm extends React.Component {
@@ -17,24 +17,27 @@ class FoodItemModalForm extends React.Component {
       done: false,
       imageUrl: this.props.imageUrl,
       location: "",
+      quantity: 1,
       showNameDescription: false,
+      showQuantityDescription: false,
       showCategoryDescription: false,
       showLocationDescription: false,
       showDateDescription: false,
     };
     this.openNameDescription = this.openNameDescription.bind(this);
     this.closeNameDescription = this.closeNameDescription.bind(this);
+    this.openQuantityDescription = this.openQuantityDescription.bind(this);
+    this.closeQuantityDescription = this.closeQuantityDescription.bind(this);
     this.openCategoryDescription = this.openCategoryDescription.bind(this);
     this.closeCategoryDescription = this.closeCategoryDescription.bind(this);
     this.openLocationDescription = this.openLocationDescription.bind(this);
     this.closeLocationDescription = this.closeLocationDescription.bind(this);
     this.openDateDescription = this.openDateDescription.bind(this);
     this.closeDateDescription = this.closeDateDescription.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this); 
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-    // debugger;
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
@@ -45,16 +48,62 @@ class FoodItemModalForm extends React.Component {
     if (name.length > 0) {
       return name.charAt(0).toUpperCase() + name.slice(1);
     } else if (this.state.category.length > 0) {
-      let category = this.state.category; 
-      return category.charAt(0).toUpperCase() + category.slice(1); 
+      let category = this.state.category;
+      return category.charAt(0).toUpperCase() + category.slice(1);
     } else {
-      return "Custom Item"; 
+      return "Custom Item";
+    }
+  }
+
+  countQuantity(num) {
+    let quantity = this.state.quantity;
+    let itemCount = quantity + num;
+    return (e) => this.setState({ quantity: itemCount });
+  }
+
+  quantity() {
+    if (this.state.quantity === 1) {
+      return (
+        <div
+          onClick={this.openQuantityDescription}
+          className="quantity-form-container"
+        >
+          <p className="quanity-min">min</p>
+          <p className="quanity-num">{this.state.quantity}</p>
+          <div className="quanity-minus" onClick={this.countQuantity(1)}>
+            <FontAwesomeIcon icon={faPlus} />
+          </div>
+          {this.state.showQuantityDescription ? (
+            <div className="food-name-input-description">
+              <p>Click the plus and minus to change quantity</p>
+              <FontAwesomeIcon icon={faChevronDown} />
+            </div>
+          ) : null}
+        </div>
+      );
+    } else {
+      return (
+        <div className="quantity-form-container">
+          <div className="quanity-minus" onClick={this.countQuantity(-1)}>
+            <FontAwesomeIcon icon={faMinus} />
+          </div>
+          <p className="quanity-num">{this.state.quantity}</p>
+          <div className="quanity-minus" onClick={this.countQuantity(1)}>
+            <FontAwesomeIcon icon={faPlus} />
+          </div>
+          {this.state.showQuantityDescription ? (
+            <div className="food-name-input-description">
+              <p>Click the plus and minus to change quantity</p>
+              <FontAwesomeIcon icon={faChevronDown} />
+            </div>
+          ) : null}
+        </div>
+      );
     }
   }
 
   renderDatePicker() {
     if (this.state.location === "fridge") {
-      // debugger;
       return (
         <div
           onClick={this.openDateDescription}
@@ -75,7 +124,6 @@ class FoodItemModalForm extends React.Component {
             id="your_unique_id" // PropTypes.string.isRequired,
             placeholder="Exp Date"
             numberOfMonths={1}
-            small
           />
         </div>
       );
@@ -91,6 +139,17 @@ class FoodItemModalForm extends React.Component {
   closeNameDescription() {
     document.removeEventListener("click", this.closeNameDescription);
     this.setState({ showNameDescription: false });
+  }
+
+  openQuantityDescription() {
+    this.setState({ showQuantityDescription: true }, () => {
+      document.addEventListener("click", this.closeQuantityDescription);
+    });
+  }
+
+  closeQuantityDescription() {
+    document.removeEventListener("click", this.closeQuantityDescription);
+    this.setState({ showQuantityDescription: false });
   }
 
   openCategoryDescription() {
@@ -135,29 +194,31 @@ class FoodItemModalForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault(); 
+    e.preventDefault();
     const shoppingFoodItem = {
       name: this.state.name,
       category: this.state.category,
+      quantity: this.state.quantity,
       imageUrl: "",
     };
 
     const fridgeFoodItem = {
       name: this.state.name,
       category: this.state.category,
+      quantity: this.state.quantity,
       expirationDate: this.state.expirationDate["_d"],
       owner: "",
       imageUrl: "",
     };
-    debugger; 
   }
 
   render() {
- 
     return (
       <form className="add-food-form">
         <h1>Add {this.capitalizeName(this.state.name)}</h1>
-        {/* image */}
+        <div className="add-food-img-container">
+          <img src={this.state.imageUrl} alt=""></img>
+        </div>
         <div className="login-fields">
           <div onClick={this.openNameDescription} className="food-name-input">
             {this.state.showNameDescription ? (
@@ -174,6 +235,7 @@ class FoodItemModalForm extends React.Component {
               placeholder="Item Name"
             />
           </div>
+          {this.quantity()}
           <div
             onClick={this.openCategoryDescription}
             className="add-food-form-category_selector"
@@ -228,6 +290,7 @@ class FoodItemModalForm extends React.Component {
               </option>
             </select>
           </div>
+
           <div
             onClick={this.openLocationDescription}
             className="add-food-form-category_selector"
