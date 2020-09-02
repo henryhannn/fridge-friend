@@ -120,9 +120,6 @@ router.patch('/:id', (req, res) => {
           item.done = !item.done;
         } else if (req.body.quantity) {
           item.quantity = req.body.quantity;
-          item.name = req.body.name;
-          item.category = req.body.category;
-          item.imageUrl = req.body.imageUrl;
         } else {
           item.remove();
         }
@@ -140,6 +137,7 @@ router.patch('/:id', (req, res) => {
           category: req.body.category,
           quantity: req.body.quantity,
           imageUrl: req.body.imageUrl,
+          fridgeId: req.body.fridgeId,
           done: false
         });
         user.save()

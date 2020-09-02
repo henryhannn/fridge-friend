@@ -14,6 +14,10 @@ const ShoppingListItemSchema = new Schema({
     type: String,
     required: true
   },
+  fridgeId: {
+    type: Schema.Types.ObjectId,
+    ref: 'fridges'
+  },
   quantity: {
     type: Number,
     required: true

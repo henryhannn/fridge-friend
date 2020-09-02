@@ -15,6 +15,7 @@ import { setAuthToken } from "./util/session_api_util";
 
 // We have not created this action yet, but will do so in the next step
 import { logout } from "./actions/session_actions";
+import { addShoppingListItem } from './actions/shopping_list_item_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //FOR TESTING
   window.getState = store.getState;
+  window.addShoppingListItem = addShoppingListItem;
   // window.signup = signup;
   // window.login = login;
 

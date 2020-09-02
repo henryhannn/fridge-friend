@@ -3,13 +3,12 @@ import ShoppingList from "./shopping_list";
 
 const mapStateToProps = (state) => {
   return {
-    
+    listItems: state.entities.ShoppingListItems
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-  };
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList);

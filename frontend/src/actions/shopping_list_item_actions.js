@@ -19,14 +19,14 @@ export const removeShoppingListItem = (userId, listItemId) => (dispatch) =>
   shoppingListItemAPIUtil.editShoppingList(userId, { listItemId })
     .then((shoppingListItems) => dispatch(receiveShoppingListItems(shoppingListItems)));
 
-// itemData should contain keys name, category, quantity, and imageUrl
+// itemData should contain keys name, category, quantity, fridgeId, and imageUrl
 // NOTE: this will fail if validations fail
 export const addShoppingListItem = (userId, itemData) => (dispatch) =>
   shoppingListItemAPIUtil.editShoppingList(userId, itemData)
     .then((shoppingListItems) => dispatch(receiveShoppingListItems(shoppingListItems)));
 
 
-//itemData should contain keys listItemId, name, category, quantity, and imageUrl
+// itemData should contain keys listItemId and quantity
 export const editShoppingListItem = (userId, itemData) => (dispatch) =>
   shoppingListItemAPIUtil.editShoppingList(userId, itemData)
     .then((shoppingListItems) => dispatch(receiveShoppingListItems(shoppingListItems)));
