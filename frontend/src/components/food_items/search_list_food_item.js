@@ -38,7 +38,11 @@ class SearchListFoodItem extends React.Component {
             </div>
           </div>
           <div className="fooditem-modal-form-container">
-            <FoodItemModalForm foodItem={this.props.foodItem} />
+            <FoodItemModalForm
+              name={this.props.foodItem.name}
+              category={this.props.foodItem.category}
+              imageUrl={this.props.foodItem.imageUrl}
+            />
           </div>
         </div>
       );

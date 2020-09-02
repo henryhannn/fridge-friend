@@ -1,33 +1,22 @@
 import React from "react";
-import FoodItemSearch from "./food_item_search"; 
-import NavBarContainer from "../nav/navbar_container"; 
-import FoodItemCategories from "./food_item_categories"; 
 import FoodItemModalForm from "./food_item_modal_form"; 
-import "../../styles/main.scss";
-import "../../styles/vars.scss"; 
-import "./food_items_css.scss"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 
-class FoodItemIndex extends React.Component {
+class FoodItemCategoryItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      foodGroup: "all",
       showModal: false,
     };
+
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
   }
 
-  componentDidMount() {
-    this.props.requestFoodItems();
-  }
-
-  openModal(e) {
-    e.preventDefault(); 
+  openModal() {
     this.setState({ showModal: true }, () => {
-      debugger; 
       const modalBackground = document.querySelector(
         ".fooditem-modal-background"
       );
@@ -54,9 +43,9 @@ class FoodItemIndex extends React.Component {
           </div>
           <div className="fooditem-modal-form-container">
             <FoodItemModalForm
-              name={""}
-              category={""}
-              imageUrl={""}
+              name=""
+              category={this.props.category.name}
+              imageUrl={this.props.category.imageUrl}
             />
           </div>
         </div>
@@ -65,34 +54,13 @@ class FoodItemIndex extends React.Component {
   }
 
   render() {
-    //search feature with search by category
-
-    if (this.props.foodItems.length > 1) {
-      return (
-        <div className="food-item-page">
-          <NavBarContainer />
-          <div className="food-item-index">
-            <FoodItemSearch
-              foodItems={this.props.foodItems}
-              filterByFoodGroup={this.props.filterByFoodGroup}
-            />
-            <div className="food-item-index-cats-custom">
-              <FoodItemCategories />
-              <button className="add-food-button" onClick={this.openModal}>
-                Add Custom Item
-              </button>
-            </div>
-            {this.renderSearchModal()}
-          </div>
-        </div>
-      );
-    } else {
-      return <div>{/* loading spinner */}</div>;
-    }
+    return (
+      <div className="food-item-category-item" onClick={this.openModal}>
+        <p className="food-item-category-item-name">{this.props.category.name}</p>
+        {this.renderSearchModal()}
+      </div>
+    );
   }
 }
 
-export default FoodItemIndex; 
-
-
-
+export default FoodItemCategoryItem; 

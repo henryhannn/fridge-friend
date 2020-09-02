@@ -10,12 +10,12 @@ class FoodItemModalForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.foodItem.name,
-      category: this.props.foodItem.category,
+      name: this.props.name,
+      category: this.props.category,
       expirationDate: null,
       owner: "",
       done: false,
-      imageUrl: "",
+      imageUrl: this.props.imageUrl,
       location: "",
       showNameDescription: false,
       showCategoryDescription: false,
@@ -42,11 +42,18 @@ class FoodItemModalForm extends React.Component {
   }
 
   capitalizeName(name) {
-    return name.charAt(0).toUpperCase() + name.slice(1);
+    if (name.length > 0) {
+      return name.charAt(0).toUpperCase() + name.slice(1);
+    } else if (this.state.category.length > 0) {
+      let category = this.state.category; 
+      return category.charAt(0).toUpperCase() + category.slice(1); 
+    } else {
+      return "Custom Item"; 
+    }
   }
 
   renderDatePicker() {
-    if (this.state.location === "shopping list") {
+    if (this.state.location === "fridge") {
       // debugger;
       return (
         <div
@@ -183,23 +190,23 @@ class FoodItemModalForm extends React.Component {
               id="add-food-form-category_selector"
             >
               <option value="select category">Select Category</option>
-              <option selected={this.selected("condiments")} value="condiments">
-                condiments
+              <option selected={this.selected("condiment")} value="condiment">
+                condiment
               </option>
               <option selected={this.selected("dairy")} value="dairy">
                 dairy
               </option>
-              <option selected={this.selected("desserts")} value="desserts">
-                desserts
+              <option selected={this.selected("dessert")} value="dessert">
+                dessert
               </option>
-              <option selected={this.selected("drinks")} value="drinks">
-                drinks
+              <option selected={this.selected("drink")} value="drink">
+                drink
               </option>
               <option selected={this.selected("eggs")} value="eggs">
                 eggs
               </option>
               <option selected={this.selected("fruit")} value="fruit">
-                fruits
+                fruit
               </option>
               <option selected={this.selected("grains")} value="grains">
                 grains
@@ -213,8 +220,8 @@ class FoodItemModalForm extends React.Component {
               <option selected={this.selected("protein")} value="protein">
                 protein
               </option>
-              <option selected={this.selected("vegetable")} value="vegetables">
-                vegetables
+              <option selected={this.selected("vegetable")} value="vegetable">
+                vegetable
               </option>
               <option selected={this.selected("other")} value="other">
                 other
@@ -241,10 +248,13 @@ class FoodItemModalForm extends React.Component {
             >
               <option value="select location">Select Location</option>
               <option value="shopping list">shopping list</option>
+              <option value="fridge">fridge</option>
             </select>
           </div>
           {this.renderDatePicker()}
-          <button className="add-food-button" onClick={this.handleSubmit}>Add Item</button>
+          <button className="add-food-button" onClick={this.handleSubmit}>
+            Add Item
+          </button>
         </div>
       </form>
     );
