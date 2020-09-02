@@ -59,6 +59,13 @@ router.patch('/:id', (req, res) => {
     .then(fridge => {
       if (req.body.addParticipants) {
         fridge.participants.push(req.body.addParticipants);
+      } else if (req.body.fridgeItemId) {
+        const item = fridge.fridgeContainer.id(req.body.fridgeItemId);
+        item.name = req.body.name;
+        item.category = req.body.category;
+        item.quantity = req.body.quantity;
+        item.expirationDate = req.body.expirationDate;
+        item.imageUrl = req.body.imageUrl;
       } else {
         fridge.fridgeContainer.push({
           name: req.body.name,

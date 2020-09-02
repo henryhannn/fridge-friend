@@ -118,6 +118,11 @@ router.patch('/:id', (req, res) => {
         const item = user.shoppingList.id(req.body.listItemId);
         if (req.body.toggle) {
           item.done = !item.done;
+        } else if (req.body.quantity) {
+          item.quantity = req.body.quantity;
+          item.name = req.body.name;
+          item.category = req.body.category;
+          item.imageUrl = req.body.imageUrl;
         } else {
           item.remove();
         }
