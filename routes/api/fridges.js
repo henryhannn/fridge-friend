@@ -64,6 +64,7 @@ router.patch('/:id', (req, res) => {
           name: req.body.name,
           category: req.body.category,
           owner: req.body.owner,
+          quantity: req.body.quantity,
           expirationDate: req.body.expirationDate,
           imageUrl: req.body.imageUrl
         });

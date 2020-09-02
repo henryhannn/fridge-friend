@@ -10,6 +10,10 @@ const FridgeItemSchema = new Schema({
     type: String, 
     required: true 
   },
+  quantity: {
+    type: Number,
+    required: true
+  },
   owner: { 
     type: Schema.Types.ObjectId, 
     ref: 'users',
