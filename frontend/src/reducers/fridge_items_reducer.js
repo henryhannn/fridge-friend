@@ -5,7 +5,11 @@ const fridgeItemsReducer = (oldState = {}, action) => {
   let newState = { ...oldState };
   switch (action.type) {
     case RECEIVE_FRIDGE_ITEMS:
-      return action.fridgeItems.data;
+      newState = {};
+      action.fridgeItems.forEach(fridgeItem => {
+        newState[fridgeItem._id] = fridgeItem;
+      });
+      return newState;
     default:
       return oldState;
   }
