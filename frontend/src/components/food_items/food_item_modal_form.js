@@ -199,16 +199,18 @@ class FoodItemModalForm extends React.Component {
       name: this.state.name,
       category: this.state.category,
       quantity: this.state.quantity,
-      imageUrl: "",
+      imageUrl: this.state.imageUrl,
     };
+
+    const expDate = this.state.expirationDate ? this.state.expirationDate["_d"] : null ;
 
     const fridgeFoodItem = {
       name: this.state.name,
       category: this.state.category,
       quantity: this.state.quantity,
-      expirationDate: this.state.expirationDate["_d"],
-      owner: "",
-      imageUrl: "",
+      expirationDate: expDate,
+      owner: this.props.userId,
+      imageUrl: this.state.imageUrl,
     };
   }
 

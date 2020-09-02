@@ -31,7 +31,7 @@ const App = () => (
       <Route exact path="/fridge" component={FridgeContainer} />
       <Route exact path="/shoppinglist" component={ShoppingListContainer} />
       {/* Where should we have this go? */}
-      <AuthRoute path="/" component={ProfileContainer} />
+      <AuthRoute path="/" component={LoginFormContainer} />
     </Switch>
     <Footer />
   </div>
