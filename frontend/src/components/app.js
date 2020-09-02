@@ -19,24 +19,21 @@ import FridgeContainer from './fridge/fridge_container';
 import ShoppingListContainer from './shopping_list/shopping_list_container';
 
 const App = () => (
-
   <div className="main-app">
-    <header>
-      {/* <NavBarContainer /> */}
-    </header>
-      <Switch>
-        <AuthRoute path="/login" component={LoginFormContainer} />
-        <AuthRoute path="/signup" component={SignupFormContainer} />
-        <ProtectedRoute path="/profile" component={ProfileContainer} />
-        <Route exact path="/foods" component={FoodItemIndexContainer} />
-        {/* Not sure how this route will look: */}
-        {/* <Route exact path={`/fridge/${fridge.id}`} component={FridgeContainer} /> */}
-        <Route exact path="/fridge" component={FridgeContainer} />
-        <Route exact path="/shoppinglist" component={ShoppingListContainer} />
-        {/* Where should we have this go? */}
-        <AuthRoute path="/" component={ProfileContainer} />
-      </Switch>
-      <Footer/>
+    <header>{/* <NavBarContainer /> */}</header>
+    <Switch>
+      <AuthRoute path="/login" component={LoginFormContainer} />
+      <AuthRoute path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute path="/profile" component={ProfileContainer} />
+      <ProtectedRoute exact path="/foods" component={FoodItemIndexContainer} />
+      {/* Not sure how this route will look: */}
+      {/* <Route exact path={`/fridge/${fridge.id}`} component={FridgeContainer} /> */}
+      <Route exact path="/fridge" component={FridgeContainer} />
+      <Route exact path="/shoppinglist" component={ShoppingListContainer} />
+      {/* Where should we have this go? */}
+      <AuthRoute path="/" component={ProfileContainer} />
+    </Switch>
+    <Footer />
   </div>
 );
 
