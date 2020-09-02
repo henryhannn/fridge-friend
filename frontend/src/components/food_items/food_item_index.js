@@ -3,6 +3,8 @@ import FoodItemSearch from "./food_item_search";
 import NavBarContainer from "../nav/navbar_container"; 
 import FoodItemCategories from "./food_item_categories"; 
 import FoodItemModalForm from "./food_item_modal_form"; 
+import FoodItemModalContainer from "./food_item_modal_container"; 
+
 import "../../styles/main.scss";
 import "../../styles/vars.scss"; 
 import "./food_items_css.scss"; 
@@ -52,7 +54,7 @@ class FoodItemIndex extends React.Component {
             </div>
           </div>
           <div className="fooditem-modal-form-container">
-            <FoodItemModalForm
+            <FoodItemModalContainer
               name={""}
               category={""}
               imageUrl={
