@@ -83,15 +83,14 @@ input {
 
 button {
   background-color: $default-blue;
+  text-align: center;
   border: none;
-  padding: 15px 25px 15px 25px;
   border-radius: 50px;
   color: white;
   text-transform: none;
   font-weight: 700;
   letter-spacing: 1px;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 90%;
 }
 
 button:hover {

@@ -1,9 +1,9 @@
 import React from 'react';
 import './navbar_css.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faSatelliteDish } from '@fortawesome/free-solid-svg-icons';
+import { faList} from '@fortawesome/free-solid-svg-icons';
 // import { logout } from '../../actions/session_actions';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -18,11 +18,13 @@ class NavBar extends React.Component {
     this.props.logout();
   }
 
-  openNav() {
+  openNav(e) {
+    e.preventDefault();
     document.getElementById("mySideNav").style.width="250px";
   }
 
-  closeNav() {
+  closeNav(e) {
+    e.preventDefault();
     document.getElementById("mySideNav").style.width="0";
   }
 
@@ -32,10 +34,21 @@ class NavBar extends React.Component {
     const dropdown = (
       <div id="mySideNav" className="sidenav">
         <a href="#" className="closebtn" onClick={this.closeNav}>&times;</a>
-        <a href="#">Shopping List</a>
-        <a href="#">My Fridges</a>
-        <a href="#">Invite a Friend</a>
-        <a className="logout-dropdown" onClick={this.logoutUser}>Log Out</a>
+        <Link to="/profile">
+          <p>Profile</p>
+        </Link>
+        <Link to="/shoppinglist">
+          <p>Shopping List</p>
+        </Link>
+        <Link to="/fridge">
+          <p>My Fridges</p>
+        </Link>
+        <Link to="#">
+          <p>Invite a Friend</p>
+        </Link>
+        <Link to="/login">
+          <p className="logout-dropdown" onClick={this.logoutUser}>Log Out</p>
+        </Link>
       </div>
     );
 
@@ -49,11 +62,7 @@ class NavBar extends React.Component {
                 icon={faList}
                 onClick={this.openNav}
                 />
-          
               {this.openNav ? dropdown : this.closeNav}
-              
-            
-          
         </div>
         
       </div>

@@ -2,52 +2,53 @@
 
 .main-profile-container {
   background-color: white;
-  padding: 50px;
-}
-
-.whats-in-it {
+  padding: 50px 0px 50px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 25px;
-}
-
-.main-profile-contents {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.kitchen {
-  height: 40%;
-  width: 40%;
-  margin-right: 7%;
-}
-
-.profile-buttons {
   flex-direction: column;
 }
 
-.fridge-names {
+.whats-in-it {
+  margin-bottom: 5%;
+}
+
+.fridge-kitchen-container {
   display: flex;
-  flex-direction: row;
-  padding-bottom: 10%;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.kitchen {
+  max-width: 300px;
+  height: 50%;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.fridge-list {
+  margin: 5% 0% 3% 0%;
+  display: inline-flex;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .fridge-name {
-  padding-top: 5%;
-  padding-left: 5%;
+  padding-top: 2%;
 }
 
+// Calendar Items Container
 
 .second-profile-container {
   background-color: $background-blue;
-  padding: 50px;
+  padding: 5% 20% 5% 20%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+// Calendar Items
 
 .today, .calendar-profile {
   display: flex;
@@ -55,28 +56,43 @@
   margin: 2%;
   padding: 5% 10% 5% 10%;
   border-radius: 10px;
-  font-size: 20px;
   color: $text-default-light;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
+// Calendar Icons
+
 .cal-icons {
   background-color: $default-blue;
   color: white;
-  font-size: 24px;
+  font-size: 80%;
   padding: 10px;
   border-radius: 50px;
   margin-right: 10%;
 }
+// Calendar Items Text
+
+.today p,
+.calendar-profile p {
+  margin-top: 10%;
+  font-size: 100%;
+}
+
+// Buttons
 
 .add-new-fridge {
+  white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 50px;
 }
 
-.today p,
-.calendar-profile p {
-  margin-top: 10%;
+
+.add-new-fridge button {
+  padding: 10px 30px 10px 30px;
+}
+
+.shopping-list-btn {
+  padding: 10px 30px 10px 30px;
 }
