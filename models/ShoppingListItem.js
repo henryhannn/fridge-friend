@@ -14,6 +14,10 @@ const ShoppingListItemSchema = new Schema({
     type: String,
     required: true
   },
+  quantity: {
+    type: Number,
+    required: true
+  },
   done: {
     type: Boolean,
     required: true

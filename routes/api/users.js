@@ -133,6 +133,7 @@ router.patch('/:id', (req, res) => {
         user.shoppingList.push({
           name: req.body.name,
           category: req.body.category,
+          quantity: req.body.quantity,
           imageUrl: req.body.imageUrl,
           done: false
         });
