@@ -28,6 +28,7 @@
   border-radius: 50px;
   width: 60%;
   color: #C9D9DE;
+  padding: 1% 20px; 
 }
 
 #defaultTextStyles {
@@ -128,7 +129,6 @@
   left: 22%;
   z-index: 7;
   width: 56%;
-  
   background-color: white;
   box-sizing: border-box;
   padding: 30px 5%;
@@ -191,7 +191,8 @@
   width: 40%; 
   min-width: 130px;
   margin-top: 5%;
-  padding: 13px 15px;
+  max-height: 4%;
+  padding: 4% 25px;
   text-align: center;
 }
 
@@ -201,6 +202,30 @@
   align-items: center;
 }
 
+.food-item-categories {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+}
+
 .food-item-category-item {
   position: relative;
+  width: 33%; 
+  margin-top: 5%; 
+  margin-bottom: 4%; 
+}
+
+.food-item-category-item-inner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.food-item-category-item-inner > img {
+  width: 50%;
+  max-width: 200px;
+  height: auto; 
+  padding-bottom: 5%; 
 }

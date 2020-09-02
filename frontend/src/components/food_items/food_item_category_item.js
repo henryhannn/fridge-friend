@@ -55,8 +55,11 @@ class FoodItemCategoryItem extends React.Component {
 
   render() {
     return (
-      <div className="food-item-category-item" onClick={this.openModal}>
-        <p className="food-item-category-item-name">{this.props.category.name}</p>
+      <div className="food-item-category-item-inner" onClick={this.openModal}>
+        <img src={this.props.category.imageUrl} alt=""></img>
+        <p className="food-item-category-item-name">
+          {this.props.category.name}
+        </p>
         {this.renderSearchModal()}
       </div>
     );
