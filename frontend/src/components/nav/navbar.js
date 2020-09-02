@@ -42,7 +42,7 @@ class NavBar extends React.Component {
     return (
       <div className="nav-bar-container">
         <div className="nav-bar">
-            <h1>Fridge Friends</h1>
+            <h1>Fridge Friend</h1>
   
               <FontAwesomeIcon 
                 className="nav-bar-list" 
