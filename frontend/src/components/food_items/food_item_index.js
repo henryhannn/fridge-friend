@@ -27,7 +27,6 @@ class FoodItemIndex extends React.Component {
   openModal(e) {
     e.preventDefault(); 
     this.setState({ showModal: true }, () => {
-      debugger; 
       const modalBackground = document.querySelector(
         ".fooditem-modal-background"
       );
@@ -56,7 +55,9 @@ class FoodItemIndex extends React.Component {
             <FoodItemModalForm
               name={""}
               category={""}
-              imageUrl={""}
+              imageUrl={
+                "https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/category-icons/other.svg"
+              }
             />
           </div>
         </div>
