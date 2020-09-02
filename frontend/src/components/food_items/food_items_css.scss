@@ -3,6 +3,8 @@
 .food-item-index {
   background-color: white; 
   color: #242424;
+  padding-top: 20px;
+  padding-bottom: 20px; 
 }
 
 .food-search-bar-container {
@@ -81,6 +83,10 @@
   background-color: #C9D9DE;
 }
 
+.food-search-list-item:hover > .food-search-list-item-icon {
+  color: white;
+}
+
 #no-item-hover:hover {
   background-color: white;
 }
@@ -96,7 +102,7 @@
 .fooditem-modal-background {
   z-index: 5;
   position: fixed;
-  background: white;
+  background: $background-blue;
   opacity: .7; 
   top: 0;
   bottom: 0;
@@ -185,6 +191,16 @@
   width: 40%; 
   min-width: 130px;
   margin-top: 5%;
+  padding: 13px 15px;
+  text-align: center;
 }
 
+.food-item-index-cats-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.food-item-category-item {
+  position: relative;
+}
