@@ -13,29 +13,17 @@
   justify-content: space-between;
 }
 
-
 .nav-bar-list {
   margin-top: 1%;
   padding: 3%;
   color: $text-default;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .nav-bar-list:hover {
   color:#8cc4d7;
   -webkit-transition: all .2s ease-in-out;
-}
-
-.dropdown-content {
-  background-color: white;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-}
-
-.dropdown-content > a {
-  padding: 10px;
 }
 
 .sidenav {
@@ -60,6 +48,7 @@
   color: $text-default;
   display: block;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .sidenav .closebtn {

@@ -4,30 +4,35 @@
   background-color: $background-blue;
   padding-top: 7%;
   padding-bottom: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .signup-form-container {
   display: flex;
-  box-sizing: border-box;
-  max-width: 38rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  max-width: 38rem;
+  // min-width: 10rem;
   background-color: white;
-  padding: 5%;
-  margin-left: 25%;
-  margin-right: 25%;
+  padding: 50px;
+  margin: 10px 50px 50px 50px;
   border-radius: 23px;
   box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
 }
 
 .signup-header {
+  text-align: center;
   font-weight: 700;
 }
 
 .first-name {
   margin-right: 5%;
 }
+
 .signup-image {
   height: 100%;
   width: 100%;
@@ -37,8 +42,10 @@
 
 .login-link {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   font-size: 14px;
   font-weight: 500;
 }
@@ -47,7 +54,6 @@
   color: $dark-blue;
   cursor: pointer;
   text-decoration: none;
-  padding: 0px 0px 0px 5px;
 }
 
 .login-link-a:hover {
@@ -79,14 +85,21 @@
   border: 1px solid $default-blue;
 }
 
-.signup-form-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 10px;
+.signup-form-button {
+  padding: 10px 30px 10px 30px;
+  width: 100%;
 }
 
 .signup-form-button:hover {
   background-color: $secondary-blue;
   -webkit-transition: all .2s ease-in-out;
+}
+
+// these errors apply to both signup and login form
+
+.errors {
+  text-align: center;
+  color: $error-red;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
