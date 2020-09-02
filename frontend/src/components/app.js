@@ -14,7 +14,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 
 import ProfileContainer from './profile/profile_container';
-// import FoodItemIndexContainer from './food_items/food_item_index_container'; 
+import FoodItemIndexContainer from './food_items/food_item_index_container'; 
 import FridgeContainer from './fridge/fridge_container';
 import ShoppingListContainer from './shopping_list/shopping_list_container';
 
@@ -28,7 +28,7 @@ const App = () => (
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
         <ProtectedRoute path="/profile" component={ProfileContainer} />
-        {/* <Route exact path="/foods" component={FoodItemIndexContainer} /> */}
+        <Route exact path="/foods" component={FoodItemIndexContainer} />
         {/* Not sure how this route will look: */}
         {/* <Route exact path={`/fridge/${fridge.id}`} component={FridgeContainer} /> */}
         <Route exact path="/fridge" component={FridgeContainer} />
