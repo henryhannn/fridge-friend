@@ -5,7 +5,7 @@ const shoppingListItemsReducer = (oldState = {}, action) => {
   let newState = { ...oldState };
   switch (action.type) {
     case RECEIVE_SHOPPING_LIST_ITEMS:
-      return action.shoppingList.data;
+      return action.shoppingListItems.data;
     default:
       return oldState;
   }

@@ -103,6 +103,13 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 });
 
+router.get('/:id/shoppinglist', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+      res.json(user.shoppingList);
+    });
+});
+
 // for editing shopping list, maybe add passport authentication 
 router.patch('/:id', (req, res) => {
   User.findById(req.params.id)

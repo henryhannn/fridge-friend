@@ -5,12 +5,12 @@ module.exports = function validateShoppingListItem(data) {
   let errors = {};
 
   data.name = validText(data.name) ? data.name : '';
-  data.imageUrl = validText(imageUrl) ? data.imageUrl : '';
+  data.imageUrl = validText(data.imageUrl) ? data.imageUrl : '';
 
   if (Validator.isEmpty(data.name)) {
     errors.email = 'Name is required';
   }
-  // dairy, vegetables, fruits, grains, protein, party, drinks, leftovers, others
+  // dairy, vegetables, fruits, grains, protein, party, drinks, leftovers, others, can edit this list
   if (!Validator.isIn(data.category, [
     'dairy',
     'vegetables',
