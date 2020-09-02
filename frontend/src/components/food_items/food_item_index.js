@@ -1,5 +1,8 @@
 import React from "react";
 import FoodItemSearch from "./food_item_search"; 
+import "../../styles/main.scss";
+import "../../styles/vars.scss"; 
+import "./food_items_css.scss"; 
 
 class FoodItemIndex extends React.Component {
   constructor(props) {

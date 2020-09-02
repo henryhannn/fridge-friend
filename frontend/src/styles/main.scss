@@ -10,7 +10,7 @@ html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
-span, article, footer, time, small {
+span, select, article, footer, time, small {
   margin: 0;
   padding: 0;
   border: 0;
@@ -93,6 +93,12 @@ button {
   font-size: 14px;
   line-height: 16px;
 }
+
+button:hover {
+  background-color: $secondary-blue;
+  -webkit-transition: all .2s ease-in-out;
+}
+
 
 A:link {
   text-decoration: none;
