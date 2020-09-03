@@ -19,6 +19,7 @@
     "babel-loader": "^8.1.0",
     "fiber": "^1.0.4",
     "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.20",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
