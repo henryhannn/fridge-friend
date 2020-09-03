@@ -11,6 +11,11 @@ const validateShoppingListItem = require('../../validation/shoppingList');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the test users route" }));
 
+router.get("/", (req, res) => {
+  User.find()
+    .then((users) => res.json(users));
+})
+
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
