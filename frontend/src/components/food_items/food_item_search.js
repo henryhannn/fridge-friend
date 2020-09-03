@@ -1,7 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faTimesCircle, faPlus } from "@fortawesome/free-solid-svg-icons";
 import SearchListFoodItem from "./search_list_food_item"; 
+import FoodItemModalContainer from "./food_item_modal_container"; 
 
 class FoodItemSearch extends React.Component {
   constructor(props) {
@@ -10,30 +11,70 @@ class FoodItemSearch extends React.Component {
       defaultText: "Add Grocery Items...",
       searchInput: "Add Grocery Items...",
       showDropdown: false,
+      showModal: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
     this.openDropdown = this.openDropdown.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
   searchedFoods() {
-    
     const foodList = [];
     for (let i = 0; i < this.props.foodItems.length; i++) {
       let foodItem = this.props.foodItems[i];
       let foodItemName = foodItem.name;
-       
+
       if (foodItemName.includes(this.state.searchInput.toLowerCase())) {
         foodList.push(foodItem);
       }
     }
-    
+
     if (foodList[10] !== undefined) {
-      const firstFood = foodList.slice(0,10);
-       
-      return firstFood;  
+      const firstFood = foodList.slice(0, 10);
+
+      return firstFood;
     } else {
       return foodList;
+    }
+  }
+
+  openModal() {
+    this.setState({ showModal: true }, () => {
+      const modalBackground = document.querySelector(
+        ".fooditem-modal-background"
+      );
+      modalBackground.addEventListener("click", this.closeModal);
+    });
+  }
+
+  closeModal() {
+    const modalBackground = document.querySelector(
+      ".fooditem-modal-background"
+    );
+    modalBackground.removeEventListener("click", this.closeModal);
+    this.setState({ showModal: false });
+  }
+
+  renderSearchModal() {
+    if (this.state.showModal) {
+      return (
+        <div className="fooditem-modal-container">
+          <div className="fooditem-modal-background">
+            <div className="fooditem-modal-background-icon">
+              <FontAwesomeIcon icon={faTimesCircle} />
+            </div>
+          </div>
+          <div className="fooditem-modal-form-container">
+            <FoodItemModalContainer
+              name={this.state.searchInput}
+              category={""}
+              imageUrl="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/category-icons/other.svg"
+            />
+          </div>
+        </div>
+      );
     }
   }
 
@@ -44,17 +85,19 @@ class FoodItemSearch extends React.Component {
       return (
         <div className="food-item-search-list-container">
           <ul className="food-item-search-list">
-            <li
-              key={1000}
-              className="food-search-list-item"
-              id="no-item-hover"
-            >
+            <li key={1000} className="food-search-list-item" id="no-item-hover">
               <p>No items available</p>
-              {/* add custom item  */}
+            </li>
+            <li className="food-search-list-item" onClick={this.openModal}>
+              <FontAwesomeIcon
+                icon={faPlus}
+                className="food-search-list-item-icon"
+              />
+              <p>Add Custom Item</p>
+              {this.renderSearchModal()}
             </li>
           </ul>
-          <div className="food-search-background">
-          </div>
+          <div className="food-search-background"></div>
         </div>
       );
     } else {
@@ -63,15 +106,13 @@ class FoodItemSearch extends React.Component {
           <ul className="food-item-search-list">
             {foodList.map((foodItem, idx) => {
               return (
-                <li key={idx} >
+                <li key={idx}>
                   <SearchListFoodItem foodItem={foodItem} />
                 </li>
               );
             })}
           </ul>
-          <div className="food-search-background">
-            
-          </div>
+          <div className="food-search-background"></div>
         </div>
       );
     }
@@ -111,8 +152,6 @@ class FoodItemSearch extends React.Component {
   }
 
   render() {
-
-  
     const defaultTextStyles =
       this.state.defaultText !== this.state.searchInput
         ? "defaultTextStyles"
