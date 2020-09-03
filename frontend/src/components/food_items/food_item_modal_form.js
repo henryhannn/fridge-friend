@@ -25,7 +25,7 @@ class FoodItemModalForm extends React.Component {
       showCategoryDescription: false,
       showLocationDescription: false,
       showDateDescription: false,
-      added: false, 
+      added: false,
     };
     this.openNameDescription = this.openNameDescription.bind(this);
     this.closeNameDescription = this.closeNameDescription.bind(this);
@@ -44,6 +44,7 @@ class FoodItemModalForm extends React.Component {
 
   componentDidMount() {
     this.props.fetchUserFridges(this.props.userId);
+    this.props.receiveErrors([]);
   }
 
   update(field) {
@@ -167,6 +168,18 @@ class FoodItemModalForm extends React.Component {
     }
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {Object.keys(this.props.fridgeErrors).map((error, i) => (
+          <li className="errors" key={`error-${i}`}>
+            {this.props.fridgeErrors[error]}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   openNameDescription() {
     this.setState({ showNameDescription: true }, () => {
       document.addEventListener("click", this.closeNameDescription);
@@ -247,6 +260,7 @@ class FoodItemModalForm extends React.Component {
     const locationArray = this.state.location.split(" ");
     const locationId = locationArray[1];
 
+   
     if (this.state.location.includes("fridge")) {
       const expDate = this.state.expirationDate
         ? this.state.expirationDate["_d"]
@@ -263,7 +277,7 @@ class FoodItemModalForm extends React.Component {
       this.props
         .addFridgeItem(locationId, fridgeFoodItem)
         .then(() => this.setState({ added: true }));
-    } else {
+    } else if (this.state.location.includes("shopping")) {
       const shoppingFoodItem = {
         name: this.state.name,
         category: this.state.category,
@@ -274,6 +288,9 @@ class FoodItemModalForm extends React.Component {
       this.props
         .addShoppingListItem(locationId, shoppingFoodItem)
         .then(() => this.setState({ added: true }));
+    } else {
+      
+      this.props.receiveErrors(["Please fill in all inputs"])
     }
   }
 
@@ -385,6 +402,7 @@ class FoodItemModalForm extends React.Component {
           </div>
           {this.renderDatePicker()}
           {this.renderFridgePicker()}
+          {this.renderErrors()}
           {this.state.added ? (
             <div className="add-food-button">
               Added <FontAwesomeIcon icon={faCheck} />
