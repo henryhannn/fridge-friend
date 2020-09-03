@@ -27,6 +27,7 @@ export const createFridge = (userId, name) => dispatch =>
   fridgeAPIUtil.createFridge(userId, name)
     .then(fridge => dispatch(receiveFridge(fridge.data)));
 
-export const deleteFridge = (fridgeId) => dispatch =>
-  fridgeAPIUtil.deleteFridge(fridgeId)
+export const leaveFridge = (fridgeId, userId) => dispatch =>
+  fridgeAPIUtil.leaveFridge(fridgeId, userId)
     .then(fridge => dispatch(removeFridge(fridge.data._id)));
+

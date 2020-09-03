@@ -9,6 +9,10 @@
   justify-content: center;
 }
 
+input::placeholder {
+  font-size: 10px;
+}
+
 .signup-form-container {
   display: flex;
   flex-direction: column;
