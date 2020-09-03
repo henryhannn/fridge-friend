@@ -20,14 +20,14 @@ export const removeShoppingListItem = (userId, listItemId) => (dispatch) =>
     .then((shoppingListItems) => dispatch(receiveShoppingListItems(shoppingListItems)));
 
 // itemData should contain keys name, category, quantity, fridgeId, and imageUrl
-// NOTE: this will fail if validations fail
+// NOTE: this will fail if backend validations fail
 export const addShoppingListItem = (userId, itemData) => (dispatch) =>
   shoppingListItemAPIUtil.editShoppingList(userId, itemData)
     .then((shoppingListItems) => dispatch(receiveShoppingListItems(shoppingListItems)));
 
 
 //itemData should contain keys listItemId and quantity
-export const editShoppingListItem = (userId, itemData) => (dispatch) =>
+export const editShoppingListItemQuantity = (userId, itemData) => (dispatch) =>
   shoppingListItemAPIUtil.editShoppingList(userId, itemData)
     .then((shoppingListItems) => dispatch(receiveShoppingListItems(shoppingListItems)));
 

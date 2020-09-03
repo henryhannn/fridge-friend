@@ -15,6 +15,9 @@ import { setAuthToken } from "./util/session_api_util";
 
 // We have not created this action yet, but will do so in the next step
 import { logout } from "./actions/session_actions";
+import * as fridgeItemsActions from './actions/fridge_items_actions';
+import * as fridgeActions from './actions/fridge_actions';
+import * as shoppingListActions from './actions/shopping_list_item_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -49,6 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //FOR TESTING
   window.getState = store.getState;
+  window.dispatch = store.dispatch;
+
+  //fridge item actions
+  window.requestFridgeItems = fridgeItemsActions.requestFridgeItems;
+  window.removeFridgeItem = fridgeItemsActions.removeFridgeItem;
+  window.addFridgeItem = fridgeItemsActions.addFridgeItem;
+  window.editFridgeItemQuantity = fridgeItemsActions.editFridgeItemQuantity;
+
+  //fridge actions
+  window.fetchUserFridges = fridgeActions.fetchUserFridges;
+  window.createFridge = fridgeActions.createFridge;
+  window.deleteFridge = fridgeActions.deleteFridge;
+
+  // shopping list actions
+  window.requestShoppingListItems = shoppingListActions.requestShoppingListItems;
+  window.toggleItemDone = shoppingListActions.toggleItemDone;
+  window.removeShoppingListItem = shoppingListActions.removeShoppingListItem;
+  window.addShoppingListItem = shoppingListActions.addShoppingListItem;
+  window.editShoppingListItemQuantity = shoppingListActions.editShoppingListItemQuantity;
   // window.signup = signup;
   // window.login = login;
 
