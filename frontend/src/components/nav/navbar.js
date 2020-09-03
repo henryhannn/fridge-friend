@@ -40,11 +40,20 @@ class NavBar extends React.Component {
         <Link to="/shoppinglist">
           <p>Shopping List</p>
         </Link>
-        <Link to="/fridge">
-          <p>My Fridges</p>
+        <Link to="/foods">
+          <p>Add Items</p>
+        </Link>
+        <Link to="/today">
+          <p>Today</p>
+        </Link>
+        <Link to="/calendar">
+          <p>Calendar</p>
         </Link>
         <Link to="#">
           <p>Invite a Friend</p>
+        </Link>
+        <Link to="/aboutus">
+          <p>About Us</p>
         </Link>
         <Link to="/login">
           <p className="logout-dropdown" onClick={this.logoutUser}>Log Out</p>

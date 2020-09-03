@@ -1,5 +1,6 @@
 import React from 'react';
 import './shopping_list_css.scss';
+import { Link } from 'react-router-dom';
 import NavBarContainer from '../nav/navbar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
@@ -20,7 +21,7 @@ class ShoppingList extends React.Component {
           </div>
         </div>
         <div className="add-items-section">
-          <button className="add-items-btn">Add Items</button>
+          <button className="add-items-btn"><Link to="/foods">Add Items</Link></button>
         </div>
       </div>
     )
