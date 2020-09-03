@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ nofridgesfound: 'No fridges found' }));
 });
 
-router.get('/user/:user_id', (req, res) => {
-  Fridge.find({user: req.params.userId})
+router.get('/user/:id', (req, res) => {
+  Fridge.find({participants: req.params.id})
       .then(fridges => res.json(fridges))
       .catch(err =>
           res.status(404).json({ nofridgefound: 'No fridges found from that user' }
