@@ -3,7 +3,7 @@ import './shopping_list_css.scss';
 import { Link } from 'react-router-dom';
 import NavBarContainer from '../nav/navbar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from "@fortawesome/free-regular-svg-icons";
+import { faCircle, faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 import { Route, Redirect, withRouter } from "react-router-dom";
 
 
@@ -20,12 +20,20 @@ class ShoppingList extends React.Component {
 
   componentDidMount() {
     this.props.requestItems(this.props.userId);
-    this.props.getFridges(this.props.userId);
+    // this.props.getFridges(this.props.userId);
+  }
+
+  circleIcon(doneStatus) {
+    return doneStatus ? faCheckCircle : faCircle;
+  }
+
+  circleIconClass(doneStatus) {
+    return doneStatus ? 
+      "shopping-list-circle-icon-checked" :
+      "shopping-list-circle-icon";
   }
 
   render() {
-    console.log(this.props.listItems);
-    console.log(Object.keys(this.props.listItems));
     if (Object.keys(this.props.listItems).length === 0) return null;
     if (Object.keys(this.props.fridges).length === 0) return null;
     return (
@@ -36,16 +44,17 @@ class ShoppingList extends React.Component {
           <div className="shopping-list-section">
             <ul className="shopping-list-categories">
               {
-                Object.keys(this.props.listItems).map((category) => {
-                  return <li className="shopping-list-category">
+                Object.keys(this.props.listItems).map((category, idx) => {
+                  return <li className="shopping-list-category" key={idx}>
                     <span className="shopping-list-category-label">{category}</span>
                     <ul className="shopping-list-category-items">
                       {
                         this.props.listItems[category].map((item) => {
-                          return <li className="shopping-list-item">
+                          return <li className="shopping-list-item" key={item._id}>
                             <FontAwesomeIcon
-                              className="shopping-list-circle-icon" 
-                              icon={faCircle} />
+                              className={this.circleIconClass(item.done)}
+                              onClick={() => this.props.toggleItemDone(this.props.userId, item._id)}
+                              icon={this.circleIcon(item.done)} />
                             <div className="shopping-list-item-details">
                               <p className="shopping-list-item-name">{item.name}</p>
                               <p className="belongs-to-fridge">
