@@ -17,10 +17,13 @@ module.exports = function validateShoppingListItem(data) {
     'fruit',
     'grains',
     'protein',
+    'dessert',
+    'comdiment',
     'party',
-    'drinks',
+    'drink',
     'leftovers',
-    'others'
+    'eggs',
+    'other'
   ])) {
     errors.category = 'Category not approved';
   }

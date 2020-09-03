@@ -25,17 +25,17 @@
   margin-bottom: 30px;
 }
 
-.shopping-list-section {
+.shopping-list-item {
   display: flex;
   margin-bottom: 20px;
 }
 
-.shopping-list-item,
+.shopping-list-item-name,
 .belongs-to-fridge {
   margin: 10px 0px 0px 0px;
 }
 
-.shopping-list-item {
+.shopping-list-item-name {
   color: $text-default-light;
 }
 
