@@ -19,7 +19,7 @@ class Splash extends React.Component {
               src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/Teamwork+Illustration+4.png"
             ></img>
             <div className="hero-description">
-              <h1>Friends Sealing Your Eggs?</h1>
+              <h1>Friends Stealing Your Eggs?</h1>
               <p>
                 Achieve peace of mind with Fridge Friend. Ever wonder which of
                 your roommates is eating all your eggs? Well, now you can track

@@ -65,18 +65,19 @@ class NavBar extends React.Component {
     return (
       <div className="nav-bar-container">
         <div className="nav-bar">
-            <h1>Fridge Friend</h1>
-  
-              <FontAwesomeIcon 
-                className="nav-bar-list" 
-                icon={faList}
-                onClick={this.openNav}
-                />
-              {this.openNav ? dropdown : this.closeNav}
+          <h1>
+            <Link to="/profile">Fridge Friend</Link>
+          </h1>
+
+          <FontAwesomeIcon
+            className="nav-bar-list"
+            icon={faList}
+            onClick={this.openNav}
+          />
+          {this.openNav ? dropdown : this.closeNav}
         </div>
-        
       </div>
-    )
+    );
   }
 }
 

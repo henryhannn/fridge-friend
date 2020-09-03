@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .today-cal {
@@ -25,6 +26,7 @@
 }
 
 .today-name {
+  margin-top: 30px;
   color: $text-default;
   margin-bottom: 10px;
 }
@@ -73,5 +75,6 @@
 }
 
 .add-items {
-  padding: 10px 20px 10px 20px
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 30px;
 }
