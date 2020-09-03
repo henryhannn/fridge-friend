@@ -7,8 +7,9 @@ class AddFridgeModalForm extends React.Component {
     super(props)
     this.state = {
       name: "",
-      userId: this.props.userId,
+      userId: this.props.userId, 
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   update(field) {

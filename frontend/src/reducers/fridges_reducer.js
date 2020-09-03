@@ -7,7 +7,7 @@ import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 const fridgesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
-  debugger; 
+
   let newState = { ...oldState };
   switch (action.type) {
     case RECEIVE_FRIDGES:
