@@ -5,11 +5,13 @@ import {
   editFridgeItemQuantity
 } from "../../actions/fridge_items_actions";
 import Fridge from "./fridge";
+import { selectFridge } from "../../reducers/selectors";
 
 const mapStateToProps = (state, ownProps) => {
+  const fridge = state.entities.fridges[ownProps.match.params.fridgeId]
   return {
     fridgeId: ownProps.match.params.fridgeId,
-    fridge: state.fridges[ownProps.match.params.fridgeId],
+    fridge: selectFridge(state, fridge),
     fridgeItems: state.entities.fridgeItems
   };
 };
