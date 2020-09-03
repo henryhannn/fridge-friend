@@ -3,7 +3,7 @@ import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faPlus, faMinus, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faPlus, faMinus, faChevronUp, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 class FoodItemModalForm extends React.Component {
@@ -25,6 +25,7 @@ class FoodItemModalForm extends React.Component {
       showCategoryDescription: false,
       showLocationDescription: false,
       showDateDescription: false,
+      added: false, 
     };
     this.openNameDescription = this.openNameDescription.bind(this);
     this.closeNameDescription = this.closeNameDescription.bind(this);
@@ -46,7 +47,6 @@ class FoodItemModalForm extends React.Component {
   }
 
   update(field) {
-    // debugger;
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
@@ -260,8 +260,9 @@ class FoodItemModalForm extends React.Component {
         owner: this.props.userId,
         imageUrl: this.state.imageUrl,
       };
-      debugger;
-      this.props.addFridgeItem(locationId, fridgeFoodItem);
+      this.props
+        .addFridgeItem(locationId, fridgeFoodItem)
+        .then(() => this.setState({ added: true }));
     } else {
       const shoppingFoodItem = {
         name: this.state.name,
@@ -270,8 +271,9 @@ class FoodItemModalForm extends React.Component {
         imageUrl: this.state.imageUrl,
         fridgeId: this.state.fridge,
       };
-      debugger;
-      this.props.addShoppingListItem(locationId, shoppingFoodItem);
+      this.props
+        .addShoppingListItem(locationId, shoppingFoodItem)
+        .then(() => this.setState({ added: true }));
     }
   }
 
@@ -383,9 +385,15 @@ class FoodItemModalForm extends React.Component {
           </div>
           {this.renderDatePicker()}
           {this.renderFridgePicker()}
-          <button className="add-food-button" onClick={this.handleSubmit}>
-            Add Item
-          </button>
+          {this.state.added ? (
+            <div className="add-food-button">
+              Added <FontAwesomeIcon icon={faCheck} />
+            </div>
+          ) : (
+            <button className="add-food-button" onClick={this.handleSubmit}>
+              Add Item
+            </button>
+          )}
         </div>
       </form>
     );
