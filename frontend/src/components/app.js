@@ -32,9 +32,12 @@ const App = () => (
 
       <ProtectedRoute exact path="/foods" component={FoodItemIndexContainer} />
       <ProtectedRoute exact path="/fridge" component={FridgeContainer} />
+
       <ProtectedRoute exact path="/shoppinglist" component={ShoppingListContainer} />
       <ProtectedRoute exact path="/today" component={TodayContainer} />
       <ProtectedRoute exact path="/calendar" component={FoodCalendarContainer} />
+
+
       <AuthRoute path="/" component={LoginFormContainer} />
     </Switch>
     <Footer />

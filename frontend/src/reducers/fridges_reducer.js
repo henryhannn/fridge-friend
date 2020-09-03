@@ -7,10 +7,12 @@ import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 const fridgesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
+
   let newState = { ...oldState };
   switch (action.type) {
     case RECEIVE_FRIDGES:
       newState = {};
+      console.log(action.fridges);  
       action.fridges.forEach(fridge => {
         newState[fridge._id] = {
           _id: fridge._id,

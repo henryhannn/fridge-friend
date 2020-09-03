@@ -22,6 +22,10 @@ class Profile extends React.Component {
     this.openModal = this.openModal.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchUserFridges(this.props.userId); 
+  }
+
   openModal(e) {
     e.preventDefault();
     this.setState({ showModal: true }, () => {
@@ -50,7 +54,7 @@ class Profile extends React.Component {
             </div>
           </div>
           <div className="fooditem-modal-form-container">
-            <AddFridgeModalForm userId={this.props.userId} />
+            <AddFridgeModalForm userId={this.props.userId} createFridge={this.props.createFridge} />
           </div>
         </div>
       );
@@ -58,47 +62,53 @@ class Profile extends React.Component {
   }
 
   render(){
-    return (
-      <div>
-        <NavBarContainer />
-          <div className="main-profile-container">
-            <h1 className="whats-in-it">What's in the fridge today?</h1>
-            <div className="fridge-kitchen-container">
-              {/* kitchen image: */}
-              <img
-                className="kitchen"
-                alt="kitchen"
-                src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/Kitchen_Final.png"
-              ></img>
-              {/* fridges: */}
-              <div className="fridge-list">
-                <FontAwesomeIcon icon={faHome} className="cal-icons" id="profile-fridge-icon" />
-                {/* This is where you should loop through the fridges and render each one! */}
-                <p className="fridge-name">{"Fridge Name"}</p>
+    if (this.props.fridges) {
+      return (
+        <div>
+          <NavBarContainer />
+            <div className="main-profile-container">
+              <h1 className="whats-in-it">What's in the fridge today?</h1>
+              <div className="fridge-kitchen-container">
+                {/* kitchen image: */}
+                <img
+                  className="kitchen"
+                  alt="kitchen"
+                  src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/Kitchen_Final.png"
+                ></img>
+                {/* fridges: */}
+                <div className="fridge-list">
+                  <FontAwesomeIcon icon={faHome} className="cal-icons" id="profile-fridge-icon" />
+                  {/* This is where you should loop through the fridges and render each one! */}
+                  <p className="fridge-name">{"Fridge Name"}</p>
+                </div>
               </div>
-            </div>
-          <button className="shopping-list-btn">
-            <Link to="/shoppinglist">Shopping List</Link>
-          </button>
-        </div>
-          <div className="second-profile-container">
-              <div className="today">
-                <FontAwesomeIcon icon={faCalendarDay} className="cal-icons" />
-                <Link to="/today"><p>Today</p></Link>
-              </div>
-              <div className="calendar-profile">
-                <FontAwesomeIcon icon={faCalendarAlt} className="cal-icons"/>
-                <Link to="/calendar"><p>Calendar</p></Link>
-              </div>
-            </div>
-          <div className="add-new-fridge">
-            <button onClick={this.openModal}>
-              Add New Fridge
+            <button className="shopping-list-btn">
+              <Link to="/shoppinglist">Shopping List</Link>
             </button>
-            {this.renderAddFridgeModal()}
           </div>
-      </div>
-    )
+            <div className="second-profile-container">
+                <div className="today">
+                  <FontAwesomeIcon icon={faCalendarDay} className="cal-icons" />
+                  <Link to="/today"><p>Today</p></Link>
+                </div>
+                <div className="calendar-profile">
+                  <FontAwesomeIcon icon={faCalendarAlt} className="cal-icons"/>
+                  <Link to="/calendar"><p>Calendar</p></Link>
+                </div>
+              </div>
+            <div className="add-new-fridge">
+              <button onClick={this.openModal}>
+                Add New Fridge
+              </button>
+              {this.renderAddFridgeModal()}
+            </div>
+        </div>
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    }
   }
 }
 

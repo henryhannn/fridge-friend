@@ -21,12 +21,12 @@ export const removeFridge = (fridgeId) => ({
 
 export const fetchUserFridges = (userId) => dispatch => 
   fridgeAPIUtil.fetchFridges(userId)
-    .then(fridges => dispatch(receiveFridges(fridges)));
+    .then(fridges => dispatch(receiveFridges(fridges.data)));
 
 export const createFridge = (userId, name) => dispatch =>
   fridgeAPIUtil.createFridge(userId, name)
-    .then(fridge => dispatch(receiveFridge(fridge)));
+    .then(fridge => dispatch(receiveFridge(fridge.data)));
 
 export const deleteFridge = (fridgeId) => dispatch =>
   fridgeAPIUtil.deleteFridge(fridgeId)
-    .then(fridge => dispatch(removeFridge(fridge._id)));
+    .then(fridge => dispatch(removeFridge(fridge.data._id)));
