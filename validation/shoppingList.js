@@ -13,8 +13,8 @@ module.exports = function validateShoppingListItem(data) {
   // dairy, vegetables, fruits, grains, protein, party, drinks, leftovers, others, can edit this list
   if (!Validator.isIn(data.category, [
     'dairy',
-    'vegetables',
-    'fruits',
+    'vegetable',
+    'fruit',
     'grains',
     'protein',
     'party',
