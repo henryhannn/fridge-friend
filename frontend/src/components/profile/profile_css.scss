@@ -29,13 +29,26 @@
 
 .fridge-list {
   margin: 5% 0% 3% 0%;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   white-space: nowrap;
 }
 
 .fridge-name {
-  padding-top: 2%;
+  padding-top: 6%;
+}
+
+.fridge-list-item-icon-name {
+  display: flex;
+}
+
+.snowflake-icon {
+  color: white;
+  background-color: $default-blue;
+  padding: 10px;
+  border-radius: 50px;
+  margin-right: 10px;
 }
 
 // Calendar Items Container
@@ -47,6 +60,7 @@
   align-items: center;
   justify-content: center;
 }
+
 
 // Calendar Items
 

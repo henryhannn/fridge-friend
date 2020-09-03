@@ -21,22 +21,29 @@ class ShoppingList extends React.Component {
   render() {
     return (
       <div>
-        <NavBarContainer/>
-        <div className="shopping-list">
-          <h1 className="shopping-list-header">Shopping List</h1>
-          <div className="shopping-list-section">
-            <FontAwesomeIcon className="shopping-list-circle-icon" icon={faCircle} />
-            <div className="shopping-list-item-details">
-              <p className="shopping-list-item">Shopping List Item</p>
-              <p className="belongs-to-fridge">Fridge Name</p>
+        <NavBarContainer />
+        <div className="today-align">
+          <div className="shopping-list">
+            <h1 className="shopping-list-header">Shopping List</h1>
+            <div className="shopping-list-section">
+              <FontAwesomeIcon
+                className="shopping-list-circle-icon"
+                icon={faCircle}
+              />
+              <div className="shopping-list-item-details">
+                <p className="shopping-list-item">Shopping List Item</p>
+                <p className="belongs-to-fridge">Fridge Name</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="add-items-section">
-          <button onClick={this.redirectToAdd} className="add-items-btn">Add Items</button>
+          <div className="add-items-section">
+            <button onClick={this.redirectToAdd} className="add-items-btn">
+              Add Items
+            </button>
+          </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
