@@ -1,0 +1,80 @@
+@import '../../styles/vars.scss';
+
+.about-the-app {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 7%;
+  margin: 2% 7% 7% 7%;
+  border-radius: 23px;
+  box-shadow: $default-box-shadow;
+  max-width: 600px;
+}
+
+.about-the-app {
+  text-align: center;
+}
+
+#mern-img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 25%;
+  height: 50%;
+  width: 50%;
+}
+
+.about-us-img {
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  width: 80%;
+  max-height: 400px;
+  max-width: 400px;
+}
+
+.about-the-app > p {
+  max-width: 600px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: $text-default;
+  padding-bottom: 30px;
+  border-bottom: 2px solid $light-grey;
+}
+
+.about-the-team {
+  text-align: center;
+  display: grid;
+} 
+
+.henry-han, 
+.anya-hirota, 
+.nyki-wiehe,
+.jack-fragassi {
+  background-color: $background-blue;
+  min-width: 150px;
+  padding: 30px;
+  margin: 20px 10px 20px 10px;
+  border-radius: 23px;
+}
+
+.henry-han p, 
+.anya-hirota p, 
+.nyki-wiehe p,
+.jack-fragassi p {
+  padding-top: 10px;
+  color: $text-default-light;
+  font-size: 12px;
+}
+
+.about-icon {
+  padding-top: 10px;
+  color: $default-blue-light;
+  font-size: 24px;
+  margin: 3px;
+}
+
+.about-icon:hover {
+  color: $default-blue-hover;
+}

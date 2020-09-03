@@ -11,6 +11,7 @@ import Footer from './footer/footer';
 
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
+import AboutUs from './aboutus/about_us';
 
 import ProfileContainer from './profile/profile_container';
 import FoodItemIndexContainer from './food_items/food_item_index_container'; 
@@ -22,25 +23,21 @@ import FoodCalendarContainer from './calendar/food_calendar_container';
 
 const App = () => (
   <div className="main-app">
-    <header>{/* <NavBarContainer /> */}</header>
+    
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/profile" component={ProfileContainer} />
+      <ProtectedRoute exact path="/aboutus" component={AboutUs} />
 
       <ProtectedRoute exact path="/foods" component={FoodItemIndexContainer} />
       <ProtectedRoute exact path="/fridge" component={FridgeContainer} />
-      <ProtectedRoute
-        exact
-        path="/shoppinglist"
-        component={ShoppingListContainer}
-      />
+
+      <ProtectedRoute exact path="/shoppinglist" component={ShoppingListContainer} />
       <ProtectedRoute exact path="/today" component={TodayContainer} />
-      <ProtectedRoute
-        exact
-        path="/calendar"
-        component={FoodCalendarContainer}
-      />
+      <ProtectedRoute exact path="/calendar" component={FoodCalendarContainer} />
+
+
       <AuthRoute path="/" component={LoginFormContainer} />
     </Switch>
     <Footer />
