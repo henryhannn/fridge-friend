@@ -12,6 +12,10 @@ class Fridge extends React.Component {
     this.redirectToAdd = this.redirectToAdd.bind(this);
   }
 
+  componentDidMount() {
+    this.props.requestFridgeItems(this.props.match.params.fridgeId);
+  }
+
   redirectToAdd(e) {
     e.preventDefault();
     this.props.history.push("/foods");
