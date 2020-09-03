@@ -49,9 +49,10 @@ class NavBar extends React.Component {
         <Link to="/calendar">
           <p>Calendar</p>
         </Link>
-        <Link to="#">
+        {/* Once we have friend functionality: */}
+        {/* <Link to="#">
           <p>Invite a Friend</p>
-        </Link>
+        </Link> */}
         <Link to="/aboutus">
           <p>About Us</p>
         </Link>

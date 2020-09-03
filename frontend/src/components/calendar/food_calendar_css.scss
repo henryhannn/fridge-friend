@@ -1,7 +1,7 @@
 @import '../../styles/vars.scss';
 
 
-.calendar-container {
+#calendar-container {
   padding: 50px;
   background-color: white;
   display: flex;
@@ -14,52 +14,66 @@
 }
 
 .react-calendar {
-  margin: 40px;
+  border: none !important;
+  text-decoration: none !important;
+  
 }
 
-.react-calendar__navigation__label, .react-calendar__month-view__weekdays {
-  background-color: white;
-  font-weight: 400;
-  font-size: 20px;
-  color: $text-default-light;
-  text-decoration: none;
-  border: none;
-  margin-bottom: 20px;
+.react-calendar__navigation__label {
+  color: $text-default-light !important;
+  font-weight: 200;
 }
 
-.react-calendar__navigation__arrow {
-  background-color: white;
-  color: $text-default-light;
-  font-size: 20px;
-  font-weight: 300;
-  margin-bottom: 20px;
+.react-calendar__month-view__weekdays__weekday {
+  text-decoration: none !important;
+}
+
+.react-calendar__navigation__prev2-button, .react-calendar__navigation__next2-button {
+  display: none !important;
+}
+
+.react-calendar__navigation > button {
+  color: $text-default-light !important;
+  display: border-box !important;
+}
+.react-calendar__navigation > button:hover {
+  background-color: white !important;
 }
 
 .react-calendar__tile {
-  flex-basis: 10px;
-  // margin: 2px;
-  height: 40px;
-  max-width: 20px;
-  background-color: $lighter-grey;
+
   border-radius: 100px;
+  color: white !important;
+  padding: 5px 5px 5px 5px;
+
 }
 
 .react-calendar__tile--active {
-    background: $error-yellow;
-    color: white;
+    background: white !important;
+    color: $error-yellow;
+    
+}
+
+.react-calendar__tile--now {
+  background-color: white !important;
+  font-weight: 700 !important;
 }
 
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-    background: $error-yellow;
+    background: white !important;
+    color: $error-yellow
 }
 
-.react-calendar__tile,
-.react-calendar__month-view__days__day {
-    font-size: 18px;
+abbr {
+  text-decoration: none !important;
+  font-weight: 200;
+  color: $text-default;
+  font-size: 10px;
 }
-
 
 .return-to-profile {
+  margin-top: 30px;
   padding: 10px 20px 10px 20px;
 }
+
