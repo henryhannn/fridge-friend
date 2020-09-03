@@ -1,4 +1,5 @@
 import { RECEIVE_SHOPPING_LIST_ITEMS} from "../actions/shopping_list_item_actions";
+import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 const shoppingListItemsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -16,6 +17,8 @@ const shoppingListItemsReducer = (oldState = {}, action) => {
         }
       });
       return newState;
+    case RECEIVE_USER_LOGOUT:
+      return {};
     default:
       return oldState;
   }

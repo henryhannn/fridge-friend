@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const getFridgeItems = (fridgeId) => {
-  return axios.get(`/api/fridges/${fridgeId}/fridgeItem`);
+  return axios.get(`/api/fridges/${fridgeId}`);
 };
 
 export const editFridgeItem = (fridgeId, itemData) => {
-  return axios.patch(`/api/users/${fridgeId}`, itemData);
+  return axios.patch(`/api/fridges/${fridgeId}`, itemData);
 }

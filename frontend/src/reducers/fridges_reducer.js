@@ -1,4 +1,9 @@
-import { RECEIVE_FRIDGES } from "../actions/fridge_actions";
+import {
+  RECEIVE_FRIDGES,
+  RECEIVE_FRIDGE,
+  REMOVE_FRIDGE
+} from "../actions/fridge_actions";
+import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 const fridgesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -14,6 +19,14 @@ const fridgesReducer = (oldState = {}, action) => {
         };
       });
       return newState;
+    case RECEIVE_FRIDGE:
+      newState[action.fridge._id] = action.fridge;
+      return newState;
+    case REMOVE_FRIDGE:
+      delete newState[action.fridgeId];
+      return newState;
+    case RECEIVE_USER_LOGOUT:
+      return {};
     default:
       return oldState;
   }
