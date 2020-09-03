@@ -10,6 +10,9 @@ import {
   faTimes,
   faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSnowflake
+} from "@fortawesome/free-regular-svg-icons";
 import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
@@ -62,53 +65,57 @@ class Profile extends React.Component {
   }
 
   render(){
-    if (this.props.fridges) {
       return (
         <div>
           <NavBarContainer />
-            <div className="main-profile-container">
-              <h1 className="whats-in-it">What's in the fridge today?</h1>
-              <div className="fridge-kitchen-container">
-                {/* kitchen image: */}
-                <img
-                  className="kitchen"
-                  alt="kitchen"
-                  src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/Kitchen_Final.png"
-                ></img>
-                {/* fridges: */}
-                <div className="fridge-list">
-                  <FontAwesomeIcon icon={faHome} className="cal-icons" id="profile-fridge-icon" />
-                  {/* This is where you should loop through the fridges and render each one! */}
-                  <p className="fridge-name">{"Fridge Name"}</p>
-                </div>
-              </div>
+          <div className="main-profile-container">
+            <h1 className="whats-in-it">What's in the fridge today?</h1>
+            <div className="fridge-kitchen-container">
+              {/* kitchen image: */}
+              <img
+                className="kitchen"
+                alt="kitchen"
+                src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/Kitchen_Final.png"
+              ></img>
+
+              {/* fridges: */}
+              {this.props.fridges.length > 0 ? (
+                <ul className="fridge-list">
+                  {this.props.fridges.map((fridge) => (
+                    <li className="fridge-list-item" key={fridge._id}>
+                      <FontAwesomeIcon icon={faSnowflake} className="" />
+                      <p className="fridge-name">{fridge.name}</p>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div> </div>
+              )}
+            </div>
             <button className="shopping-list-btn">
               <Link to="/shoppinglist">Shopping List</Link>
             </button>
           </div>
-            <div className="second-profile-container">
-                <div className="today">
-                  <FontAwesomeIcon icon={faCalendarDay} className="cal-icons" />
-                  <Link to="/today"><p>Today</p></Link>
-                </div>
-                <div className="calendar-profile">
-                  <FontAwesomeIcon icon={faCalendarAlt} className="cal-icons"/>
-                  <Link to="/calendar"><p>Calendar</p></Link>
-                </div>
-              </div>
-            <div className="add-new-fridge">
-              <button onClick={this.openModal}>
-                Add New Fridge
-              </button>
-              {this.renderAddFridgeModal()}
+          <div className="second-profile-container">
+            <div className="today">
+              <FontAwesomeIcon icon={faCalendarDay} className="cal-icons" />
+              <Link to="/today">
+                <p>Today</p>
+              </Link>
             </div>
+            <div className="calendar-profile">
+              <FontAwesomeIcon icon={faCalendarAlt} className="cal-icons" />
+              <Link to="/calendar">
+                <p>Calendar</p>
+              </Link>
+            </div>
+          </div>
+          <div className="add-new-fridge">
+            <button onClick={this.openModal}>Add New Fridge</button>
+            {this.renderAddFridgeModal()}
+          </div>
         </div>
-      )
-    } else {
-      return (
-        <div></div>
-      )
-    }
+      );
   }
 }
 
