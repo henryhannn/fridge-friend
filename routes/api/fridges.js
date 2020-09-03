@@ -67,7 +67,11 @@ router.patch('/:id', (req, res) => {
           }
         });
         fridge.participants = newParticipants;
-        if (fridge.participants.length === 0) fridge.remove();
+        if (fridge.participants.length === 0) {
+          const resFridge = fridge;
+          fridge.remove();
+          res.json(resFridge);
+        }
       } else if (req.body.fridgeItemId) {
         const item = fridge.fridgeContainer.id(req.body.fridgeItemId);
         if (req.body.quantity) {
@@ -89,21 +93,5 @@ router.patch('/:id', (req, res) => {
         .then(fridge => res.json(fridge));
     });
 });
-
-router.delete('/:id', (req, res) => {
-  Fridge.findById(req.params.id)
-    .then(fridge => {
-      if (req.body.deleteParticipants) {
-        //does not work yet
-        const participant = fridge.participants.find(users => users.ObjectId === req.body.deleteParticipants);
-        participant.remove();
-      } else {
-        const item = fridge.fridgeContainer.id(req.body.fridgeItemId);
-        item.remove();
-      }
-      fridge.save()
-        .then(fridge => res.json(fridge.fridgeContainer));
-    })
-})
 
 module.exports = router;
