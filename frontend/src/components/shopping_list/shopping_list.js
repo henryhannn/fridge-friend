@@ -61,12 +61,14 @@ class ShoppingList extends React.Component {
               }
             </ul>
           </div>
-        </div>
-        <div className="add-items-section">
-          <button onClick={this.redirectToAdd} className="add-items-btn">Add Items</button>
+          <div className="add-items-section">
+            <button onClick={this.redirectToAdd} className="add-items-btn">
+              Add Items
+            </button>
+          </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
