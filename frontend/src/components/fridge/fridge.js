@@ -8,6 +8,12 @@ import NavBarContainer from "../nav/navbar_container";
 class Fridge extends React.Component {
   constructor(props) {
     super(props);
+    this.redirectToAdd = this.redirectToAdd.bind(this);
+  }
+
+  redirectToAdd(e) {
+    e.preventDefault();
+    this.props.history.push("/foods");
   }
 
   expiringItemsColor() {
@@ -35,7 +41,9 @@ class Fridge extends React.Component {
           </div>
         </div>
         <div className="add-items-section">
-          <button className="add-items-btn">Add Items</button>
+          <button onClick={this.redirectToAdd} className="add-items-btn">
+            Add Items
+          </button>
         </div>
       </div>
     );

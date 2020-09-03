@@ -6,6 +6,7 @@
 .shopping-list {
   text-align: center;
   max-width: 38rem;
+  display: flex; 
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -61,4 +62,9 @@
   color: $text-default-light;
   margin: 15px;
   font-size: 20px;
+}
+
+.add-items-btn {
+  padding: 3%; 
+  width: 30%; 
 }

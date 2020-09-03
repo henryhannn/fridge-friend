@@ -3,8 +3,20 @@ import './shopping_list_css.scss';
 import NavBarContainer from '../nav/navbar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
+import { Route, Redirect, withRouter } from "react-router-dom";
+
 
 class ShoppingList extends React.Component {
+  constructor(props) {
+    super(props); 
+    this.redirectToAdd = this.redirectToAdd.bind(this); 
+  }
+
+  redirectToAdd(e) {
+      e.preventDefault(); 
+      this.props.history.push("/foods");
+  }
+
   render() {
     return (
       <div>
@@ -20,7 +32,7 @@ class ShoppingList extends React.Component {
           </div>
         </div>
         <div className="add-items-section">
-          <button className="add-items-btn">Add Items</button>
+          <button onClick={this.redirectToAdd} className="add-items-btn">Add Items</button>
         </div>
       </div>
     )

@@ -27,7 +27,14 @@ class FoodItemSearch extends React.Component {
         foodList.push(foodItem);
       }
     }
-    return foodList;
+    
+    if (foodList[10] !== undefined) {
+      const firstFood = foodList.slice(0,10);
+       
+      return firstFood;  
+    } else {
+      return foodList;
+    }
   }
 
   searchedFoodsDropdown() {
