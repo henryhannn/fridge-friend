@@ -1,4 +1,5 @@
 import { RECEIVE_FRIDGES } from "../actions/fridge_actions";
+import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 const fridgesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -14,6 +15,8 @@ const fridgesReducer = (oldState = {}, action) => {
         };
       });
       return newState;
+    case RECEIVE_USER_LOGOUT:
+      return {};
     default:
       return oldState;
   }
