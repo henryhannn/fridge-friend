@@ -1,0 +1,63 @@
+@import '../../styles/vars.scss';
+
+.splash-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-page h1 {
+  padding: 30px 10px 10px 10px;
+}
+
+.splash-page p {
+  padding-bottom: 30px;
+}
+
+.splash-01 {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0px 50px 0px 30px;
+}
+
+.splash-hero-img {
+  height: 60%;
+  width: 60%;
+}
+
+.get-started {
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 30px;
+}
+
+.splash-02 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.egg-splash {
+  padding: 10px;
+  height: 50%;
+  width: 50%;
+}
+
+.splash-03 {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 30px 30px 30px;
+}
+
+.welcome-button {
+  margin-top: 30px;
+  padding: 10px 20px 10px 20px;
+}

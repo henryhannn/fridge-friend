@@ -12,6 +12,7 @@ import Footer from './footer/footer';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import AboutUs from './aboutus/about_us';
+import SplashPage from './splash/splash';
 
 import ProfileContainer from './profile/profile_container';
 import FoodItemIndexContainer from './food_items/food_item_index_container'; 
@@ -38,7 +39,7 @@ const App = () => (
       <ProtectedRoute exact path="/calendar" component={FoodCalendarContainer} />
 
 
-      <AuthRoute path="/" component={LoginFormContainer} />
+      <AuthRoute path="/" component={SplashPage} />
     </Switch>
     <Footer />
   </div>
