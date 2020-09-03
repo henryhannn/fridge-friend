@@ -9,18 +9,18 @@ const receiveFridgeItems = (fridgeItems) => ({
 
 export const requestFridgeItems = (fridgeId) => (dispatch) =>
   fridgeItemAPIUtil.getFridgeItems(fridgeId)
-    .then((fridgeItems) => dispatch(receiveFridgeItems(fridgeItems)));
+    .then((fridge) => dispatch(receiveFridgeItems(fridge.fridgeContainer)));
 
 export const removeFridgeItem = (fridgeId, fridgeItemId) => (dispatch) =>
   fridgeItemAPIUtil.editFridgeItem(fridgeId, { fridgeItemId })
     .then((fridgeItems) => dispatch(receiveFridgeItems(fridgeItems)));
 
-// itemData should contain keys name, category, quantity, expirationDate and imageUrl
+// itemData should contain keys name, category, owner, quantity, expirationDate and imageUrl
 export const addFridgeItem = (fridgeId, itemData) => (dispatch) =>
   fridgeItemAPIUtil.editFridgeItem(fridgeId, itemData)
     .then((fridgeItems) => dispatch(receiveFridgeItems(fridgeItems)));
 
-//itemData should contain keys fridgeItemId, name, category, quantity, expirationDate and imageUrl
-export const editFridgeItem = (fridgeId, itemData) => (dispatch) =>
+//itemData should contain keys fridgeItemId and quantity
+export const editFridgeItemQuantity = (fridgeId, itemData) => (dispatch) =>
   fridgeItemAPIUtil.editFridgeItem(fridgeId, itemData)
     .then((fridgeItems) => dispatch(receiveFridgeItems(fridgeItems)));
