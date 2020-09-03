@@ -30,4 +30,6 @@ export const createFridge = (userId, name) => dispatch =>
 export const leaveFridge = (fridgeId, userId) => dispatch =>
   fridgeAPIUtil.leaveFridge(fridgeId, userId)
     .then(fridge => dispatch(removeFridge(fridge.data._id)));
+  
+export const editFridgeParticipants = () => {}; 
 
