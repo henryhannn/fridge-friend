@@ -29,10 +29,18 @@ const App = () => (
       <ProtectedRoute path="/profile" component={ProfileContainer} />
 
       <ProtectedRoute exact path="/foods" component={FoodItemIndexContainer} />
-      <Route exact path="/fridge" component={FridgeContainer} />
-      <Route exact path="/shoppinglist" component={ShoppingListContainer} />
-      <Route exact path="/today" component={TodayContainer} />
-      <Route exact path="/calendar" component={FoodCalendarContainer} />
+      <ProtectedRoute exact path="/fridge" component={FridgeContainer} />
+      <ProtectedRoute
+        exact
+        path="/shoppinglist"
+        component={ShoppingListContainer}
+      />
+      <ProtectedRoute exact path="/today" component={TodayContainer} />
+      <ProtectedRoute
+        exact
+        path="/calendar"
+        component={FoodCalendarContainer}
+      />
       <AuthRoute path="/" component={LoginFormContainer} />
     </Switch>
     <Footer />
