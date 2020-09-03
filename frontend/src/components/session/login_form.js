@@ -75,7 +75,7 @@ class LoginForm extends React.Component {
     return (
       <div className="login-background">
         <div className="login-form-container">
-          <h1 className="login-header">Log In to Fridge Friends</h1>
+          <h1 className="login-header">Log In to Fridge Friend</h1>
           <img
             alt="login"
             className="login-image"
