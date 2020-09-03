@@ -8,3 +8,7 @@ export const fetchFridges = (userId) => {
 export const createFridge = (userId, name) => {
   return axios.post('api/fridges', { userId, name });
 };
+
+export const deleteFridge = (fridgeId) => {
+  return axios.delete(`/api/fridges/${fridgeId}`);
+};

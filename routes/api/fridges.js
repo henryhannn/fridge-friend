@@ -40,9 +40,9 @@ router.post('/', (req, res) => {
     })
 });
 
-router.delete('/', (req, res) => {
-  Fridge.findOneAndDelete(req.params.id)
-    .then(fridges => res.json(fridges))
+router.delete('/:id', (req, res) => {
+  Fridge.findOneAndDelete({ _id: req.params.id })
+    .then(fridge => res.json(fridge))
     .catch(err => res.status(404).json({ nofridgefound: 'No fridge found by that id' }));
 })
 
