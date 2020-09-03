@@ -3,7 +3,7 @@ import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faPlus, faMinus, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 
 class FoodItemModalForm extends React.Component {
@@ -18,8 +18,10 @@ class FoodItemModalForm extends React.Component {
       imageUrl: this.props.imageUrl,
       location: "",
       quantity: 1,
+      fridge: "",
       showNameDescription: false,
       showQuantityDescription: false,
+      showFridgeDescription: false,
       showCategoryDescription: false,
       showLocationDescription: false,
       showDateDescription: false,
@@ -32,12 +34,19 @@ class FoodItemModalForm extends React.Component {
     this.closeCategoryDescription = this.closeCategoryDescription.bind(this);
     this.openLocationDescription = this.openLocationDescription.bind(this);
     this.closeLocationDescription = this.closeLocationDescription.bind(this);
+    this.openFridgeDescription = this.openFridgeDescription.bind(this);
+    this.closeFridgeDescription = this.closeFridgeDescription.bind(this);
     this.openDateDescription = this.openDateDescription.bind(this);
     this.closeDateDescription = this.closeDateDescription.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchUserFridges(this.props.userId);
+  }
+
   update(field) {
+    // debugger;
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
@@ -102,20 +111,41 @@ class FoodItemModalForm extends React.Component {
     }
   }
 
+  renderFridgePicker() {
+    if (this.state.location.includes("shopping")) {
+      return (
+        <div
+          onClick={this.openFridgeDescription}
+          className="add-food-form-category_selector"
+        >
+          {this.state.showFridgeDescription ? (
+            <div className="food-name-input-description">
+              <p>Assign your shopping list item to a fridge</p>
+              <FontAwesomeIcon icon={faChevronDown} />
+            </div>
+          ) : null}
+
+          <select
+            onChange={this.update("fridge")}
+            id="add-food-form-category_selector"
+          >
+            <option value="select fridge">Select Fridge</option>
+            {this.props.fridges.map((fridge) => (
+              <option value={fridge._id}>{fridge.name}</option>
+            ))}
+          </select>
+        </div>
+      );
+    }
+  }
+
   renderDatePicker() {
-    if (this.state.location === "fridge") {
+    if (this.state.location.includes("fridge")) {
       return (
         <div
           onClick={this.openDateDescription}
           className="add-food-form-date-picker"
         >
-          {this.state.showDateDescription ? (
-            <div className="food-name-input-description">
-              <p>Select food item's expiration date</p>
-              <FontAwesomeIcon icon={faChevronDown} />
-            </div>
-          ) : null}
-
           <SingleDatePicker
             date={this.state.expirationDate} // momentPropTypes.momentObj or null
             onDateChange={(date) => this.setState({ expirationDate: date })} // PropTypes.func.isRequired
@@ -124,7 +154,14 @@ class FoodItemModalForm extends React.Component {
             id="your_unique_id" // PropTypes.string.isRequired,
             placeholder="Exp Date"
             numberOfMonths={1}
+            openDirection="up"
           />
+          {this.state.showDateDescription ? (
+            <div className="food-date-input-description">
+              <FontAwesomeIcon icon={faChevronUp} />
+              <p>Select food item's expiration date</p>
+            </div>
+          ) : null}
         </div>
       );
     }
@@ -185,6 +222,17 @@ class FoodItemModalForm extends React.Component {
     this.setState({ showDateDescription: false });
   }
 
+  openFridgeDescription() {
+    this.setState({ showFridgeDescription: true }, () => {
+      document.addEventListener("click", this.closeFridgeDescription);
+    });
+  }
+
+  closeFridgeDescription() {
+    document.removeEventListener("click", this.closeFridgeDescription);
+    this.setState({ showFridgeDescription: false });
+  }
+
   selected(value) {
     if (this.state.category === value) {
       return "selected";
@@ -195,23 +243,36 @@ class FoodItemModalForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const shoppingFoodItem = {
-      name: this.state.name,
-      category: this.state.category,
-      quantity: this.state.quantity,
-      imageUrl: this.state.imageUrl,
-    };
 
-    const expDate = this.state.expirationDate ? this.state.expirationDate["_d"] : null ;
+    const locationArray = this.state.location.split(" ");
+    const locationId = locationArray[1];
 
-    const fridgeFoodItem = {
-      name: this.state.name,
-      category: this.state.category,
-      quantity: this.state.quantity,
-      expirationDate: expDate,
-      owner: this.props.userId,
-      imageUrl: this.state.imageUrl,
-    };
+    if (this.state.location.includes("fridge")) {
+      const expDate = this.state.expirationDate
+        ? this.state.expirationDate["_d"]
+        : null;
+
+      const fridgeFoodItem = {
+        name: this.state.name,
+        category: this.state.category,
+        quantity: this.state.quantity,
+        expirationDate: expDate,
+        owner: this.props.userId,
+        imageUrl: this.state.imageUrl,
+      };
+      debugger;
+      this.props.addFridgeItem(locationId, fridgeFoodItem);
+    } else {
+      const shoppingFoodItem = {
+        name: this.state.name,
+        category: this.state.category,
+        quantity: this.state.quantity,
+        imageUrl: this.state.imageUrl,
+        fridgeId: this.state.fridge,
+      };
+      debugger;
+      this.props.addShoppingListItem(locationId, shoppingFoodItem);
+    }
   }
 
   render() {
@@ -312,11 +373,16 @@ class FoodItemModalForm extends React.Component {
               id="add-food-form-category_selector"
             >
               <option value="select location">Select Location</option>
-              <option value="shopping list">shopping list</option>
-              <option value="fridge">fridge</option>
+              <option value={`{shoppingList: ${this.props.userId}`}>
+                shopping list
+              </option>
+              {this.props.fridges.map((fridge) => (
+                <option value={`{fridge: ${fridge._id}`}>{fridge.name}</option>
+              ))}
             </select>
           </div>
           {this.renderDatePicker()}
+          {this.renderFridgePicker()}
           <button className="add-food-button" onClick={this.handleSubmit}>
             Add Item
           </button>
