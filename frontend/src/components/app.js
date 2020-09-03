@@ -31,7 +31,7 @@ const App = () => (
       <ProtectedRoute exact path="/aboutus" component={AboutUs} />
 
       <ProtectedRoute exact path="/foods" component={FoodItemIndexContainer} />
-      <ProtectedRoute exact path="/fridge" component={FridgeContainer} />
+      <ProtectedRoute exact path="/fridge/:fridgeId" component={FridgeContainer} />
 
       <ProtectedRoute exact path="/shoppinglist" component={ShoppingListContainer} />
       <ProtectedRoute exact path="/today" component={TodayContainer} />
