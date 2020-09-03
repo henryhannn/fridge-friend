@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
         newFridge.participants.push(req.body.userId);
         newFridge.save()
           .then(fridge => {
-            res.json({ fridge });
+            res.json(fridge);
           });
       }
     })

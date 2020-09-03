@@ -11,6 +11,9 @@ const fridgeItemsReducer = (oldState = {}, action) => {
         newState[fridgeItem._id] = fridgeItem;
       });
       return newState;
+    case RECEIVE_FRIDGE:
+      newState[fridge._id] = fridge;
+      return newState;
     case RECEIVE_USER_LOGOUT:
       return {};
     default:

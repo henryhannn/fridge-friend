@@ -17,3 +17,7 @@ export const fetchUserFridges = (userId) => dispatch =>
   fridgeAPIUtil.fetchFridges(userId)
     .then(fridges => dispatch(receiveFridges(fridges)));
 
+export const createFridge = (userId, name) => dispatch =>
+  fridgeAPIUtil.createFridge(userId, name)
+    .then(fridge => dispatch(receiveFridge(fridge)));
+
