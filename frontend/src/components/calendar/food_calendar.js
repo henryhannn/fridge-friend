@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NavBarContainer from '../nav/navbar_container';
-import Calendar from 'react-calendar';
 import './food_calendar_css.scss'
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import "react-calendar/dist/Calendar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTimesCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import Calendar from 'react-calendar-pane';
 
 
 class FoodCalendar extends React.Component {
@@ -18,47 +14,13 @@ class FoodCalendar extends React.Component {
       showModal: false,
       selectedDate: moment(),
     };
-    this.closeModal = this.closeModal.bind(this);
-    this.openModal = this.openModal.bind(this);
+  
     this.onSelect = this.onSelect.bind(this);
   }
 
   onSelect = (e) => {
     this.setState({ selectedDate: e });
   };
-
-  openModal(e) {
-    // e.preventDefault();
-    this.setState({ showModal: true }, () => {
-      const modalBackground = document.querySelector(
-        ".calendar-day-background"
-      );
-      modalBackground.addEventListener("click", this.closeModal);
-    });
-  }
-
-  closeModal() {
-    const modalBackground = document.querySelector(".calendar-day-background");
-    modalBackground.removeEventListener("click", this.closeModal);
-    this.setState({ showModal: false });
-  }
-
-  renderDayModal() {
-    if (this.state.showModal) {
-      return (
-        <div className="calendar-day-container">
-          <div className="calendar-day-background">
-            <div className="calendar-day-background-icon">
-              <FontAwesomeIcon icon={faTimesCircle} />
-            </div>
-          </div>
-          <div className="calendar-day-form-container">
-            <h1>Today is {this.state.selectedDate.format("YYYY-MM-DD")}</h1>
-          </div>
-        </div>
-      );
-    }
-  }
 
   render() {
     return (
@@ -68,11 +30,34 @@ class FoodCalendar extends React.Component {
           <h1>Calendar</h1>
           <br />
           <Calendar
+            date={this.state.selectedDate}
             onSelect={this.onSelect}
             onClickDay={this.openModal}
             className="react-calendar"
           />
-          {this.renderDayModal()}
+        </div>
+        <div className="selected-date-div">
+          <div className="selected-date-heading">
+            <h1>Items Expiring On:</h1>
+            <p>{this.state.selectedDate.format("MM.DD.YYYY")}</p>
+          </div>
+
+          {/* expiring items */}
+          {/* check if selected date has expired items */}
+          {/* this.props.alluseritems.length > 0 ? ( */}
+            <ul className="expiring-items-list">
+              {/* this.props.allUserItems.map((item) => ( */}
+              <li className="expiring-item">
+                <p className="expiring-item-name">Item Name</p>
+                <p className="expiring-item-fridge">Fridge</p>
+                <p className="expiring-item-name">{/* item.name */}</p>
+                <p className="expiring-item-fridge">{/* item.fridge */}</p>
+              </li>
+              {/* ))} */}
+            </ul>
+          {/* ) : ( */}
+          {/* <div></div> */}
+          {/* )} */}
           <button className="return-to-profile">
             <Link to="/profile">Return to Profile</Link>
           </button>
