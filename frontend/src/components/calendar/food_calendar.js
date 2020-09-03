@@ -3,7 +3,7 @@ import NavBarContainer from '../nav/navbar_container';
 import './food_calendar_css.scss'
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import "react-calendar/dist/Calendar.css";
+// import "react-calendar/dist/Calendar.css";
 import Calendar from 'react-calendar-pane';
 
 
