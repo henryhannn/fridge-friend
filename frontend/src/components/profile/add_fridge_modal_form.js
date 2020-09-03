@@ -20,7 +20,7 @@ class AddFridgeModalForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    //dispatch action and info to create a fridge
+    this.props.createFridge(this.state.userId, this.state.name); 
   }
 
   render() {
