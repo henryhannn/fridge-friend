@@ -1,5 +1,6 @@
 import React from "react";
 import FoodItemModalForm from "./food_item_modal_form"; 
+import FoodItemModalContainer from "./food_item_modal_container"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
@@ -42,7 +43,7 @@ class FoodItemCategoryItem extends React.Component {
             </div>
           </div>
           <div className="fooditem-modal-form-container">
-            <FoodItemModalForm
+            <FoodItemModalContainer
               name=""
               category={this.props.category.name}
               imageUrl={this.props.category.imageUrl}

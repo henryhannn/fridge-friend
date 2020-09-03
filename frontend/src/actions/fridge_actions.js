@@ -13,7 +13,7 @@ export const receiveFridge = (fridge) => ({
   fridge
 })
 
-export const fetchFridges = () => dispatch => 
-  fridgeAPIUtil.fetchFridges()
+export const fetchUserFridges = (userId) => dispatch => 
+  fridgeAPIUtil.fetchFridges(userId)
     .then(fridges => dispatch(receiveFridges(fridges)));
 

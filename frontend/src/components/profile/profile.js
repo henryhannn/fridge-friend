@@ -3,7 +3,13 @@ import './profile_css.scss';
 import NavBarContainer from '../nav/navbar_container';
 import AddFridgeModalForm from './add_fridge_modal_form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarDay, faCalendarAlt, faHome, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarDay,
+  faCalendarAlt,
+  faHome,
+  faTimes,
+  faTimesCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
@@ -20,7 +26,7 @@ class Profile extends React.Component {
     e.preventDefault();
     this.setState({ showModal: true }, () => {
       const modalBackground = document.querySelector(
-        ".addfridge-modal-background"
+        ".fooditem-modal-background"
       );
       modalBackground.addEventListener("click", this.closeModal);
     });
@@ -28,7 +34,7 @@ class Profile extends React.Component {
 
   closeModal() {
     const modalBackground = document.querySelector(
-      ".addfridge-modal-background"
+      ".fooditem-modal-background"
     );
     modalBackground.removeEventListener("click", this.closeModal);
     this.setState({ showModal: false });
@@ -37,17 +43,16 @@ class Profile extends React.Component {
   renderAddFridgeModal() {
     if (this.state.showModal) {
       return (
-        <div className="addfridge-modal-container">
-          <div className="addfridge-modal-background">
-            <FontAwesomeIcon icon={faTimes} />
+        <div className="fooditem-modal-container">
+          <div className="fooditem-modal-background">
+            <div className="fooditem-modal-background-icon">
+              <FontAwesomeIcon icon={faTimesCircle} />
+            </div>
           </div>
-        <div className="addfridge-modal-form-container">
-          <AddFridgeModalForm
-            name={""}
-            participants={""}
-            />
+          <div className="fooditem-modal-form-container">
+            <AddFridgeModalForm userId={this.props.userId} />
+          </div>
         </div>
-      </div>
       );
     }
   }

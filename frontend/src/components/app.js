@@ -31,10 +31,8 @@ const App = () => (
       <ProtectedRoute exact path="/foods" component={FoodItemIndexContainer} />
       <Route exact path="/fridge" component={FridgeContainer} />
       <Route exact path="/shoppinglist" component={ShoppingListContainer} />
-
       <Route exact path="/today" component={TodayContainer} />
       <Route exact path="/calendar" component={FoodCalendarContainer} />
-
       <AuthRoute path="/" component={LoginFormContainer} />
     </Switch>
     <Footer />

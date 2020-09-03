@@ -7,10 +7,12 @@ const mapStateToProps = (state) => {
   return {
     signedIn: state.session.isSignedIn,
     errors: state.errors.session,
+    userId: state.session.user.id,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
+  //need action to create fridge
   return {
     logout: () => dispatch(logout()),
   };

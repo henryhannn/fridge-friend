@@ -6,8 +6,8 @@ class AddFridgeModalForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      // name: this.props.name;
-      // participants: this.props.participants;
+      name: "",
+      userId: this.props.userId,
     }
   }
   
@@ -18,20 +18,39 @@ class AddFridgeModalForm extends React.Component {
     });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    //dispatch action and info to create a fridge
+  }
+
   render() {
     return (
-      <div className="add-fridge-form">
-        <form>
+      <div className="add-fridge-form-container">
+        <form className="add-fridge-form">
+          <h1>
+            Add Fridge: <br /> {this.state.name}
+          </h1>
+          <div className="add-food-img-container">
+            <img
+              src={
+                "https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/fridge.svg"
+              }
+              alt=""
+            ></img>
+          </div>
           <input
             type="text"
             value={this.state.name}
             className="add-fridge-modal-form-input"
             onChange={this.update("name")}
             placeholder="Fridge Name"
-            />
+          />
+          <button className="add-fridge-button" onClick={this.handleSubmit}>
+            Add Fridge
+          </button>
         </form>
       </div>
-    )
+    );
   }
 }
 
