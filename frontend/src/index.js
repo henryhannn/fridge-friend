@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //fridge actions
   window.fetchUserFridges = fridgeActions.fetchUserFridges;
   window.createFridge = fridgeActions.createFridge;
-  window.deleteFridge = fridgeActions.deleteFridge;
+  window.leaveFridge = fridgeActions.leaveFridge;
 
   // shopping list actions
   window.requestShoppingListItems = shoppingListActions.requestShoppingListItems;

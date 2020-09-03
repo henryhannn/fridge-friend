@@ -59,6 +59,15 @@ router.patch('/:id', (req, res) => {
     .then(fridge => {
       if (req.body.addParticipants) {
         fridge.participants.push(req.body.addParticipants);
+      } else if (req.body.deleteParticipants) {
+        const newParticipants = [];
+        fridge.participants.forEach((userId) => {
+          if (userId != req.body.deleteParticipants) {
+            newParticipants.push(userId);
+          }
+        });
+        fridge.participants = newParticipants;
+        if (fridge.participants.length === 0) fridge.remove();
       } else if (req.body.fridgeItemId) {
         const item = fridge.fridgeContainer.id(req.body.fridgeItemId);
         if (req.body.quantity) {
@@ -77,7 +86,7 @@ router.patch('/:id', (req, res) => {
         });
       }
       fridge.save()
-        .then(fridge => res.json(fridge.fridgeContainer));
+        .then(fridge => res.json(fridge));
     });
 });
 
