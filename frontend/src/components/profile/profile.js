@@ -68,6 +68,7 @@ class Profile extends React.Component {
               {/* fridges: */}
               <div className="fridge-list">
                 <FontAwesomeIcon icon={faHome} className="cal-icons" id="profile-fridge-icon" />
+                {/* This is where you should loop through the fridges and render each one! */}
                 <p className="fridge-name">{"Fridge Name"}</p>
               </div>
             </div>
@@ -78,11 +79,11 @@ class Profile extends React.Component {
           <div className="second-profile-container">
               <div className="today">
                 <FontAwesomeIcon icon={faCalendarDay} className="cal-icons" />
-                <p>Today</p>
+                <Link to="/today"><p>Today</p></Link>
               </div>
               <div className="calendar-profile">
                 <FontAwesomeIcon icon={faCalendarAlt} className="cal-icons"/>
-                <p>Calendar</p>
+                <Link to="/calendar"><p>Calendar</p></Link>
               </div>
             </div>
           <div className="add-new-fridge">

@@ -1,3 +1,6 @@
+fridge icon!:
+https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/fridge.svg
+
 condiments:
 https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/category-icons/condiments.svg
 
