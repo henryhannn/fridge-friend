@@ -12,8 +12,23 @@ const validateShoppingListItem = require('../../validation/shoppingList');
 router.get("/test", (req, res) => res.json({ msg: "This is the test users route" }));
 
 router.get("/", (req, res) => {
-  User.find()
-    .then((users) => res.json(users));
+  User.find().then((users) => {
+    const userItems = {};
+    users.forEach((user) => (userItems[user.id] = user));
+    res.json(userItems);
+  });
+})
+
+router.post('/getnames', (req, res) => {
+  console.log(req.body.userIds);
+  User.find({ _id: { $in: req.body.userIds } })
+    .then((users) => {
+      const names = {};
+      users.forEach(user => {
+        names[user._id] = { firstname: user.firstname, lastname: user.lastname }
+      });
+      res.json(names);
+    });
 })
 
 router.post('/register', (req, res) => {

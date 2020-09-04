@@ -23,6 +23,11 @@ import throttle from 'lodash/throttle';
 import * as fridgeItemsActions from './actions/fridge_items_actions';
 import * as fridgeActions from './actions/fridge_actions';
 import * as shoppingListActions from './actions/shopping_list_item_actions';
+import {getUsers} from "./util/users_util"; 
+import {addUserToFridge} from "./util/fridge_util";
+import {requestUsers} from "./actions/users_actions";  
+import { fetchNames } from './util/names_util';
+
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -77,6 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
+  //user util
+  window.getUsers = getUsers; 
+  window.addUserToFridge = addUserToFridge;
+  window.requestUsers = requestUsers; 
+
   //fridge item actions
   window.requestFridgeItems = fridgeItemsActions.requestFridgeItems;
   window.removeFridgeItem = fridgeItemsActions.removeFridgeItem;
@@ -87,6 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchUserFridges = fridgeActions.fetchUserFridges;
   window.createFridge = fridgeActions.createFridge;
   window.leaveFridge = fridgeActions.leaveFridge;
+
+  window.fetchNames = fetchNames;
 
   // shopping list actions
   window.requestShoppingListItems = shoppingListActions.requestShoppingListItems;

@@ -1,6 +1,7 @@
 import React from "react";
 import "./fridge_css.scss";
 import NavBarContainer from "../nav/navbar_container";
+import UserSearchAndAddContainer from "./user_search_add_container"; 
 import FridgeItem from "./fridge_item"; 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { } from "@fortawesome/free-solid-svg-icons";
@@ -32,9 +33,10 @@ class Fridge extends React.Component {
     return (
       <div className="fridge-container">
         <NavBarContainer />
+        <UserSearchAndAddContainer participants={this.props.fridge.participants} fridge={this.props.fridge}/>
 
         <div className="fridge">
-          <h1 className="fridge-name">Fridge Name</h1>
+          <h1 className="fridge-name">{this.props.fridge.name}</h1>
           <ul>
             <li className="fridge-item-details">
               <div className="fridge-left">
@@ -46,12 +48,11 @@ class Fridge extends React.Component {
                 <p className="fridge-item-time">Days Left</p>
               </div>
             </li>
-            {/* 
-            map over fridge items 
-
-            {this.props.fridgeItems.map((fridgeItem) => {
-                <FridgeItem fridgeItem={fridgeItem} />
-            })} */}
+            {
+              Object.values(this.props.fridgeItems).map((fridgeItem) => {
+                return <FridgeItem fridgeItem={fridgeItem} expirationDate={fridgeItem.expirationDate}/>;
+              })
+            }
           </ul>
         </div>
 
