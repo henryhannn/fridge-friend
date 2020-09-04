@@ -2,6 +2,7 @@ import React from 'react';
 import './navbar_css.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList} from '@fortawesome/free-solid-svg-icons';
+import { faSnowflake } from "@fortawesome/free-regular-svg-icons";
 // import { logout } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +12,10 @@ class NavBar extends React.Component {
     this.logoutUser = this.logoutUser.bind(this);
     this.openNav = this.openNav.bind(this);
     this.closeNav = this.closeNav.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchUserFridges(this.props.userId);
   }
 
   logoutUser(e) {
@@ -33,7 +38,9 @@ class NavBar extends React.Component {
 
     const dropdown = (
       <div id="mySideNav" className="sidenav">
-        <a href="#" className="closebtn" onClick={this.closeNav}>&times;</a>
+        <a href="#" className="closebtn" onClick={this.closeNav}>
+          &times;
+        </a>
         <Link to="/profile">
           <p>Profile</p>
         </Link>
@@ -49,6 +56,7 @@ class NavBar extends React.Component {
         <Link to="/calendar">
           <p>Calendar</p>
         </Link>
+
         {/* Once we have friend functionality: */}
         {/* <Link to="#">
           <p>Invite a Friend</p>
@@ -57,8 +65,30 @@ class NavBar extends React.Component {
           <p>About Us</p>
         </Link>
         <Link to="/login">
-          <p className="logout-dropdown" onClick={this.logoutUser}>Log Out</p>
+          <p className="logout-dropdown" onClick={this.logoutUser}>
+            Log Out
+          </p>
         </Link>
+        {this.props.fridges.length > 0 ? (
+          <ul className="fridge-list-nav">
+            <p>My Fridges</p>
+            {this.props.fridges.map((fridge) => (
+              <Link to={`/fridge/${fridge._id}`}>
+                <li className="fridge-list-item-nav" key={fridge._id}>
+                  <div className="fridge-list-item-icon-nav">
+                    <FontAwesomeIcon
+                      icon={faSnowflake}
+                      className="snowflake-icon-nav"
+                    />
+                    <p className="fridge-name-nav">{fridge.name}</p>
+                  </div>
+                </li>
+              </Link>
+            ))}
+          </ul>
+        ) : (
+          <div> </div>
+        )}
       </div>
     );
 

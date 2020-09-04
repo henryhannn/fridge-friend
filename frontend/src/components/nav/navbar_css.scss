@@ -63,3 +63,23 @@
   font-size: 45px;
   color: $text-default;
 }
+
+.fridge-list-item-icon-nav {
+  display: flex; 
+  align-items: center;
+}
+
+.snowflake-icon-nav {
+  margin-right: 2%
+}
+
+.fridge-list-nav {
+  margin-top: 5%; 
+  border-top: 1px solid #C9D9DE; 
+  width: 100%; 
+  padding-top: 5%; 
+}
+
+.fridge-list-nav > p{
+  padding: 8px 8px 8px 32px;
+} 

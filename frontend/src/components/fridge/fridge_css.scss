@@ -62,6 +62,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   padding: 5%;
 }
 
@@ -74,9 +75,30 @@
 }
 
 .yellowExpColor {
-  color: #cbbc1f; 
+  color:$error-yellow; 
 }
 
 .redExpColor {
-  color: #e5574b;
+  color: $error-red;
+}
+
+.remove-fridge-disclaimer {
+  font-size: 11px;
+  margin-top: 5%;
+}
+.remove-fridge-question {
+  font-size: 14px;
+  margin-top: 5%;
+
+}
+
+.leave-fridge-btn {
+  margin-top: 5%;
+  padding: 3% 5%;
+  background-color: $error-yellow;
+}
+
+.remove-fridge-form-button {
+  padding: 5%; 
+  background-color: $error-red;
 }

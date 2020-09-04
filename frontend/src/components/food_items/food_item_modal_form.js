@@ -160,7 +160,7 @@ class FoodItemModalForm extends React.Component {
           {this.state.showDateDescription ? (
             <div className="food-date-input-description">
               <FontAwesomeIcon icon={faChevronUp} />
-              <p>Select food item's expiration date</p>
+              <p>Optional: select food item's expiration date</p>
             </div>
           ) : null}
         </div>
