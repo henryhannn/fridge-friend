@@ -21,7 +21,8 @@ class AddFridgeModalForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createFridge(this.state.userId, this.state.name); 
+    this.props.createFridge(this.state.userId, this.state.name);
+    setTimeout(() => this.props.closeModal(), 200);
   }
 
   render() {
