@@ -36,3 +36,8 @@ export const addFridgeItem = (fridgeId, itemData) => (dispatch) =>
 export const editFridgeItemQuantity = (fridgeId, itemData) => (dispatch) =>
   fridgeItemAPIUtil.editFridgeItem(fridgeId, itemData)
     .then((fridge) => dispatch(receiveFridgeItems(fridge.data.fridgeContainer)));
+
+//itemData should contain keys fridgeItemId and expirationDate
+export const editFridgeItemExpDate = (fridgeId, itemData) => (dispatch) =>
+  fridgeItemAPIUtil.editFridgeItem(fridgeId, itemData)
+    .then((fridge) => dispatch(receiveFridgeItems(fridge.data.fridgeContainer)));

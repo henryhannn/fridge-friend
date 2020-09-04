@@ -76,6 +76,8 @@ router.patch('/:id', (req, res) => {
         const item = fridge.fridgeContainer.id(req.body.fridgeItemId);
         if (req.body.quantity) {
           item.quantity = req.body.quantity;
+        } else if (req.body.expirationDate) {
+          item.expirationDate = req.body.expirationDate;
         } else {
           item.remove();
         }
