@@ -39,13 +39,20 @@ class Splash extends React.Component {
                 Protein? Sure. Fun? Absegglutely. Eggs are fantastic.
               </p>
             </div>
-            <img className="egg-splash" src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/category-icons/egg.svg"></img>
+            <img
+              className="egg-splash"
+              src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/category-icons/egg.svg"
+            ></img>
           </div>
         </div>
-          <div className="splash-03">
-            <h1>Ready to have a new friend?</h1>
-            <button className="welcome-button">Welcome to Fridge Friends</button>
-          </div>
+        <div className="splash-03">
+          <h1>Ready to have a new friend?</h1>
+          <Link to="/signup">
+            <button className="welcome-button">
+              Welcome to Fridge Friends
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }

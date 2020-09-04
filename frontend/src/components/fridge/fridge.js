@@ -22,13 +22,6 @@ class Fridge extends React.Component {
     this.props.history.push("/foods");
   }
 
-  expiringItemsColor() {
-    // this function will change the text-color based on how close the expiration date is:
-    // 1 week or more $dark-blue
-    // 4-7 days $error-yellow
-    // 1-3 days $error-red
-  }
-
   render() {
     return (
       <div className="fridge-container">
@@ -50,7 +43,15 @@ class Fridge extends React.Component {
             </li>
             {
               Object.values(this.props.fridgeItems).map((fridgeItem) => {
-                return <FridgeItem fridgeItem={fridgeItem} expirationDate={fridgeItem.expirationDate}/>;
+                return (
+                  <FridgeItem
+                    key={fridgeItem._id}
+                    fridgeItem={fridgeItem}
+                    fridgeId={this.props.fridgeId}
+                    expirationDate={fridgeItem.expirationDate}
+                    editFridgeItemQuantity={this.props.editFridgeItemQuantity}
+                  />
+                );
               })
             }
           </ul>
