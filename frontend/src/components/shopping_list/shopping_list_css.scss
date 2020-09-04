@@ -22,17 +22,33 @@
 
 .shopping-list-header {
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.shopping-list-category {
+  max-width: 400px;
+  width: 200px;
+  min-width: 100px;
+  border: 1px solid red;
+}
+
+.shopping-list-category-label {
+  margin: 0;
+}
+
+.shopping-list-category-items {
+  margin-top: 10px;
 }
 
 .shopping-list-item {
   display: flex;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .shopping-list-item-name,
 .belongs-to-fridge {
-  margin: 10px 0px 0px 0px;
+  
 }
 
 .shopping-list-item-name {
@@ -61,13 +77,11 @@
 
 .shopping-list-circle-icon {
   color: $text-default-light;
-  margin: 15px;
   font-size: 20px;
 }
 
 .shopping-list-circle-icon-checked {
   color: green;
-  margin: 15px;
   font-size: 20px;
 }
 
@@ -75,6 +89,20 @@
   padding: 10px 20px 10px 20px; 
 }
 
-.shopping-list-category-items {
-  margin-top: 15px;
+.quantity-form-container {
+  width: 50%;
+}
+
+.quantity-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  // width: 200px;
+}
+
+.align-me {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

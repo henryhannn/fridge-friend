@@ -80,16 +80,6 @@ class Fridge extends React.Component {
         <div className="fridge">
           <h1 className="fridge-name">{this.props.fridge.name}</h1>
           <ul>
-            <li className="fridge-item-details">
-              <div className="fridge-left">
-                <p className="fridge-item-name">Fridge Item</p>
-                <p className="fridge-item-owner">Owner</p>
-              </div>
-              <div className="fridge-right">
-                <p className="fridge-item-ex">Expiration</p>
-                <p className="fridge-item-time">Days Left</p>
-              </div>
-            </li>
             {Object.values(this.props.fridgeItems).map((fridgeItem) => {
               return (
                 <FridgeItem
