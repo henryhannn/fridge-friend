@@ -18,7 +18,7 @@ module.exports = function validateShoppingListItem(data) {
     'grains',
     'protein',
     'dessert',
-    'comdiment',
+    'condiment',
     'party',
     'drink',
     'leftovers',
