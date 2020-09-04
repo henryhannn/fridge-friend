@@ -80,11 +80,9 @@ class Fridge extends React.Component {
           participants={this.props.fridge.participants}
           fridge={this.props.fridge}
         />
-
         <div className="fridge">
           <h1 className="fridge-name">{this.props.fridge.name}</h1>
           <ul>
-       
             {Object.values(this.props.fridgeItems).map((fridgeItem) => {
               return (
                 <FridgeItem
