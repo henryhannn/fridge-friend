@@ -16,15 +16,26 @@ class Fridge extends React.Component {
       showModal: false,
     };
     this.redirectToAdd = this.redirectToAdd.bind(this);
-    this.state = {names: null};
+    this.state = { names: null };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
   }
 
   componentDidMount() {
     this.props.requestFridgeItems(this.props.match.params.fridgeId);
-    fetchNames(this.props.fridge.participants)
-      .then(names => this.setState({names: names.data}));
+    fetchNames(this.props.fridge.participants).then((names) =>
+      this.setState({ names: names.data })
+    );
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.fridge.participants.length !==
+      this.props.fridge.participants.length
+    ) {
+      fetchNames(this.props.fridge.participants).then((names) =>
+      this.setState({ names: names.data })
+    )}
   }
 
   redirectToAdd(e) {
@@ -60,11 +71,11 @@ class Fridge extends React.Component {
             </div>
           </div>
           <div className="fooditem-modal-form-container">
-            <RemoveFridgeModalForm 
-            history={this.props.history}
-            leaveFridge={this.props.leaveFridge}
-            fridgeId={this.props.fridgeId}
-            userId={this.props.userId}
+            <RemoveFridgeModalForm
+              history={this.props.history}
+              leaveFridge={this.props.leaveFridge}
+              fridgeId={this.props.fridgeId}
+              userId={this.props.userId}
             />
           </div>
         </div>
@@ -73,6 +84,9 @@ class Fridge extends React.Component {
   }
 
   render() {
+    if (this.state.names === null) return null;
+    if (Object.keys(this.state.names).length < this.props.fridge.participants.length)
+      return null;
     return (
       <div className="fridge-container">
         <NavBarContainer />
@@ -81,14 +95,10 @@ class Fridge extends React.Component {
           fridge={this.props.fridge}
         />
         <div className="fridge">
-          {/* name of fridge */}
           <h1 className="fridge-name">{this.props.fridge.name}</h1>
           <div className="fridge-participants">
-            {/* this is broken */}
             {this.props.fridge.participants.map((person) => {
-              // return (
-              // <p>{this.state.names[person].firstname}</p>
-              // )
+              return <p>{this.state.names[person].firstname}</p>;
             })}
           </div>
           <ul>
