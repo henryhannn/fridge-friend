@@ -1,16 +1,22 @@
 import React from "react"; 
 import moment from "moment"; 
+import UpdateExpirationModalForm from "./update_expiration_modal"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
   faMinus,
-  faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 
 class FridgeItem extends React.Component {
   constructor(props) {
     super(props);
+     this.state = {
+      showModal: false,
+    };
     this.removeItem = this.removeItem.bind(this); 
+    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
   countQuantity(quantity, num) {
@@ -75,18 +81,60 @@ class FridgeItem extends React.Component {
   }
 
   expiration() {
-    if (this.props.expirationDate === null) return "no expiration";
+    if (this.props.expirationDate === null) return "Add Expiration";
     const exp = this.daysUntilExp();
     if (exp > 0) {
       return exp;
     } else {
       const date = moment(this.props.expirationDate).format("MM/DD/YYYY");
-      return `expired on ${date}`;
+      return `Expired On ${date}`;
     }
   }
 
   removeItem() {
     this.props.removeFridgeItem(this.props.fridgeId, this.props.fridgeItem._id); 
+  }
+
+   openModal() {
+    this.setState({ showModal: true }, () => {
+      const modalBackground = document.querySelector(
+        ".fooditem-modal-background"
+      );
+    
+      modalBackground.addEventListener("click", this.closeModal);
+    });
+  }
+
+  closeModal() {
+    const modalBackground = document.querySelector(
+      ".fooditem-modal-background"
+    );
+    modalBackground.removeEventListener("click", this.closeModal);
+    this.setState({ showModal: false });
+  }
+
+  renderUpdateExpirationModal() {
+    if (this.state.showModal) {
+      return (
+        <div className="fooditem-modal-container">
+          <div className="fooditem-modal-background">
+            <div className="fooditem-modal-background-icon">
+              <FontAwesomeIcon icon={faTimesCircle} />
+            </div>
+          </div>
+          <div
+            className="fooditem-modal-form-container"
+            id="updateExpContainer"
+          >
+            <UpdateExpirationModalForm
+              fridgeItem={this.props.fridgeItem}
+              fridgeId={this.props.fridgeId}
+              editFridgeItemExpDate={this.props.editFridgeItemExpDate}
+            />
+          </div>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -105,20 +153,31 @@ class FridgeItem extends React.Component {
     return (
       <li className="fridge-item-details">
         <div className="fridge-left">
-          <div className="fridge-item-delete-button">
-            <FontAwesomeIcon icon={faTimesCircle} onClick={this.removeItem}/>
-          </div>
           <p className="fridge-item-name">{this.props.fridgeItem.name}</p>
           <p className="fridge-item-owner">
             {this.props.names[this.props.fridgeItem.owner].firstname}
           </p>
-          <p className="fridge-item-owner">Quantity:</p>
-          {this.quantity(this.props.fridgeItem.quantity)}
+          
         </div>
-        <div className="fridge-right">
+        <div className="fridge-center">
           <p className="fridge-item-ex">Expiration</p>
-          <p className={`fridge-item-time ${expColor}`}>{this.expiration()}</p>
+          <div
+            className={`fridge-item-time ${expColor}`}
+            onClick={this.openModal}
+          >
+            {this.expiration()}
+          </div>
         </div>
+
+        <div className="fridge-right">
+          <p>{this.quantity(this.props.fridgeItem.quantity)}</p>
+            <FontAwesomeIcon 
+              className="fridge-item-delete-button"
+              icon={faTimesCircle} 
+              onClick={this.removeItem} />
+        </div>
+        {this.renderUpdateExpirationModal()}
+
       </li>
     );
   }
