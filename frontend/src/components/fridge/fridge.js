@@ -46,12 +46,11 @@ class Fridge extends React.Component {
                 <p className="fridge-item-time">Days Left</p>
               </div>
             </li>
-            {/* 
-            map over fridge items 
-
-            {this.props.fridgeItems.map((fridgeItem) => {
-                <FridgeItem fridgeItem={fridgeItem} />
-            })} */}
+            {
+              Object.values(this.props.fridgeItems).map((fridgeItem) => {
+                return <FridgeItem fridgeItem={fridgeItem} />
+              })
+            }
           </ul>
         </div>
 
