@@ -7,9 +7,7 @@ const receiveUsers = (users) => ({
   users,
 });
 
-export const requestUsers = () => (dispatch) =>
-  foodItemAPIUtil
-    .getUsers()
+export const requestUsers = () => (dispatch) => getUsers()
     .then((users) => dispatch(receiveUsers(users)));
 
 
