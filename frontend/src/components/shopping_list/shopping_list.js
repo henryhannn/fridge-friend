@@ -55,7 +55,7 @@ class ShoppingList extends React.Component {
   quantity(quantity, itemId) {
     if (quantity === 1) {
       return (
-        <div className="quantity-form-container">
+        <div className="quantity-form-container-shopping-list">
         <div className="quantity-align">
           <p className="quantity-min">min</p>
           <p className="quantity-num">{quantity}</p>
@@ -92,6 +92,7 @@ class ShoppingList extends React.Component {
     return (
       <div>
         <NavBarContainer />
+        
         <div className="shopping-list">
           <h1 className="shopping-list-header">Shopping List</h1>
             <ul className="shopping-list-categories">

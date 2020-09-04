@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
   faMinus,
-  faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 
 class FridgeItem extends React.Component {
   constructor(props) {
@@ -81,7 +81,7 @@ class FridgeItem extends React.Component {
       return exp;
     } else {
       const date = moment(this.props.expirationDate).format("MM/DD/YYYY");
-      return `expired on ${date}`;
+      return `Expired On ${date}`;
     }
   }
 
@@ -105,19 +105,22 @@ class FridgeItem extends React.Component {
     return (
       <li className="fridge-item-details">
         <div className="fridge-left">
-          <div className="fridge-item-delete-button">
-            <FontAwesomeIcon icon={faTimesCircle} onClick={this.removeItem}/>
-          </div>
           <p className="fridge-item-name">{this.props.fridgeItem.name}</p>
           <p className="fridge-item-owner">
             {this.props.names[this.props.fridgeItem.owner].firstname}
           </p>
-          <p className="fridge-item-owner">Quantity:</p>
-          {this.quantity(this.props.fridgeItem.quantity)}
+          
         </div>
-        <div className="fridge-right">
+        <div className="fridge-center">
           <p className="fridge-item-ex">Expiration</p>
           <p className={`fridge-item-time ${expColor}`}>{this.expiration()}</p>
+        </div>
+        <div className="fridge-right">
+          <p>{this.quantity(this.props.fridgeItem.quantity)}</p>
+            <FontAwesomeIcon 
+              className="fridge-item-delete-button"
+              icon={faTimesCircle} 
+              onClick={this.removeItem} />
         </div>
       </li>
     );

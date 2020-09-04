@@ -81,7 +81,16 @@ class Fridge extends React.Component {
           fridge={this.props.fridge}
         />
         <div className="fridge">
+          {/* name of fridge */}
           <h1 className="fridge-name">{this.props.fridge.name}</h1>
+          <div className="fridge-participants">
+            {/* this is broken */}
+            {this.props.fridge.participants.map((person) => {
+              // return (
+              // <p>{this.state.names[person].firstname}</p>
+              // )
+            })}
+          </div>
           <ul>
             {Object.values(this.props.fridgeItems).map((fridgeItem) => {
               return (
@@ -104,7 +113,7 @@ class Fridge extends React.Component {
             Add Items
           </button>
           <button onClick={this.openModal} className="leave-fridge-btn">
-            Remove Fridge From Account
+            Leave Fridge
           </button>
           {this.renderRemoveFridgeModal()}
         </div>
