@@ -57,7 +57,10 @@ class Profile extends React.Component {
             </div>
           </div>
           <div className="fooditem-modal-form-container">
-            <AddFridgeModalForm userId={this.props.userId} createFridge={this.props.createFridge} />
+            <AddFridgeModalForm
+              userId={this.props.userId}
+              createFridge={this.props.createFridge}
+              closeModal={() => this.closeModal()} />
           </div>
         </div>
       );
