@@ -6,7 +6,7 @@ import {
   editShoppingListItemQuantity,
   requestShoppingListItems
 } from "../../actions/shopping_list_item_actions";
-import { fetchUserFridges } from '../../actions/fridge_actions';
+import { addFridgeItem } from '../../actions/fridge_items_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
     editQuantity: (userId, itemId, newQuant) =>
       dispatch(editShoppingListItemQuantity(userId, { listItemId: itemId, quantity: newQuant })),
     requestItems: (userId) => dispatch(requestShoppingListItems(userId)),
-    getFridges: (userId) => dispatch(fetchUserFridges(userId))
+    addFridgeItem: (fridgeId, itemData) => dispatch(addFridgeItem(fridgeId, itemData)),
   };
 };
 
