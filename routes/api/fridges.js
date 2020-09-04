@@ -23,21 +23,14 @@ router.get('/user/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  Fridge.findOne({ name: req.body.name })
+  const newFridge = new Fridge({
+    name: req.body.name
+  });
+  newFridge.participants.push(req.body.userId);
+  newFridge.save()
     .then(fridge => {
-      if (fridge) {
-        return res.status(400).json({name: 'That fridge name is taken'});
-      } else {
-        const newFridge = new Fridge({
-          name: req.body.name
-        });
-        newFridge.participants.push(req.body.userId);
-        newFridge.save()
-          .then(fridge => {
-            res.json(fridge);
-          });
-      }
-    })
+      res.json(fridge);
+    }); 
 });
 
 router.delete('/:id', (req, res) => {
