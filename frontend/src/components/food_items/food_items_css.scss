@@ -290,3 +290,18 @@
   height: auto; 
 }
 
+.fridge-item-name {
+  word-wrap: break-word;
+}
+
+.fridge-participants {
+  display: flex;
+  justify-content: center; 
+  flex-wrap: wrap;
+}
+
+.fridge-participants > p {
+  margin: 0px 5px; 
+  font-size: 12px;
+  color: $dark-blue; 
+}

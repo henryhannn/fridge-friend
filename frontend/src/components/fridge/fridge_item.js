@@ -160,7 +160,7 @@ class FridgeItem extends React.Component {
           
         </div>
         <div className="fridge-center">
-          <p className="fridge-item-ex">Expiration</p>
+          <p className="fridge-item-ex">Days to Exp</p>
           <div
             className={`fridge-item-time ${expColor}`}
             onClick={this.openModal}
