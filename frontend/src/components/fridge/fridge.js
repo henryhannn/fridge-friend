@@ -31,7 +31,8 @@ class Fridge extends React.Component {
   componentDidUpdate(prevProps) {
     if (
       prevProps.fridge.participants !==
-      this.props.fridge.participants
+      this.props.fridge.participants || 
+      this.props.fridgeId !== prevProps.fridgeId
     ) {
       this.props.requestFridgeItems(this.props.match.params.fridgeId);
       fetchNames(this.props.fridge.participants).then((names) =>
