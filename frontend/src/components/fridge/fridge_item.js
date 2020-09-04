@@ -1,11 +1,16 @@
 import React from "react"; 
 import moment from "moment"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faMinus,
+  faTimesCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 class FridgeItem extends React.Component {
   constructor(props) {
     super(props);
+    this.removeItem = this.removeItem.bind(this); 
   }
 
   countQuantity(quantity, num) {
@@ -80,6 +85,10 @@ class FridgeItem extends React.Component {
     }
   }
 
+  removeItem() {
+    this.props.removeFridgeItem(this.props.fridgeId, this.props.fridgeItem._id); 
+  }
+
   render() {
     if (this.props.names === null) {return null};
     const expDays = this.daysUntilExp();
@@ -96,8 +105,13 @@ class FridgeItem extends React.Component {
     return (
       <li className="fridge-item-details">
         <div className="fridge-left">
+          <div className="fridge-item-delete-button">
+            <FontAwesomeIcon icon={faTimesCircle} onClick={this.removeItem}/>
+          </div>
           <p className="fridge-item-name">{this.props.fridgeItem.name}</p>
-          <p className="fridge-item-owner">{this.props.names[this.props.fridgeItem.owner].firstname}</p>
+          <p className="fridge-item-owner">
+            {this.props.names[this.props.fridgeItem.owner].firstname}
+          </p>
           <p className="fridge-item-owner">Quantity:</p>
           {this.quantity(this.props.fridgeItem.quantity)}
         </div>
