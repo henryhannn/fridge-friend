@@ -94,56 +94,58 @@ class ShoppingList extends React.Component {
         <NavBarContainer />
         <div className="shopping-list">
           <h1 className="shopping-list-header">Shopping List</h1>
-          <div className="shopping-list-section">
             <ul className="shopping-list-categories">
               {Object.keys(this.props.listItems).map((category, idx) => {
                 return (
-                  <li className="shopping-list-category" key={idx}>
-                    <span className="shopping-list-category-label">
+                  <div>
+                    <div className="shopping-list-category-label">
                       {category}
-                    </span>
-                    <ul className="shopping-list-category-items">
-                      {this.props.listItems[category].map((item) => {
-                        return (
-                          <li className="shopping-list-item" key={item._id}>
-                            <FontAwesomeIcon
-                              className={this.circleIconClass(item.done)}
-                              onClick={() =>
-                                this.props.toggleItemDone(
-                                  this.props.userId,
-                                  item._id
-                                )
-                              }
-                              icon={this.circleIcon(item.done)}
-                            />
-                            <div className="shopping-list-item-details">
-                              <p className="shopping-list-item-name">
-                                {item.name}
-                              </p>
-                              <p className="belongs-to-fridge">
-                                {this.props.fridges[item.fridgeId].name}
-                              </p>
-                              <div className="align-me">
-                              {this.quantity(item.quantity, item._id)}
-                              </div>
-                            </div>
-                            <button onClick={() => this.putInFridgeAndDelete(item)}>
-                              Put in fridge
-                            </button>
-                          </li>
+                    </div>
+                    <div className="shopping-list-category" key={idx}>
+                      <ul>
+                        {this.props.listItems[category].map((item) => {
+                          return (
+                            <li className="shopping-list-category-item" key={item._id}>
+                              <FontAwesomeIcon
+                                className={this.circleIconClass(item.done)}
+                                onClick={() =>
+                                  this.props.toggleItemDone(
+                                    this.props.userId,
+                                    item._id
+                                  )
+                                }
+                                icon={this.circleIcon(item.done)}
+                              />
+                                {/* name, fridge, quantity & button */}
+                                <div className="item-and-fridge">
+                                  <p className="shopping-list-item-name">
+                                    {item.name}
+                                  </p>
+                                  <a 
+                                    className="belongs-to-fridge"
+                                    onClick={() => this.putInFridgeAndDelete(item)}
+                                    >
+                                    Add to {this.props.fridges[item.fridgeId].name}
+                                  </a>
+                                </div>
+                                <div className="align-me">
+                                {this.quantity(item.quantity, item._id)}
+                                </div>
+                            </li>
                         );
                       })}
                     </ul>
-                  </li>
+                  </div>
+                  </div>
                 );
               })}
             </ul>
+            
           </div>
           <div className="add-items-section">
             <button onClick={this.redirectToAdd} className="add-items-btn">
               Add Items
             </button>
-          </div>
         </div>
       </div>
     );

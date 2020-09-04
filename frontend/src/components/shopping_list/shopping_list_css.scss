@@ -7,52 +7,52 @@
   text-align: center;
   max-width: 38rem;
   min-width: 250px;
-  display: flex; 
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: white;
-  padding: 5% 5% 5% 5%;
+  padding: 10% 10% 10% 10%;
   margin-top: 5%;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 30px;
+  margin-right: 30px;
   border-radius: 23px;
   box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);  
 }
+
 
 .shopping-list-header {
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.shopping-list-category {
-  max-width: 400px;
-  width: 200px;
-  min-width: 100px;
-  border: 1px solid red;
+
+.shopping-list-category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 10px 20px 10px;
 }
 
 .shopping-list-category-label {
-  margin: 0;
+  padding: 10px 10px 10px 10px;
+  border-bottom: 2px solid $light-grey;
+  text-align: left;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  color: $text-default-light
 }
 
-.shopping-list-category-items {
-  margin-top: 10px;
+.shopping-list-category {
+  margin-top: 20px;
+  text-align: center;
+  // border: 1px solid red;
 }
 
-.shopping-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.shopping-list-item-name,
-.belongs-to-fridge {
-  
+.item-and-fridge {
+  align-items: flex-start;
 }
 
 .shopping-list-item-name {
-  color: $text-default-light;
+  color: $text-default;
 }
 
 .belongs-to-fridge {
@@ -60,37 +60,22 @@
   font-size: 12px;
 }
 
-.shopping-list-section {
-  border-bottom: 2px solid $light-grey;
+.belongs-to-fridge:hover {
+  color: $default-blue-hover;
+  font-size: 12px;
 }
 
 .shopping-list-item-details {
-  margin-bottom: 20px;
-}
-
-.add-items-section {
   display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
   align-items: center;
   justify-content: center;
-  padding: 5%;
-}
-
-.shopping-list-circle-icon {
-  color: $text-default-light;
-  font-size: 20px;
-}
-
-.shopping-list-circle-icon-checked {
-  color: green;
-  font-size: 20px;
-}
-
-.add-items-btn {
-  padding: 10px 20px 10px 20px; 
 }
 
 .quantity-form-container {
-  width: 50%;
+  width: 50px;
+  height: 10px;
 }
 
 .quantity-align {
@@ -105,4 +90,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+// BUTTONS: 
+.shopping-list-circle-icon {
+  float: left;
+  color: $text-default-light;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.shopping-list-circle-icon-checked {
+  float: left;
+  color: green;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.add-items-section { // div for button alignment
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-items-btn, 
+.add-to-fridge-btn {
+  padding: 10px 20px 10px 20px; 
+}
+
+.add-items-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
