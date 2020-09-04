@@ -27,6 +27,7 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid $light-grey;
+  position: relative;
 }
 
 .fridge-left, .fridge-right {
@@ -119,4 +120,13 @@
 
 .fridge-item-delete-button {
   float: right;
+}
+
+.update-exp-fridge-button {
+  margin-top: 5%;
+   padding: 10px 20px 10px 20px;
+}
+
+.fridge-item-time {
+  cursor: pointer;
 }
