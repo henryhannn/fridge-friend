@@ -160,7 +160,7 @@ class FoodItemModalForm extends React.Component {
           {this.state.showDateDescription ? (
             <div className="food-date-input-description">
               <FontAwesomeIcon icon={faChevronUp} />
-              <p>Select food item's expiration date</p>
+              <p>Optional: select food item's expiration date</p>
             </div>
           ) : null}
         </div>
@@ -276,7 +276,8 @@ class FoodItemModalForm extends React.Component {
       };
       this.props
         .addFridgeItem(locationId, fridgeFoodItem)
-        .then(() => this.setState({ added: true }));
+        .then(() => this.setState({ added: true }))
+        .then(() => setTimeout(() => this.props.closeModal(), 1000));
     } else if (this.state.location.includes("shopping")) {
       const shoppingFoodItem = {
         name: this.state.name,
@@ -287,7 +288,8 @@ class FoodItemModalForm extends React.Component {
       };
       this.props
         .addShoppingListItem(locationId, shoppingFoodItem)
-        .then(() => this.setState({ added: true }));
+        .then(() => this.setState({ added: true }))
+        .then(() => setTimeout(() => this.props.closeModal(), 1000));
     } else {
       
       this.props.receiveErrors(["Please fill in all inputs"])

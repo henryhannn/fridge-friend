@@ -3,10 +3,10 @@ import * as fridgeItemAPIUtil from '../util/fridge_item_util';
 export const RECEIVE_FRIDGE_ITEMS = "RECEIVE_FRIDGE_ITEMS";
 export const RECEIVE_FRIDGE_ITEMS_ERRORS = "RECEIVE_FRIDGE_ITEMS_ERRORS";
 
-const receiveFridgeItems = (fridgeItems) => ({
-  type: RECEIVE_FRIDGE_ITEMS,
-  fridgeItems
-});
+const receiveFridgeItems = (fridgeItems) => {
+  return { type: RECEIVE_FRIDGE_ITEMS,
+  fridgeItems }
+}
 
 export const receiveErrors = (errors) => {
   
