@@ -24,7 +24,7 @@ class FridgeItem extends React.Component {
 
   expiration() {
     const exp = this.daysUntilExp(); 
-    if (exp > 4) {
+    if (exp > 0) {
       return exp;
     } else {
       const date = moment(this.props.expirationDate).format("MM/DD/YYYY");
@@ -34,6 +34,18 @@ class FridgeItem extends React.Component {
 
   render() {
 
+    const expDays = this.daysUntilExp()
+
+    let expColor; 
+    if (expDays > 7) {
+      expColor = "greenExpColor";
+    } else if (expDays > 0 && expDays <= 7) {
+      expColor = "yellowExpColor";
+    } else {
+      expColor = "redExpColor";
+    }
+
+
     return (
       <li className="fridge-item-details">
         <div className="fridge-left">
@@ -42,7 +54,7 @@ class FridgeItem extends React.Component {
         </div>
         <div className="fridge-right">
           <p className="fridge-item-ex">Expiration</p>
-          <p className="fridge-item-time">{this.expiration()}</p>
+          <p className={`fridge-item-time ${expColor}`}>{this.expiration()}</p>
         </div>
       </li>
     );
