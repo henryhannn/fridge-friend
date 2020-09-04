@@ -11,6 +11,7 @@ import { withRouter } from "react-router-dom";
 //need user patch and fridge patch - add items to either place 
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps);
   return {
     name: ownProps.name,
     category: ownProps.category,
@@ -18,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
     fridges: Object.values(state.entities.fridges),
     userId: state.session.user.id,
     fridgeErrors: state.errors.fridgeItems,
+    closeModal: () => ownProps.closeModal(),
   };
 };
 
