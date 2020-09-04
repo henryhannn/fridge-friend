@@ -10,7 +10,7 @@ class RemoveFridgeModalForm extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.props.leaveFridge(this.props.fridgeId, this.props.userId)
-      .then(() => this.props.history.push("/profile")); 
+    this.props.history.push("/profile"); 
   }
 
 
