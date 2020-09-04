@@ -2,7 +2,8 @@ import { connect } from "react-redux";
 import {
   requestFridgeItems,
   removeFridgeItem,
-  editFridgeItemQuantity
+  editFridgeItemQuantity,
+  editFridgeItemExpDate
 } from "../../actions/fridge_items_actions";
 import Fridge from "./fridge";
 import { selectFridge } from "../../reducers/selectors";
@@ -26,6 +27,8 @@ const mapDispatchToProps = (dispatch) => {
     editFridgeItemQuantity: (fridgeId, itemData) =>
       dispatch(editFridgeItemQuantity(fridgeId, itemData)),
     leaveFridge: (fridgeId, userId) => dispatch(leaveFridge(fridgeId, userId)),
+    editFridgeItemExpDate: (fridgeId, itemData) =>
+      dispatch(editFridgeItemExpDate(fridgeId, itemData)),
   };
 };
 

@@ -24,6 +24,7 @@
   border-bottom: 2px solid $light-grey;
   margin-bottom: 20px;
   margin-top: 20px;
+  position: relative;
 }
 
 .fridge-right {
@@ -150,4 +151,13 @@
 .fridge-item-delete-button:hover {
   -webkit-transition: all .2s ease-in-out;
   color: $error-red;
+}
+
+.update-exp-fridge-button {
+  margin-top: 5%;
+   padding: 10px 20px 10px 20px;
+}
+
+.fridge-item-time {
+  cursor: pointer;
 }

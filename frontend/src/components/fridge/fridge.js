@@ -102,6 +102,7 @@ class Fridge extends React.Component {
                   editFridgeItemQuantity={this.props.editFridgeItemQuantity}
                   removeFridgeItem={this.props.removeFridgeItem}
                   names={this.state.names}
+                  editFridgeItemExpDate={this.props.editFridgeItemExpDate}
                 />
               );
             })}
