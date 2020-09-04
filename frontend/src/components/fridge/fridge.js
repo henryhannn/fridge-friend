@@ -1,6 +1,7 @@
 import React from "react";
 import "./fridge_css.scss";
 import NavBarContainer from "../nav/navbar_container";
+import UserSearchAndAddContainer from "./user_search_add_container"; 
 import FridgeItem from "./fridge_item"; 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { } from "@fortawesome/free-solid-svg-icons";
@@ -32,6 +33,7 @@ class Fridge extends React.Component {
     return (
       <div className="fridge-container">
         <NavBarContainer />
+        <UserSearchAndAddContainer participants={this.props.fridge.participants} fridge={this.props.fridge}/>
 
         <div className="fridge">
           <h1 className="fridge-name">Fridge Name</h1>
