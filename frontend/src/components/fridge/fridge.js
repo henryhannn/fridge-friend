@@ -1,7 +1,8 @@
 import React from "react";
 import "./fridge_css.scss";
 import NavBarContainer from "../nav/navbar_container";
-import FridgeItem from "./fridge_item"; 
+import FridgeItem from "./fridge_item";
+import { fetchNames } from "../../util/names_util";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { } from "@fortawesome/free-solid-svg-icons";
 
@@ -10,10 +11,13 @@ class Fridge extends React.Component {
   constructor(props) {
     super(props);
     this.redirectToAdd = this.redirectToAdd.bind(this);
+    this.state = {names: null};
   }
 
   componentDidMount() {
     this.props.requestFridgeItems(this.props.match.params.fridgeId);
+    fetchNames(this.props.fridge.participants)
+      .then(names => this.setState({names: names.data}));
   }
 
   redirectToAdd(e) {
@@ -48,7 +52,7 @@ class Fridge extends React.Component {
             </li>
             {
               Object.values(this.props.fridgeItems).map((fridgeItem) => {
-                return <FridgeItem fridgeItem={fridgeItem} />
+                return <FridgeItem fridgeItem={fridgeItem} names={this.state.names} />
               })
             }
           </ul>

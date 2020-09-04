@@ -1,4 +1,4 @@
-import React from "react"; 
+import React from "react";
 
 class FridgeItem extends React.Component {
   constructor(props) {
@@ -21,12 +21,19 @@ class FridgeItem extends React.Component {
     return diffDays(new Date(expDate), new Date(currentDate));
   }
 
+  // printName() {
+  //   const results = this.props.names.filter(function(names) { return names === this.props.fridgeItem.owner; });
+  //   return results;
+  // }
+
   render() {
+    if (this.props.names === null) {return null};
     return (
       <li className="fridge-item-details">
         <div className="fridge-left">
           <p className="fridge-item-name">{this.props.fridgeItem.name}</p>
-          <p className="fridge-item-owner">{this.props.fridgeItem.owner}</p>
+          <p className="fridge-item-owner">{this.props.names[this.props.fridgeItem.owner].firstname}</p>
+          {/* <p className="fridge-item-owner">{this.printName()}</p> */}
         </div>
         <div className="fridge-right">
           <p className="fridge-item-ex">Expiration</p>
