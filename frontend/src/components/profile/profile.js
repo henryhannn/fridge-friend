@@ -107,18 +107,18 @@ class Profile extends React.Component {
             </button>
           </div>
           <div className="second-profile-container">
-            <div className="today">
-              <FontAwesomeIcon icon={faCalendarDay} className="cal-icons" />
               <Link to="/today">
-                <p>Today</p>
+                <div className="today">
+                  <FontAwesomeIcon icon={faCalendarDay} className="cal-icons" />
+                    <p>Today</p>
+                </div>
               </Link>
-            </div>
+              <Link to="/calendar">
             <div className="calendar-profile">
               <FontAwesomeIcon icon={faCalendarAlt} className="cal-icons" />
-              <Link to="/calendar">
                 <p>Calendar</p>
-              </Link>
             </div>
+              </Link>
           </div>
           <div className="add-new-fridge">
             <button onClick={this.openModal}>Add New Fridge</button>
