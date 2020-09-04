@@ -12,7 +12,6 @@ const fridgesReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_FRIDGES:
       newState = {};
-      console.log(action.fridges);  
       action.fridges.forEach(fridge => {
         newState[fridge._id] = {
           _id: fridge._id,

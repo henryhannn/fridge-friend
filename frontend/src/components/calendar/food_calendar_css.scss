@@ -2,78 +2,126 @@
 
 
 #calendar-container {
-  padding: 50px;
+  padding: 30px 30px 40px 30px;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 23px;
-  margin: 50px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .react-calendar {
   border: none !important;
-  text-decoration: none !important;
+}
+
+.Calendar {
+  color: $text-default;
+  font-weight: 200 !important;
+  margin: 20px;
+}
+
+.Calendar th,
+.Calendar td {
+  padding: 1rem;
+  text-align: center;
+  padding: 10px;
+}
+
+tr.month-header {
+  color: $text-default-light;
+  // font-weight: 200 !important;
+}
+
+th.DayOfWeek {
+  color: $text-default-light;
+}
+
+.Day {
+  background-color: $light-grey;
+  border-radius: 100px;
+}
+
+.Day:hover {
+  background-color: $dark-grey;
+}
+
+.Day.selected {
+  background-color: $error-yellow;
+  box-shadow: none;
+}
+
+.Day-inner {
+  background-color: transparent;
+}
+
+.Day-inner:hover {
+  background-color: transparent;
+}
+
+.nav {
+  background-color: $light-grey;
+  border-radius: 300px;
+}
+
+.nav-inner {
+  color: $text-default;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+button.Day-inner {
+  color: $text-default;
+  padding: 3px;
+  margin: 2px;
+}
+
+// Items for selected Day:
+
+.selected-date-div {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.selected-date-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.expiring-items-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.selected-date-div ul {
+  width: 100%;
+  display: flex;
   
 }
 
-.react-calendar__navigation__label {
-  color: $text-default-light !important;
-  font-weight: 200;
-}
-
-.react-calendar__month-view__weekdays__weekday {
-  text-decoration: none !important;
-}
-
-.react-calendar__navigation__prev2-button, .react-calendar__navigation__next2-button {
-  display: none !important;
-}
-
-.react-calendar__navigation > button {
-  color: $text-default-light !important;
-  display: border-box !important;
-}
-.react-calendar__navigation > button:hover {
-  background-color: white !important;
-}
-
-.react-calendar__tile {
-
-  border-radius: 100px;
-  color: white !important;
-  padding: 5px 5px 5px 5px;
-
-}
-
-.react-calendar__tile--active {
-    background: white !important;
-    color: $error-yellow;
-    
-}
-
-.react-calendar__tile--now {
-  background-color: white !important;
-  font-weight: 700 !important;
-}
-
-.react-calendar__tile--active:enabled:hover,
-.react-calendar__tile--active:enabled:focus {
-    background: white !important;
-    color: $error-yellow
-}
-
-abbr {
-  text-decoration: none !important;
-  font-weight: 200;
-  color: $text-default;
-  font-size: 10px;
+.expiring-items-list li {
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  border-bottom: 2px solid white;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .return-to-profile {
-  margin-top: 30px;
   padding: 10px 20px 10px 20px;
 }
 
+.expiring-item-name {
+ color: $text-default-light;
+}
+
+.expiring-item-fridge {
+  font-size: 14px;
+  color: $dark-blue;
+}
