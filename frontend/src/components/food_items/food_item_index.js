@@ -57,6 +57,7 @@ class FoodItemIndex extends React.Component {
             <FoodItemModalContainer
               name={""}
               category={""}
+              closeModal={() => this.closeModal()}
               imageUrl={
                 "https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/category-icons/other.svg"
               }

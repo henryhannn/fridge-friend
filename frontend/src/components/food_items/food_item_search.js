@@ -69,6 +69,7 @@ class FoodItemSearch extends React.Component {
           <div className="fooditem-modal-form-container">
             <FoodItemModalContainer
               name={this.state.searchInput}
+              closeModal={() => this.closeModal()}
               category={""}
               imageUrl="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/category-icons/other.svg"
             />
