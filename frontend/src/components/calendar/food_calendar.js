@@ -30,7 +30,7 @@ class FoodCalendar extends React.Component {
     this.props.userOwnedItems.map(item => {
       const expDate = moment(item.expirationDate).format("MM.DD.YYYY");
       const selDate = this.state.selectedDate.format("MM.DD.YYYY");
-      // debugger
+      
       if ( expDate === selDate ) {
         expiredItems.push(item);
       }
@@ -55,7 +55,6 @@ class FoodCalendar extends React.Component {
   }
 
   render() {
-    // debugger
     return (
       <div className="food-calendar-container">
         <NavBarContainer />

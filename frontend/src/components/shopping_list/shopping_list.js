@@ -56,16 +56,19 @@ class ShoppingList extends React.Component {
     if (quantity === 1) {
       return (
         <div className="quantity-form-container">
+        <div className="quantity-align">
           <p className="quantity-min">min</p>
           <p className="quantity-num">{quantity}</p>
           <div className="quantity-minus" onClick={this.countQuantity(itemId, quantity, 1)}>
             <FontAwesomeIcon icon={faPlus} />
           </div>
+          </div >
         </div>
       );
     } else {
       return (
         <div className="quantity-form-container">
+          <div className="quantity-align">
           <div
             className="quantity-minus"
             onClick={this.countQuantity(itemId, quantity, -1)}
@@ -78,6 +81,7 @@ class ShoppingList extends React.Component {
             onClick={this.countQuantity(itemId, quantity, 1)}
           >
             <FontAwesomeIcon icon={faPlus} />
+          </div>
           </div>
         </div>
       );
@@ -119,8 +123,10 @@ class ShoppingList extends React.Component {
                               <p className="belongs-to-fridge">
                                 {this.props.fridges[item.fridgeId].name}
                               </p>
+                              <div className="align-me">
+                              {this.quantity(item.quantity, item._id)}
+                              </div>
                             </div>
-                            {this.quantity(item.quantity, item._id)}
                             <button onClick={() => this.putInFridgeAndDelete(item)}>
                               Put in fridge
                             </button>

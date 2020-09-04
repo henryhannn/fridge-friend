@@ -41,6 +41,7 @@ class SearchListFoodItem extends React.Component {
           <div className="fooditem-modal-form-container">
             <FoodItemModalContainer
               name={this.props.foodItem.name}
+              closeModal={() => this.closeModal()}
               category={this.props.foodItem.category}
               imageUrl={this.props.foodItem.imageUrl}
             />
