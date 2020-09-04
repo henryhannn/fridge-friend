@@ -22,6 +22,7 @@ class UpdateExpirationModalForm extends React.Component {
         expirationDate: this.state.expirationDate["_d"]
       })
     }
+    setTimeout(() => this.props.closeModal(), 200);
   }
 
   render() {
