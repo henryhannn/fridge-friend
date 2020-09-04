@@ -30,9 +30,10 @@ class Fridge extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (
-      prevProps.fridge.participants.length !==
-      this.props.fridge.participants.length
+      prevProps.fridge.participants !==
+      this.props.fridge.participants
     ) {
+      this.props.requestFridgeItems(this.props.match.params.fridgeId);
       fetchNames(this.props.fridge.participants).then((names) =>
       this.setState({ names: names.data })
     )}
@@ -87,6 +88,7 @@ class Fridge extends React.Component {
     if (this.state.names === null) return null;
     if (Object.keys(this.state.names).length < this.props.fridge.participants.length)
       return null;
+    console.log(this.state.names);
     return (
       <div className="fridge-container">
         <NavBarContainer />
@@ -112,6 +114,7 @@ class Fridge extends React.Component {
                   editFridgeItemQuantity={this.props.editFridgeItemQuantity}
                   removeFridgeItem={this.props.removeFridgeItem}
                   names={this.state.names}
+                  userName={this.state.names[fridgeItem.owner].firstname}
                   editFridgeItemExpDate={this.props.editFridgeItemExpDate}
                 />
               );

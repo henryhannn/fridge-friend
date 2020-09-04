@@ -130,6 +130,7 @@ class FridgeItem extends React.Component {
               fridgeItem={this.props.fridgeItem}
               fridgeId={this.props.fridgeId}
               editFridgeItemExpDate={this.props.editFridgeItemExpDate}
+              closeModal={() => this.closeModal()}
             />
           </div>
         </div>
@@ -155,7 +156,7 @@ class FridgeItem extends React.Component {
         <div className="fridge-left">
           <p className="fridge-item-name">{this.props.fridgeItem.name}</p>
           <p className="fridge-item-owner">
-            {this.props.names[this.props.fridgeItem.owner].firstname}
+            {this.props.userName}
           </p>
           
         </div>
