@@ -81,6 +81,7 @@ class FridgeItem extends React.Component {
   }
 
   render() {
+    if (this.props.names === null) {return null};
     const expDays = this.daysUntilExp();
 
     let expColor;
@@ -96,7 +97,7 @@ class FridgeItem extends React.Component {
       <li className="fridge-item-details">
         <div className="fridge-left">
           <p className="fridge-item-name">{this.props.fridgeItem.name}</p>
-          <p className="fridge-item-owner">{this.props.fridgeItem.owner}</p>
+          <p className="fridge-item-owner">{this.props.names[this.props.fridgeItem.owner].firstname}</p>
           <p className="fridge-item-owner">Quantity:</p>
           {this.quantity(this.props.fridgeItem.quantity)}
         </div>

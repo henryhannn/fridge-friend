@@ -4,6 +4,7 @@ import NavBarContainer from "../nav/navbar_container";
 import UserSearchAndAddContainer from "./user_search_add_container"; 
 import RemoveFridgeModalForm from "./remove_fridge_modal_form"; 
 import FridgeItem from "./fridge_item"; 
+import { fetchNames } from "../../util/names_util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 
@@ -15,12 +16,15 @@ class Fridge extends React.Component {
       showModal: false,
     };
     this.redirectToAdd = this.redirectToAdd.bind(this);
+    this.state = {names: null};
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
   }
 
   componentDidMount() {
     this.props.requestFridgeItems(this.props.match.params.fridgeId);
+    fetchNames(this.props.fridge.participants)
+      .then(names => this.setState({names: names.data}));
   }
 
   redirectToAdd(e) {
@@ -80,6 +84,16 @@ class Fridge extends React.Component {
         <div className="fridge">
           <h1 className="fridge-name">{this.props.fridge.name}</h1>
           <ul>
+            <li className="fridge-item-details">
+              <div className="fridge-left">
+                <p className="fridge-item-name">Fridge Item</p>
+                <p className="fridge-item-owner">Owner</p>
+              </div>
+              <div className="fridge-right">
+                <p className="fridge-item-ex">Expiration</p>
+                <p className="fridge-item-time">Days Left</p>
+              </div>
+            </li>
             {Object.values(this.props.fridgeItems).map((fridgeItem) => {
               return (
                 <FridgeItem
@@ -88,6 +102,7 @@ class Fridge extends React.Component {
                   fridgeId={this.props.fridgeId}
                   expirationDate={fridgeItem.expirationDate}
                   editFridgeItemQuantity={this.props.editFridgeItemQuantity}
+                  names={this.state.names}
                 />
               );
             })}
