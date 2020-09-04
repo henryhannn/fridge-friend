@@ -36,7 +36,7 @@ class Fridge extends React.Component {
         <UserSearchAndAddContainer participants={this.props.fridge.participants} fridge={this.props.fridge}/>
 
         <div className="fridge">
-          <h1 className="fridge-name">Fridge Name</h1>
+          <h1 className="fridge-name">{this.props.fridge.name}</h1>
           <ul>
             <li className="fridge-item-details">
               <div className="fridge-left">
@@ -50,7 +50,7 @@ class Fridge extends React.Component {
             </li>
             {
               Object.values(this.props.fridgeItems).map((fridgeItem) => {
-                return <FridgeItem fridgeItem={fridgeItem} />
+                return <FridgeItem fridgeItem={fridgeItem} expirationDate={fridgeItem.expirationDate}/>;
               })
             }
           </ul>

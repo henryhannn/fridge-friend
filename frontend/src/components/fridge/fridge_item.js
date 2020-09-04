@@ -1,4 +1,5 @@
 import React from "react"; 
+import moment from "moment"; 
 
 class FridgeItem extends React.Component {
   constructor(props) {
@@ -21,7 +22,18 @@ class FridgeItem extends React.Component {
     return diffDays(new Date(expDate), new Date(currentDate));
   }
 
+  expiration() {
+    const exp = this.daysUntilExp(); 
+    if (exp > 4) {
+      return exp;
+    } else {
+      const date = moment(this.props.expirationDate).format("MM/DD/YYYY");
+      return `expired on ${date}`;  
+    }
+  }
+
   render() {
+
     return (
       <li className="fridge-item-details">
         <div className="fridge-left">
@@ -30,7 +42,7 @@ class FridgeItem extends React.Component {
         </div>
         <div className="fridge-right">
           <p className="fridge-item-ex">Expiration</p>
-          <p className="fridge-item-time">Days Left</p>
+          <p className="fridge-item-time">{this.expiration()}</p>
         </div>
       </li>
     );
