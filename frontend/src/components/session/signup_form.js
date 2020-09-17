@@ -11,20 +11,14 @@ class SignupForm extends React.Component {
       email: '',
       password: '',
       password2: '',
-      errors: {}
+     
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
-    }
-
-    this.setState({ errors: nextProps.errors })
-  }
+  
 
   update(field) {
     return e => this.setState({
@@ -41,16 +35,15 @@ class SignupForm extends React.Component {
       password: this.state.password,
       password2: this.state.password2
     };
-
-    this.props.signup(user, this.props.history);
+    this.props.signup(user);
   }
 
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li className="errors" key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -116,7 +109,7 @@ class SignupForm extends React.Component {
                 className="signup-form-button"
                 onClick={this.handleSubmit}
               >
-                <Link to="/profile">Create An Account</Link>
+                Create An Account
               </button>
               <br />
           </form>
