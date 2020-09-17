@@ -58,6 +58,13 @@ th.DayOfWeek {
   background-color: transparent;
 }
 
+.Day.today {
+  background-color: $dark-grey;
+  border-radius: 100px;
+  box-shadow: none;
+  margin: 0;
+}
+
 .nav {
   background-color: $light-grey;
   border-radius: 300px;
@@ -67,6 +74,14 @@ th.DayOfWeek {
   color: $text-default;
   background-color: transparent;
   font-size: 20px;
+}
+
+.nav-inner:hover {
+  background-color: transparent;
+}
+
+.nav:hover {
+  background-color: $dark-grey;
 }
 
 button.Day-inner {
@@ -124,4 +139,8 @@ button.Day-inner {
 .expiring-item-fridge {
   font-size: 14px;
   color: $dark-blue;
+}
+
+.expiring {
+  background-color: $error-red;
 }

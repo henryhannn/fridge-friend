@@ -3,7 +3,7 @@ import './navbar_css.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList} from '@fortawesome/free-solid-svg-icons';
 import { faSnowflake } from "@fortawesome/free-regular-svg-icons";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -63,11 +63,10 @@ class NavBar extends React.Component {
         <Link to="/aboutus">
           <p>About Us</p>
         </Link>
-        <Link to="/login">
-          <p className="logout-dropdown" onClick={this.logoutUser}>
-            Log Out
-          </p>
-        </Link>
+
+        <p className="logout-dropdown" onClick={this.logoutUser}>
+          <Link to="/home">Log Out</Link>
+        </p>
         {this.props.fridges.length > 0 ? (
           <ul className="fridge-list-nav">
             <p>My Fridges</p>
