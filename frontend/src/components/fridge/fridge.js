@@ -110,7 +110,7 @@ class Fridge extends React.Component {
           <h1 className="fridge-name">{this.props.fridge.name}</h1>
           <div className="fridge-participants">
             {this.props.fridge.participants.map((person) => {
-              return <p>{this.state.names[person].firstname}</p>;
+              return <p key={person}>{this.state.names[person].firstname}</p>;
             })}
           </div>
           <ul>

@@ -98,11 +98,11 @@ class ShoppingList extends React.Component {
             <ul className="shopping-list-categories">
               {Object.keys(this.props.listItems).map((category, idx) => {
                 return (
-                  <div>
+                  <div key={idx}>
                     <div className="shopping-list-category-label">
                       {category}
                     </div>
-                    <div className="shopping-list-category" key={idx}>
+                    <div className="shopping-list-category">
                       <ul>
                         {this.props.listItems[category].map((item) => {
                           return (

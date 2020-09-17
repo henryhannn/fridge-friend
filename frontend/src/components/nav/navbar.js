@@ -73,8 +73,8 @@ class NavBar extends React.Component {
           <ul className="fridge-list-nav">
             <p>My Fridges</p>
             {this.props.fridges.map((fridge) => (
-              <Link to={`/fridge/${fridge._id}`}>
-                <li className="fridge-list-item-nav" key={fridge._id}>
+              <Link to={`/fridge/${fridge._id}`} key={fridge._id}>
+                <li className="fridge-list-item-nav">
                   <div className="fridge-list-item-icon-nav">
                     <FontAwesomeIcon
                       icon={faSnowflake}
