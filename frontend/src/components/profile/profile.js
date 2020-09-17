@@ -83,8 +83,8 @@ class Profile extends React.Component {
               {this.props.fridges.length > 0 ? (
                 <ul className="fridge-list">
                   {this.props.fridges.map((fridge) => (
-                    <Link to={`/fridge/${fridge._id}`}>
-                      <li className="fridge-list-item" key={fridge._id}>
+                    <Link to={`/fridge/${fridge._id}`} key={fridge._id}>
+                      <li className="fridge-list-item">
                         <div className="fridge-list-item-icon-name">
                           <FontAwesomeIcon
                             icon={faSnowflake}

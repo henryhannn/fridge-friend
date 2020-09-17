@@ -171,7 +171,7 @@ class FridgeItem extends React.Component {
         </div>
 
         <div className="fridge-right">
-          <p>{this.quantity(this.props.fridgeItem.quantity)}</p>
+          {this.quantity(this.props.fridgeItem.quantity)}
             <FontAwesomeIcon 
               className="fridge-item-delete-button"
               icon={faTimesCircle} 

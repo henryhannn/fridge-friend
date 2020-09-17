@@ -246,14 +246,6 @@ class FoodItemModalForm extends React.Component {
     this.setState({ showFridgeDescription: false });
   }
 
-  selected(value) {
-    if (this.state.category === value) {
-      return "selected";
-    } else {
-      return "";
-    }
-  }
-
   handleSubmit(e) {
     e.preventDefault();
 
@@ -334,42 +326,43 @@ class FoodItemModalForm extends React.Component {
             <select
               onChange={this.update("category")}
               id="add-food-form-category_selector"
+              defaultValue={this.state.category}
             >
               <option value="select category">Select Category</option>
-              <option selected={this.selected("condiment")} value="condiment">
+              <option value="condiment">
                 condiment
               </option>
-              <option selected={this.selected("dairy")} value="dairy">
+              <option value="dairy">
                 dairy
               </option>
-              <option selected={this.selected("dessert")} value="dessert">
+              <option value="dessert">
                 dessert
               </option>
-              <option selected={this.selected("drink")} value="drink">
+              <option value="drink">
                 drink
               </option>
-              <option selected={this.selected("eggs")} value="eggs">
+              <option value="eggs">
                 eggs
               </option>
-              <option selected={this.selected("fruit")} value="fruit">
+              <option value="fruit">
                 fruit
               </option>
-              <option selected={this.selected("grains")} value="grains">
+              <option value="grains">
                 grains
               </option>
-              <option selected={this.selected("leftovers")} value="leftovers">
+              <option value="leftovers">
                 leftovers
               </option>
-              <option selected={this.selected("party")} value="party">
+              <option value="party">
                 party
               </option>
-              <option selected={this.selected("protein")} value="protein">
+              <option value="protein">
                 protein
               </option>
-              <option selected={this.selected("vegetable")} value="vegetable">
+              <option value="vegetable">
                 vegetable
               </option>
-              <option selected={this.selected("other")} value="other">
+              <option value="other">
                 other
               </option>
             </select>
@@ -398,7 +391,7 @@ class FoodItemModalForm extends React.Component {
                 shopping list
               </option>
               {this.props.fridges.map((fridge) => (
-                <option value={`{fridge: ${fridge._id}`}>{fridge.name}</option>
+                <option key={fridge._id} value={`{fridge: ${fridge._id}`}>{fridge.name}</option>
               ))}
             </select>
           </div>
