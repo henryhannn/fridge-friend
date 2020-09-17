@@ -20,7 +20,6 @@ class FoodCalendar extends React.Component {
   }
 
   onSelect = (e) => {
-    // debugger;
     this.setState({ selectedDate: e });
   };
 
