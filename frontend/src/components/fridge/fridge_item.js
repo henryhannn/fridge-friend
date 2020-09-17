@@ -32,8 +32,10 @@ class FridgeItem extends React.Component {
   quantity(quantity) {
     if (quantity === 1) {
       return (
-        <div className="fridge-quantity">
-          <p className="fridge-quantity-min">min</p>
+        <div className="fridge-quantity-container">
+          <p className="fridge-quantity-min">
+            <FontAwesomeIcon icon={faMinus} />
+          </p>
           <p className="fridge-quantity-num">{quantity}</p>
           <div
             className="fridge-quantity-minus"
@@ -45,7 +47,7 @@ class FridgeItem extends React.Component {
       );
     } else {
       return (
-        <div className="fridge-quantity">
+        <div className="fridge-quantity-container">
           <div
             className="fridge-quantity-minus"
             onClick={this.countQuantity(quantity, -1)}

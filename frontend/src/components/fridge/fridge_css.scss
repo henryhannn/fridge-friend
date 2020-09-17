@@ -111,13 +111,13 @@
   margin-top: 5%;
 }
 
-.fridge-quantity-num {
-  padding: 10px 10px 10px 10px;
+.fridge-quantity-minus {
+  cursor: pointer;
 }
 
-.fridge-quantity {
+.fridge-quantity-container {
   background-color: $light-grey;
-  padding: 0px 15px 0px 15px;
+  padding: 0px 5px 0px 5px;
   font-size: 15px;
   margin: 10px 20px 10px 10px;
   letter-spacing: 1px;
@@ -130,8 +130,13 @@
   border: 1px solid rgb(232, 232, 232);
 }
 
-.fridge-quantity-minus {
-  color: $text-default-medium;
+.fridge-quantity-container > * {
+  width: 25px;
+  padding: 10px 0px;  
+}
+
+.fridge-quantity-min {
+  color: $text-default-light;
 }
 
 .leave-fridge-btn {

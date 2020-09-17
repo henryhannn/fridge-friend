@@ -53,33 +53,38 @@ class ShoppingList extends React.Component {
   quantity(quantity, itemId) {
     if (quantity === 1) {
       return (
-        <div className="quantity-form-container-shopping-list">
-        <div className="quantity-align">
-          <p className="quantity-min">min</p>
-          <p className="quantity-num">{quantity}</p>
-          <div className="quantity-minus" onClick={this.countQuantity(itemId, quantity, 1)}>
-            <FontAwesomeIcon icon={faPlus} />
+        <div className="">
+          <div className="fridge-quantity-container">
+            <p className="fridge-quantity-min">
+              <FontAwesomeIcon icon={faMinus} />
+            </p>
+            <p className="fridge-quantity-num">{quantity}</p>
+            <div
+              className="fridge-quantity-minus"
+              onClick={this.countQuantity(itemId, quantity, 1)}
+            >
+              <FontAwesomeIcon icon={faPlus} />
+            </div>
           </div>
-          </div >
         </div>
       );
     } else {
       return (
-        <div className="quantity-form-container">
-          <div className="quantity-align">
-          <div
-            className="quantity-minus"
-            onClick={this.countQuantity(itemId, quantity, -1)}
-          >
-            <FontAwesomeIcon icon={faMinus} />
-          </div>
-          <p className="quantity-num">{quantity}</p>
-          <div
-            className="quantity-minus"
-            onClick={this.countQuantity(itemId, quantity, 1)}
-          >
-            <FontAwesomeIcon icon={faPlus} />
-          </div>
+        <div className="">
+          <div className="fridge-quantity-container">
+            <div
+              className="fridge-quantity-minus"
+              onClick={this.countQuantity(itemId, quantity, -1)}
+            >
+              <FontAwesomeIcon icon={faMinus} />
+            </div>
+            <p className="fridge-quantity-num">{quantity}</p>
+            <div
+              className="fridge-quantity-minus"
+              onClick={this.countQuantity(itemId, quantity, 1)}
+            >
+              <FontAwesomeIcon icon={faPlus} />
+            </div>
           </div>
         </div>
       );
