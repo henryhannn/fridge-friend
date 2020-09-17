@@ -117,3 +117,13 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.x-shopping-list {
+  color: $text-default;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+.x-shopping-list:hover {
+  -webkit-transition: all .2s ease-in-out;
+  color: $error-red;
+}
