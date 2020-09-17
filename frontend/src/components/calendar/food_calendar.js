@@ -38,7 +38,7 @@ class FoodCalendar extends React.Component {
     return expiredItems;
   }
 
-  // returns array of expired items;
+  // checks if expiration date is the same as the selected date
   hasMatchingDates() {
     let value = false;
     this.props.userOwnedItems.map(item => {
@@ -46,14 +46,16 @@ class FoodCalendar extends React.Component {
       const selDate = this.state.selectedDate.format("MM.DD.YYYY");
       
       if (expDate === selDate) {
-        value = true; 
+        value = true;
       }
     })
     
     return value;
   }
 
+
   render() {
+
     return (
       <div className="food-calendar-container">
         <NavBarContainer />

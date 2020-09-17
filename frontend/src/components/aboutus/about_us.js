@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
+
 import NavBarContainer from '../nav/navbar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faAngellist, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -9,9 +11,7 @@ class AboutUs extends React.Component {
   render() {
     return (
       <div className="about-us-container">
-        { this.props.loggedIn ? (
-          <NavBarContainer />
-        ) : "" }
+        {this.props.loggedIn ? <NavBarContainer /> : ""}
         <div className="today-align">
           <div className="about-us">
             <div className="about-the-app">
@@ -121,6 +121,15 @@ class AboutUs extends React.Component {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="return-home-about">
+              {!this.props.loggedIn ? (
+                <button>
+                  <Link to="/home">Return Home</Link>
+                </button>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

@@ -21,6 +21,7 @@ import ShoppingListContainer from './shopping_list/shopping_list_container';
 
 import TodayContainer from './calendar/today_container';
 import FoodCalendarContainer from './calendar/food_calendar_container';
+import Splash from "./splash/splash";
 
 const App = () => (
   <div className="main-app">
@@ -30,6 +31,7 @@ const App = () => (
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/profile" component={ProfileContainer} />
       <Route path="/aboutus" component={AboutUs} />
+      <Route path="/home" component={SplashPage} />
 
       <ProtectedRoute exact path="/foods" component={FoodItemIndexContainer} />
       <ProtectedRoute exact path="/fridge/:fridgeId" component={FridgeContainer} />
