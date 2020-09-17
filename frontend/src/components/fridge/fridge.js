@@ -14,9 +14,9 @@ class Fridge extends React.Component {
     super(props);
     this.state = {
       showModal: false,
+      names: null
     };
     this.redirectToAdd = this.redirectToAdd.bind(this);
-    this.state = { names: null };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
   }
@@ -89,7 +89,16 @@ class Fridge extends React.Component {
     if (this.state.names === null) return null;
     if (Object.keys(this.state.names).length < this.props.fridge.participants.length)
       return null;
-    console.log(this.state.names);
+
+    let invalid = false;
+    this.props.fridge.participants.forEach(person => {
+      if (!this.state.names[person]) invalid = true;
+    });
+
+    Object.values(this.props.fridgeItems).forEach(item => {
+      if (!this.state.names[item.owner]) invalid = true;
+    });
+    if (invalid) return null;
     return (
       <div className="fridge-container">
         <NavBarContainer />
