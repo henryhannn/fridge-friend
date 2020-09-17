@@ -2,17 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './splash_css.scss'
-import { reduceEachTrailingCommentRange } from 'typescript';
 
 class Splash extends React.Component {
   render() {
     return (
       <div className="splash-component">
         <div className="splash-page">
-          <h1>Welcome to Fridge Friend</h1>
-          <p>
-            Already a member? <Link to="/login">Log In</Link>
-          </p>
+          <div className="splash-about-us">
+            <h1>Learn About The Creators</h1>
+            <button><Link to="/aboutus">About Us</Link></button>
+          </div>
           <div className="splash-01">
             <img
               className="splash-hero-img"
@@ -32,11 +31,11 @@ class Splash extends React.Component {
           </div>
           <div className="splash-02">
             <div className="splash-02-description">
-              <h1>Eggs</h1>
+              <h1>Features</h1>
               <p>
-                Why not eggs!? Are you crazy? Eggs are great. Are they
-                vegetarian? We're not sure. Are they vegan? Definitely not!
-                Protein? Sure. Fun? Absegglutely. Eggs are fantastic.
+                Track how long an item has until it expires, check which items belong to who
+                and create fridges for special events! Have a potluck? Make sure no two folks
+                bring the same item!
               </p>
             </div>
             <img
@@ -49,9 +48,12 @@ class Splash extends React.Component {
           <h1>Ready to have a new friend?</h1>
           <Link to="/signup">
             <button className="welcome-button">
-              Welcome to Fridge Friends
+              Sign Up
             </button>
           </Link>
+          <p className="member-login">
+            Already a member? <Link to="/login" className="splash-member">Log In</Link>
+          </p>
         </div>
       </div>
     );
