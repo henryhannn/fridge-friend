@@ -78,7 +78,7 @@ class FoodItemModalForm extends React.Component {
           onClick={this.openQuantityDescription}
           className="quantity-form-container"
         >
-          <p className="quantity-min">min</p>
+          <p className="quantity-min"><FontAwesomeIcon icon={faMinus}/></p>
           <p className="quantity-num">{this.state.quantity}</p>
           <div className="quantity-minus" onClick={this.countQuantity(1)}>
             <FontAwesomeIcon icon={faPlus} />

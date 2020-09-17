@@ -103,7 +103,7 @@ class AboutUs extends React.Component {
                     <a href="https://github.com/anyahirota">
                       <FontAwesomeIcon className="about-icon" icon={faGithub} />
                     </a>
-                    <a href="">
+                    <a href="https://angel.co/u/anya-hirota">
                       <FontAwesomeIcon
                         className="about-icon"
                         icon={faAngellist}
