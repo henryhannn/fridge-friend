@@ -1,10 +1,8 @@
 import React from 'react';
 import './shopping_list_css.scss';
-import { Link } from 'react-router-dom';
 import NavBarContainer from '../nav/navbar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faCheckCircle } from "@fortawesome/free-regular-svg-icons";
-import { Route, Redirect, withRouter } from "react-router-dom";
 import {
   faPlus,
   faMinus,

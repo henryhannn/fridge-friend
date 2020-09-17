@@ -2,7 +2,7 @@ import React from "react";
 import FoodItemSearch from "./food_item_search"; 
 import NavBarContainer from "../nav/navbar_container"; 
 import FoodItemCategories from "./food_item_categories"; 
-import FoodItemModalForm from "./food_item_modal_form"; 
+// import FoodItemModalForm from "./food_item_modal_form"; 
 import FoodItemModalContainer from "./food_item_modal_container"; 
 
 import "../../styles/main.scss";

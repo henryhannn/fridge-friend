@@ -3,7 +3,6 @@ import './navbar_css.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList} from '@fortawesome/free-solid-svg-icons';
 import { faSnowflake } from "@fortawesome/free-regular-svg-icons";
-// import { logout } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {

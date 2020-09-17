@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './splash_css.scss'
-import { reduceEachTrailingCommentRange } from 'typescript';
 
 class Splash extends React.Component {
   render() {
