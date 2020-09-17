@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCalendarDay,
   faCalendarAlt,
-  faHome,
-  faTimes,
   faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import {

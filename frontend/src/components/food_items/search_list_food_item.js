@@ -1,5 +1,5 @@
 import React from "react";
-import FoodItemModalForm from "./food_item_modal_form"; 
+// import FoodItemModalForm from "./food_item_modal_form"; 
 import FoodItemModalContainer from "./food_item_modal_container"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";

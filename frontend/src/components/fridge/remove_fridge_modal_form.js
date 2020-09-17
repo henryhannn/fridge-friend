@@ -1,6 +1,5 @@
 import React from "react";
 
-
 class RemoveFridgeModalForm extends React.Component {
   constructor(props) {
     super(props);

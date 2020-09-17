@@ -1,4 +1,3 @@
-// src/components/session/signup_form_container.js
 import { logout } from '../../actions/session_actions';
 import { fetchUserFridges, createFridge } from "../../actions/fridge_actions"; 
 import { connect } from "react-redux";
