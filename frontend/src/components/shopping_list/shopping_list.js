@@ -2,7 +2,7 @@ import React from 'react';
 import './shopping_list_css.scss';
 import NavBarContainer from '../nav/navbar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faCheckCircle } from "@fortawesome/free-regular-svg-icons";
+import { faCircle, faCheckCircle, faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 import {
   faPlus,
   faMinus,
@@ -109,7 +109,10 @@ class ShoppingList extends React.Component {
                       <ul>
                         {this.props.listItems[category].map((item) => {
                           return (
-                            <li className="shopping-list-category-item" key={item._id}>
+                            <li
+                              className="shopping-list-category-item"
+                              key={item._id}
+                            >
                               <FontAwesomeIcon
                                 className={this.circleIconClass(item.done)}
                                 onClick={() =>
@@ -120,23 +123,34 @@ class ShoppingList extends React.Component {
                                 }
                                 icon={this.circleIcon(item.done)}
                               />
-                                {/* name, fridge, quantity & button */}
-                                <div className="item-and-fridge">
-                                  <p className="shopping-list-item-name">
-                                    {item.name}
-                                  </p>
-                                  <a 
-                                    className="belongs-to-fridge"
-                                    onClick={() => this.putInFridgeAndDelete(item)}
-                                    >
-                                    Add to {this.props.fridges[item.fridgeId].name}
-                                  </a>
-                                </div>
-                                <div className="align-me">
+                              {/* name, fridge, quantity & button */}
+                              <div className="item-and-fridge">
+                                <p className="shopping-list-item-name">
+                                  {item.name}
+                                </p>
+                                <a
+                                  className="belongs-to-fridge"
+                                  onClick={() =>
+                                    this.putInFridgeAndDelete(item)
+                                  }
+                                >
+                                  Add to{" "}
+                                  {this.props.fridges[item.fridgeId].name}
+                                </a>
+                              </div>
+                              <div className="align-me">
                                 {this.quantity(item.quantity, item._id)}
-                                </div>
+                                <FontAwesomeIcon
+                                  onClick={() => this.props.removeItem(
+                                    this.props.userId,
+                                    item._id
+                                  )}
+                                  className="x-shopping-list"
+                                  icon={faTimesCircle}
+                                />
+                              </div>
                             </li>
-                        );
+                          );
                       })}
                     </ul>
                   </div>
