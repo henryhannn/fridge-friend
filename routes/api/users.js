@@ -21,7 +21,6 @@ router.get("/", (req, res) => {
 });
 
 router.post('/getnames', (req, res) => {
-  console.log(req.body.userIds);
   User.find({ _id: { $in: req.body.userIds } })
     .then((users) => {
       const names = {};
