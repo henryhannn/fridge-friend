@@ -20,14 +20,6 @@ import { logout } from "./actions/session_actions";
 import { loadState, saveState } from './local_storage';
 import throttle from 'lodash/throttle';
 
-import * as fridgeItemsActions from './actions/fridge_items_actions';
-import * as fridgeActions from './actions/fridge_actions';
-import * as shoppingListActions from './actions/shopping_list_item_actions';
-import {getUsers} from "./util/users_util"; 
-import {addUserToFridge} from "./util/fridge_util";
-import {requestUsers} from "./actions/users_actions";  
-import { fetchNames } from './util/names_util';
-
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
