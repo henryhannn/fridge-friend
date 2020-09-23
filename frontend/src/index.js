@@ -77,37 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, 1000));
 
-  //FOR TESTING
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-
-  //user util
-  window.getUsers = getUsers; 
-  window.addUserToFridge = addUserToFridge;
-  window.requestUsers = requestUsers; 
-
-  //fridge item actions
-  window.requestFridgeItems = fridgeItemsActions.requestFridgeItems;
-  window.removeFridgeItem = fridgeItemsActions.removeFridgeItem;
-  window.addFridgeItem = fridgeItemsActions.addFridgeItem;
-  window.editFridgeItemQuantity = fridgeItemsActions.editFridgeItemQuantity;
-
-  //fridge actions
-  window.fetchUserFridges = fridgeActions.fetchUserFridges;
-  window.createFridge = fridgeActions.createFridge;
-  window.leaveFridge = fridgeActions.leaveFridge;
-
-  window.fetchNames = fetchNames;
-
-  // shopping list actions
-  window.requestShoppingListItems = shoppingListActions.requestShoppingListItems;
-  window.toggleItemDone = shoppingListActions.toggleItemDone;
-  window.removeShoppingListItem = shoppingListActions.removeShoppingListItem;
-  window.addShoppingListItem = shoppingListActions.addShoppingListItem;
-  window.editShoppingListItemQuantity = shoppingListActions.editShoppingListItemQuantity;
-  // window.signup = signup;
-  // window.login = login;
-
   // Render our root component and pass in the store as a prop
   const root = document.getElementById("root");
 
