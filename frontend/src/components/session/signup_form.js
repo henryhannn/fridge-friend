@@ -63,7 +63,7 @@ class SignupForm extends React.Component {
           <div className="login-link">
             <p>Already Have An Account?</p>
             &nbsp;
-            <Link to="/login" className="login-link-a">
+            <Link to="/login" className="login-link-a" onClick={this.props.clearErrors}>
               Log In
             </Link>
             &nbsp;
