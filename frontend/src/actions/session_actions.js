@@ -1,11 +1,11 @@
 import * as APIUtil from "../util/session_api_util";
-import { getUserId } from '../util/users_util';
 import jwt_decode from "jwt-decode";
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 // We'll dispatch this when our user signs in
 export const receiveCurrentUser = (currentUser) => ({
@@ -27,6 +27,10 @@ export const receiveErrors = (errors) => ({
 // When our user is logged out, we will dispatch this action to set isAuthenticated to false
 export const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT,
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
 });
 
 export const signup = (user) => (dispatch) =>
