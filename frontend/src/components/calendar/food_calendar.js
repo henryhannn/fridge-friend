@@ -19,6 +19,15 @@ class FoodCalendar extends React.Component {
     this.hasMatchingDates = this.hasMatchingDates.bind(this);
   }
 
+  componentDidMount() {
+    const days = document.getElementsByClassName("Day");
+    for (let i = 0; i < days.length; i++) {
+      const day = days[i];
+      const button = day.children[0];
+      day.addEventListener("click", () => button.click());
+    }
+  }
+
   onSelect = (e) => {
     this.setState({ selectedDate: e });
   };
