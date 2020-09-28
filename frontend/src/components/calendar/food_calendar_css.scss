@@ -43,6 +43,7 @@ th.DayOfWeek {
 
 .Day:hover {
   background-color: $dark-grey;
+  cursor: pointer;
 }
 
 .Day.selected {
