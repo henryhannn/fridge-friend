@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import { createThisTypeNode } from "typescript";
 import "./login_form_css.scss";
 
 class LoginForm extends React.Component {
@@ -84,7 +85,7 @@ class LoginForm extends React.Component {
           <div className="signup-link">
             <p>Don't Have An Account?</p>
             &nbsp;
-            <Link to="/signup" className="signup-link-a">
+            <Link to="/signup" className="signup-link-a" onClick={this.props.clearErrors}>
               Sign Up
             </Link>
             &nbsp;
