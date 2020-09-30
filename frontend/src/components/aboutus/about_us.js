@@ -34,7 +34,6 @@ class AboutUs extends React.Component {
                 shared refridgerator without those awkward discussions of "who
                 ate my eggs?".
                 <br />
-                <br />
               </p>
 
               <h1>About The Team</h1>
