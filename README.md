@@ -2,7 +2,7 @@
 
 <img align="left" src="https://fridge-friend-seeds.s3-us-west-1.amazonaws.com/fridge.svg" height="30px" width="30px">
   
-<p align="center"><b>Fridge Friend</b> is a mobile-friendly organization app for keeping track of grocery items in your refridgerator. Users are able to add other users to their fridge to keep your fridge from having expired items, multiple items, and figuring out what belongs to who.
+<p align="center"><b>Fridge Friend</b> is a mobile-friendly organization app for keeping track of grocery items in your refrigerator. Users are able to add other users to their fridge to keep your fridge from having expired items, multiple items, and figuring out what belongs to who.
 <br>
 <p align="center">Check out the live page <a href="https://fridgefriend-janh.herokuapp.com/">here</a></p>
 <br>
